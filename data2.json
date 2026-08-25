@@ -1,0 +1,904 @@
+{
+ "collections": [
+  {
+   "images": [
+    {
+     "file": "buffer-01.png",
+     "source_page": "https://buffer.com/publish",
+     "image_url": "https://buffer.com/img/feature-pages/publish/publish-calendar-view.webp",
+     "w": 1024,
+     "h": 575,
+     "what_it_shows": "Buffer Publish weekly calendar for 'All Channels', September 2025, with a Calendar/List toggle and '+ New Post' button top right. Day columns Mon 30 through Sunday 1 hold post cards each showing a channel icon, a time like '2:00 PM' or '1:45 PM', truncated copy ('Working on a set...', 'I've been training with this great c...'), a media thumbnail, and small colored tag dots. A left rail stacks 5 connected channel avatars (Instagram, Threads, LinkedIn, X, Bluesky badges), and the toolbar has Today, Week dropdown, All Posts, Tags, and a 'London, England' timezone chip.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "A single week grid where every scheduled message from every agent/channel appears as a small time-stamped card with tag dots lets Katie eyeball the whole outbound SMS load and spot pile-up days at a glance."
+    },
+    {
+     "file": "buffer-02.png",
+     "source_page": "https://buffer.com/publish",
+     "image_url": "https://buffer.com/img/feature-pages/publish/publish-list-view.webp",
+     "w": 1024,
+     "h": 575,
+     "what_it_shows": "Buffer's List (queue) view with tabs 'Scheduled 12', 'Drafts', 'Sent' and a Calendar/List toggle. Under 'Today May 30' a 9:00 AM 'Custom' slot holds a full post card (yoyo_ceramist on Instagram, 'Reel' badge, tags 'New launch' and 'Collection') with action buttons 'Publish Now', 'Reschedule', a pencil icon, and the note 'You created this 3 minutes ago'. Empty 10:00 AM and 2:00 PM slots render as '+ New' placeholder rows, then 'Tuesday, May 30' begins the next day group.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Render the queue as day-grouped time slots including EMPTY slots, with per-message 'send now / reschedule' actions inline, so Katie can both audit what will fire and intervene on any single scheduled SMS without opening it."
+    },
+    {
+     "file": "buffer-09.jpg",
+     "source_page": "https://buffer.com/resources/new-social-media-calendar/",
+     "image_url": "https://storage.ghost.io/c/6d/21/6d217297-aa70-41fe-b68d-e29e411dd3ed/content/images/2021/09/Twitter-post---11.jpg",
+     "w": 2000,
+     "h": 1000,
+     "what_it_shows": "Month view of the 2021 Buffer calendar, 'Sep 2021', with a GMT+10 chip, 'All channels' dropdown, Week|Month toggle (Month active), and blue 'Create Post' button. Days 13-18 carry compact chips pairing a network icon with only a timestamp and thumbnail: Instagram 9:27 AM, LinkedIn 8:07 AM, Facebook 12:39 PM, Twitter 10:00 AM, and three stacked 1:00 PM chips (Pinterest/Facebook/Instagram) on Friday 17 showing the same asset cross-posted.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "The month-level compression trick, channel icon + timestamp only, gives Katie a density view where gaps and same-moment multi-channel bursts (three 1:00 PM chips) are instantly visible without reading any message content."
+    },
+    {
+     "file": "buffer-13.jpg",
+     "source_page": "https://support.buffer.com/en-us/articles/how-to-use-buffers-calendar-feature-FSSKbH32DN",
+     "image_url": "https://support.buffer.com/api/attachments.redirect?id=6fbd3cd0-748c-4766-8380-35c21b7fbf43",
+     "w": 2496,
+     "h": 1270,
+     "what_it_shows": "Real current Buffer app: week calendar (February 2026) with hour rows 6 PM/8 PM/10 PM and one Facebook card at 7:00 PM ('...because sometimes yo...'). The 'Channels' filter dropdown is open showing a 'Search channels' box, a 'Luna Snea... 11' group chip, a '+ Group' button, and per-channel checkboxes (lunasneakers on Instagram, X, TikTok, Pinterest). Left sidebar lists 'Channels (23)' with per-network avatars, plus nav Create, Publish 2, Community 38, Analytics.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "A checkbox channel/agent filter with saveable groups on top of the shared calendar lets Katie flip between 'everything my agents will send' and one creator segment or one agent's output in two clicks."
+    },
+    {
+     "file": "buffer-14.jpg",
+     "source_page": "https://support.buffer.com/en-us/articles/how-to-use-buffers-calendar-feature-FSSKbH32DN",
+     "image_url": "https://support.buffer.com/api/attachments.redirect?id=bbfc6ca9-480c-488f-a7df-e072c3325dd0",
+     "w": 2577,
+     "h": 880,
+     "what_it_shows": "Month calendar (February 2026) with the 'Tags' filter dropdown open: 'Search tags', checkboxes for 'Untagged' and colored pills 'Autumn', 'Customer questions', 'Facebook', 'Fall Promo', plus 'Clear all'. Day cells mix confirmed chips (Instagram 10:24 AM, Facebook 7:00 PM, X 2:44 PM) with chips labeled 'Draft' (a 10:00 AM Facebook draft on the 12th), so scheduled versus not-yet-approved items share the same grid.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Tagging every scheduled message with campaign/intent pills and filtering the calendar by tag, with Draft-state chips visibly distinct, maps directly to Katie separating 'reminder nudges' from 're-invites' and seeing which sends are still unapproved."
+    },
+    {
+     "file": "buffer-15.png",
+     "source_page": "https://support.buffer.com/en-us/articles/scheduling-posts-4Qdld7giAZ",
+     "image_url": "https://support.buffer.com/api/attachments.redirect?id=57f157ca-cd9f-42dc-a272-240ea83a4b8d",
+     "w": 720,
+     "h": 1090,
+     "what_it_shows": "Buffer's dark-mode scheduling popover: a March 2026 date grid with the 24th selected, a 'Posting Slots' row where '16:00' carries a sparkle icon and checkmark (the AI-suggested optimal slot) next to a plain '17:37' slot, then 'Select Time' showing '16:00' with timezone 'America/New York', and footer actions 'More Posting Actions' and 'Done'.",
+     "pattern": "other",
+     "steal_idea": "When Katie (or an agent) schedules a message, offering named candidate slots with a sparkle-marked 'best time' recommendation makes the send-time decision one tap and makes the system's timing logic legible instead of hidden."
+    },
+    {
+     "file": "buffer-16.jpg",
+     "source_page": "https://support.buffer.com/en-us/articles/how-to-use-buffers-calendar-feature-FSSKbH32DN",
+     "image_url": "https://support.buffer.com/api/attachments.redirect?id=4c475fc6-1bfc-4471-a956-34b608f4b47b",
+     "w": 2490,
+     "h": 1272,
+     "what_it_shows": "Full current-app week view (February 2026) with hour gridlines 10 AM/12 PM/2 PM and four scheduled cards carrying channel icon, time, copy preview and thumbnail: Facebook 10:00 AM 'The sun is setting on our...', Instagram 12:25 PM 'Kicking off the week in style!', Instagram 12:25 PM 'Just struttin' in the prairie with...', X 2:44 PM 'Sneak peek at one of our ne...'. Toolbar shows Today, Week dropdown, All Posts / Channels / Tags filters, a 'New York' timezone chip, and '+ New Post' (arrow annotation from the help doc).",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Placing each queued message at its true hour on a week grid, with copy preview readable in the cell, gives Katie a time-of-day audit: she can see a creator would get three texts in one lunchtime window before it happens."
+    }
+   ],
+   "notes": "Got the two target Buffer patterns well: the per-channel scheduled queue (list view with day-grouped slots, empty '+ New' slots, Publish Now/Reschedule) and the weekly/monthly calendar of everything scheduled, in both the current 2026 UI (support-doc screenshots via support.buffer.com/api/attachments.redirect) and the crisp marketing renders on buffer.com/publish. Also captured the posting-slot picker with the AI-suggested optimal time. Could NOT get: flow/journey/automation canvas, trigger/condition configuration, automations registry with on-off toggles, per-person journey progress, per-node analytics, or test/simulation modes. Buffer genuinely has none of these; it is a scheduler, not a conditional-automation product, so those patterns do not exist in its UI (nearest thing is the queue's Next Available/Prioritize ordering rules, text-only in docs). The new support.buffer.com is JS-rendered, but article markdown is embedded in the HTML, which is how the attachment image IDs were extracted. Discarded 9 downloads after visual review: abstract marketing art (emoji calendars, AM/PM toggle graphic), a YouTube thumbnail, internal strategy-doc text shots, thin toolbar crops, and a device-frame collage whose UI detail was too small."
+  },
+  {
+   "images": [
+    {
+     "file": "hubspot-wf-01.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/create-workflows",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/Create%20workflows/workflows-set-enrollment-triggers.png",
+     "w": 606,
+     "h": 1228,
+     "what_it_shows": "The Triggers side panel with tabs 'Start triggers' and 'Settings', headed 'Start when this happens' over a field reading 'Manually triggered'. Below an OR divider sit four trigger-type cards with literal example copy: 'When an event occurs' (Example: Contact has completed a form submission), 'When filter criteria is met' (Example: City is equal to any of Reno AND Job title contains any of Marketing), 'Based on a schedule' (Example: Daily at 8:00 AM), plus an Advanced option 'When a webhook is received'. A 'Generate a trigger with AI' card and Cancel/Save buttons are also visible.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Give every automation a plain-sentence trigger card that states its start rule with the example values inline ('Daily at 8:00 AM', 'City is equal to Reno'), so Katie can read exactly what condition or schedule will launch each SMS sequence without opening a config form."
+    },
+    {
+     "file": "hubspot-wf-02.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/create-workflows",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/Create%20workflows/workflows-minimap-error.png",
+     "w": 2440,
+     "h": 1276,
+     "what_it_shows": "The workflow editor canvas with a left minimap of the whole flow (flag start node, branch node splitting into '= A' and 'B' paths, green people-icon action nodes, stopwatch delay nodes, and '4. End' / '7. End' terminators). The main canvas shows the enrollment card 'Trigger enrollment for contacts / Only enroll contacts that meet these conditions' with 'Group 1: Form submission has filled out Any form submission on Any page', a 'Re-enroll on' footer, then a '1. Branch' card reading 'Branch based on Property A' fanning into labeled '= A' and 'B' branch lanes. Top chrome includes File/Edit/Settings/View/Help menus plus Test and 'Performance history' buttons and 100% zoom controls.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Pair a zoomed node canvas with an always-on minimap of the entire flow so Katie can see at a glance where every delay (stopwatch) and branch fork sits in a long SMS sequence, with each message node clickable to reveal its full send rule."
+    },
+    {
+     "file": "hubspot-wf-03.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/organize-your-workflows",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/workflows-table-more.png",
+     "w": 1338,
+     "h": 1108,
+     "what_it_shows": "The workflows index table with saved-view tabs '45 All workflows', '1 Needs review', 'Unused', 'Deleted' and filter chips (On or Off, Object Type (1), Brands, Created by, Teams). Rows list workflows by name (Contact Us [2025], Lead Generation Workflow, Contact Owner Notification: Form Submission Alert, Custom Code Action Workflow, Alpaca Party Farm) with an 'On Or Off' column showing a green dot labeled 'On'. The hovered row exposes Edit workflow / Clone / More buttons, the More menu open with View details, View connections, Assign to team, Assign brand, Move to folder, Delete, Edit campaign.",
+     "pattern": "automations-registry",
+     "steal_idea": "Build a single registry table of every live automation with an unmissable On/Off status column and a 'Needs review' counted tab, so Katie audits which of her agents' SMS flows are armed right now and flips any one off from the list without entering the builder."
+    },
+    {
+     "file": "hubspot-wf-04.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/understand-your-workflow-details-page",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/workflows-details-page-enroll-history.png",
+     "w": 2312,
+     "h": 1292,
+     "what_it_shows": "The workflow details page on the 'Enrollment history' tab (next to Performance and Action logs) with a date-range filter 07/01/2025 to 09/18/2025 and a 'Revisions: All revisions' dropdown. Contact rows (Joy Leow, WALL E) each carry 'Enrollment details', 'Unenroll', and 'Why did this enroll?' buttons. A right 'Workflow history' panel expands one person's event trail: a red-dot 'Error' item ('This action's feature is paused'), a green-dot 'Success' item 'Enrolled through a property re-enrollment trigger' with Time 'Sep 18, 2025 5:50 PM +08' and a linked 'Workflow version at time of event: Sep 18, 2025 5:43 PM'.",
+     "pattern": "per-person-path",
+     "steal_idea": "Give every creator an expandable per-person event trail with green Success / red Error dots, exact timestamps, a 'Why did this enroll?' explainer, and the flow version in force at send time, so Katie can answer 'what did the agent actually send this creator, and why?' in one panel."
+    },
+    {
+     "file": "hubspot-wf-05.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/understand-your-workflow-details-page",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/workflows-details-page-performance.png",
+     "w": 1978,
+     "h": 1010,
+     "what_it_shows": "The 'Contact Us [2025]' workflow details header with status line 'Workflow is ON' (green dot), 'Workflow with issues' (red dot), 'Notifications OFF', plus Edit workflow and 'Review workflow issues' buttons. A summary table shows Object Type: Contact, Enrolled Total: 11, Enrolled Last 7-Days: 1, Updated On Sep 18 2025 by Joy Leow. Below, the Performance tab's 'Top metrics' band reads Total Contacts Enrolled 11 (\u25b21 contact today), Estimated Unique Contacts Enrolled 8, 7 Day Total Enrollment 1, and a Goal Conversion Rate slot with a 'Set goal' button.",
+     "pattern": "node-analytics",
+     "steal_idea": "Top every automation's detail page with a live status strip (ON, has issues, notifications) and a four-tile metrics band of enrolled totals and 7-day deltas, so Katie sees each SMS flow's health and reach the moment she opens it, before drilling into any node."
+    },
+    {
+     "file": "hubspot-wf-06.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/test-your-workflow",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/KB-Workflows/workflows-test-criteria.png",
+     "w": 768,
+     "h": 1464,
+     "what_it_shows": "Enrollment-criteria test mode: under 'Only enroll contacts that meet these conditions' sits 'Select a contact to test' with 'Joy Leow' chosen and Stop testing / Discard / Done buttons. A green check states 'Contact matches at least one group'; Group 1 is outlined green with 'Contact matches all requirements' and the rule 'Property A is any of [red x] A or [green check] B', annotated 'Contact (Property A): B'. Group 2 is outlined red with 'Contact doesn't match all requirements' on rule 'Property A is any of C', joined to Group 1 by an 'or' pill.",
+     "pattern": "simulation-test",
+     "steal_idea": "Let Katie pick any real creator and dry-run them against a flow's entry conditions, coloring each criteria group green or red with per-value check/x marks, so she can verify 'would my agent text this person?' before the automation ever goes live."
+    },
+    {
+     "file": "hubspot-wf-07.png",
+     "source_page": "https://knowledge.hubspot.com/workflows/test-your-workflow",
+     "image_url": "https://53.fs1.hubspotusercontent-na1.net/hub/53/hubfs/Knowledge_Base_2023-24-25/workflows/workflows-test-record-results.png",
+     "w": 768,
+     "h": 1322,
+     "what_it_shows": "Per-record test results panel headed 'Change record / Joy Leow' with a 'Start' section timestamped 8/12/2025 9:30 AM EDT, an Automatic/Manual toggle, and a green banner 'Expected to start automatically'. Under 'Start checks:' five green-check rows read 'Record met the enrollment criteria', 'No conflicting previous enrollments', 'Record isn't currently enrolled', 'No goal criteria', 'No unenrollment lists'. Below, the action timeline lists '1. Validate and format phone number' (checked, 9:30 AM) and '2. Branch' flagged with an amber '?' badge for an undetermined outcome.",
+     "pattern": "simulation-test",
+     "steal_idea": "Show a simulated step-by-step run for one person as a checklist timeline (start checks passed, each action stamped, uncertain branches flagged '?'), giving Katie a preview of the exact message path her agent will walk a creator down and where the outcome is still undecided."
+    }
+   ],
+   "notes": "Kept 7 of 16 downloaded candidates; all verified by eye as genuine HubSpot product UI. Coverage: trigger config (01), flow canvas with branches/delays/minimap (02), workflows index with on/off (03), per-contact enrollment history with success/error trail (04), workflow performance metrics (05), and two test/simulation modes (06 enrollment-criteria dry run, 07 per-record path preview). Deleted after review: workflows-add-action.png and workflows-show-minimap.png (small crops, 574px wide, little context), workflows-turn-on-workflow.png (Review Workflow settings sheet, weak visualization value), workflow-folders-default-view.png (folders view, redundant with the stronger On/Off table), workflows-details-page-event-details.png (action-log detail, redundant with 04), branch config panels workflows-branch-and-or.png and percentage-split (config forms already represented by 01/02), workflows-test-branch.png (small crop covered by 07), enrollment-trends chart (near-empty 3-point line chart, low signal). Could not get: a true scheduled-send queue/calendar view. HubSpot Workflows has no calendar of pending sends in these KB docs; the closest concepts are the 'Based on a schedule' trigger card (in 01) and delay stopwatch nodes (in 02). Records-currently-waiting-in-delays UI exists per the manually-unenroll article but its screenshots were not among fetchable page images. Per-node cumulative analytics overlaid on the canvas (Performance history) also was not shown as an extractable screenshot in the KB pages fetched; 05's top-metrics band is the closest available. Several older KB slugs 404 (use-delays-in-workflows, analyze-workflow-performance), limiting delay-specific imagery. Filenames continue the existing multi-platform set in the same img/ folder (ada-, intercom-, front-, etc. untouched)."
+  },
+  {
+   "images": [
+    {
+     "file": "customerio-01.png",
+     "source_page": "https://docs.customer.io/journeys/workflow-builder/",
+     "image_url": "https://docs.customer.io/images/workflow-builder.png",
+     "w": 1600,
+     "h": 901,
+     "what_it_shows": "Full workflow-builder canvas for a Draft campaign 'Re-engage Inactive Users' with a 'Trigger / 2 conditions' node feeding a 'Random Cohort Branch (Cohort by: Profile)' that splits into three labeled paths 'Path A: 33.3%', 'Path B: 33.3%', 'Path C: 33.3%', each leading to an email card ('Check out our latest features!', 'Enjoy a free month of access', '10% off your first month'). Paths reconverge into a 'Time Delay / Wait 15 days' node showing a person-counter of 0, then a second Random Cohort Branch. The right 'Add' palette lists draggable blocks: Email, Survey, In-App Message, Push Notification, SMS, Slack Message, AI items (Generate Content, Qualify Customers, Make Recommendation), and Delays (Time Delay, Time Window, 'Wait Until... New'), with Review and 'Start campaign' buttons top right.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Render every automation as a vertical trigger-to-exit canvas where each SMS/email is a card on a named percentage-labeled path and every delay node carries a live 'people waiting here' counter, so Katie can see at a glance which creators are parked inside which branch."
+    },
+    {
+     "file": "customerio-02.png",
+     "source_page": "https://docs.customer.io/get-started/send-messages/",
+     "image_url": "https://docs.customer.io/images/cart-abandonment-workflow.png",
+     "w": 1600,
+     "h": 901,
+     "what_it_shows": "'Cart Abandonment Campaign' (Draft) canvas: a 'Trigger / cart_updated' event node flows into a 'Wait Until... / Wait until conditions are met' node (person counter 0) that fans out into three labeled exits: 'Condition met', 'Condition met', and 'Maximum wait'; the Maximum-wait branch holds an email card 'Oops! You forgot somethin... / You still have work to do' and all branches merge into an 'Exit' node. The Add palette on the right shows Messages (Email, Survey, In-App Message, Inbox Message, Push Notification, SMS, Slack Message), Delays (Time Delay, Time Window, Wait Until, Randomized Delay) and a 'Flow Control / True/False Branch' section; footer chips read 'Prevent re-entry', 'Write a subject line', 'Branch on click'.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Model 'send only if the creator still hasn't acted by X' as a visible Wait-Until node with separate 'condition met' vs 'maximum wait' exit lanes, so conditional escape hatches (creator replied, posted, ghosted) are drawn on the map instead of hidden in message settings."
+    },
+    {
+     "file": "customerio-03.png",
+     "source_page": "https://docs.customer.io/journeys/campaign-triggers/",
+     "image_url": "https://docs.customer.io/images/campaign-triggers-2025-all.png",
+     "w": 1952,
+     "h": 1282,
+     "what_it_shows": "Trigger picker panel over the canvas: a selected empty 'Trigger / Choose a trigger' node on the left, and a right panel titled 'Trigger \u2014 Triggers determine when a person enters a campaign' with a 'Search triggers' field, filter tabs (All, Recently Used, People, Courses, Dates, Webhooks), and tile options each with a one-line definition: 'Attribute or Segment \u2014 A person's attribute or segment changes', 'Event \u2014 A person performs an event in your product', 'Form submission', 'Course updated', 'Person added to Course', 'Relationship changed with Course', 'Important date', 'Webhook'.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Give every automation a plain-English trigger card ('a creator performs event X', 'creator added to campaign Y', 'important date') chosen from a searchable typed gallery, so Katie can audit WHY an agent would ever fire a message before it exists on the canvas."
+    },
+    {
+     "file": "customerio-04.png",
+     "source_page": "https://docs.customer.io/journeys/send/campaigns/journeys/",
+     "image_url": "https://docs.customer.io/images/campaign-journeys-example.png",
+     "w": 1327,
+     "h": 556,
+     "what_it_shows": "Per-person 'Journeys' tab on a profile: 'Journey in Tutor Evaluation' marked 'Finished', with a timestamped green step ledger: 'Met campaign conditions, then...' (4:51 pm), 'Skipped time window \u2014 Time window conditions met' (4:53 pm), 'Sent email We welcome your feedback', 'Waited in time delay for 5 minutes', 'Sent down true path based on 2 conditions' (4:58 pm), 'Left campaign.' A right rail shows Campaign Information: trigger 'People will enter this campaign every time they perform the event: course_complete', 'Goal & Exit \u2014 No goal set', and an 'End this journey' button.",
+     "pattern": "per-person-path",
+     "steal_idea": "For any single creator, show a timestamped play-by-play of exactly which branch they took ('sent down true path based on 2 conditions') plus a one-click 'End this journey' kill switch, so Katie can audit and abort an agent's messaging sequence per person."
+    },
+    {
+     "file": "customerio-05.png",
+     "source_page": "https://docs.customer.io/journeys/campaign-metrics/",
+     "image_url": "https://docs.customer.io/images/journeys-tab-campaign.png",
+     "w": 2418,
+     "h": 592,
+     "what_it_shows": "Campaign-level 'Journeys' tab of a Running 'Example Campaign' (tab row: Overview, Metrics, Workflow, Trigger, Goal & Exit, A/B Tests, Drafts, Sent, Journeys): a table with columns PERSON / STARTED / NEXT STEP / STATUS listing Bugs Bunny ('26 minutes ago', next step '9 minutes ago'), Daffy Duck ('33 minutes ago', clock icon 'In a day'), Yosemite Sam ('38 minutes ago', 'In a day'), each with a green 'Active' status pill.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "A roster view per automation with a NEXT STEP countdown column ('In a day') is the minimum viable scheduled-queue: Katie sees every creator currently inside a flow and exactly when the next agent-fired SMS is due, without opening the canvas."
+    },
+    {
+     "file": "customerio-06.png",
+     "source_page": "https://docs.customer.io/journeys/campaign-metrics/",
+     "image_url": "https://docs.customer.io/images/workflow_measure-panel.png",
+     "w": 1600,
+     "h": 901,
+     "what_it_shows": "'Measure' mode on a Running 'Tutor Evaluation' workflow: the email node shows inline stats 'Delivered 108,897 / Converted \u2014 / Opened 40.1% / Clicked 20.0%', a 'Time Delay / Wait 5 minutes' node shows 28 people currently waiting, and a 'Have they submitted feedback? True/False Branch on 2 conditions' node splits into 'True \u2014 PATH TOTALS' and 'False \u2014 PATH TOTALS 68,368 delivered / 39.9% opened / 19.6% clicked'. The right Measure panel has a May 10 - Jun 08 date range and 'Choose up to four' metric toggles (Delivered, Converted, Opened, Clicked, Click-to-open, Sent, Unsubs, Failed, Spam, Bounced); a green banner reads 'Live \u2014 Any changes you make will be instantly live.'",
+     "pattern": "node-analytics",
+     "steal_idea": "Overlay metrics directly onto the flow map \u2014 per-message delivery/reply stats on each node, live 'people waiting' counts on delays, and path totals under each True/False branch \u2014 so the canvas doubles as the analytics dashboard instead of a separate report."
+    },
+    {
+     "file": "customerio-07.png",
+     "source_page": "https://docs.customer.io/journeys/campaign-metrics/",
+     "image_url": "https://docs.customer.io/images/campaign-overview-may-2025.png",
+     "w": 2810,
+     "h": 1558,
+     "what_it_shows": "Campaign Overview for Running 'Essentials | Multi-Channel Adoption V.1': four sparkline stat tiles with day-over-day deltas \u2014 'SENT 1,912 (-190 from last day)', 'OPENED 37.9% (-24.4%)', 'CLICKED 0.4% (-0.5%)', 'CONVERTED 42.7% (+11.8%)' \u2014 each with channel icons, over a date-range picker (Apr 14 - May 13, Daily, All channels). Below: a Details card restating the trigger in prose ('People will enter this campaign the first time they meet the following conditions: in Essentials & SUP Accounts AND ...') and a 'Message Leaderboard' with Sent/Opened/Clicked/Converted tabs showing 'MOST SENT \u2014 1.0 try newsletter, 674'.",
+     "pattern": "node-analytics",
+     "steal_idea": "Each automation's landing page should restate its trigger in a human sentence next to trend tiles and a message leaderboard, giving Katie an at-a-glance answer to 'what is this flow doing lately and which message does the most work' before she drills into nodes."
+    }
+   ],
+   "notes": "All 7 images are original full-resolution PNGs pulled straight from docs.customer.io (the docs serve originals at docs.customer.io/images/*.png; the /_generated/ webp variants were skipped). Every kept file was opened and visually verified as genuine Customer.io product UI; ten additional downloads were reviewed or size-checked and deleted (narrow node-strip crops under 500px, a duplicate node-metrics close-up, a smaller segment-condition dialog, a near-duplicate random-cohort canvas, and a holdout-metrics table that added nothing over customerio-06/07). Coverage gaps: (1) no automations-registry shot \u2014 the campaigns *list* page with per-row on/off status appears in no docs image I could find; the closest is the status pill + Campaign Actions dropdown inside a single campaign. (2) No true scheduled-send calendar/queue \u2014 Customer.io has no calendar view in docs; customerio-05's NEXT STEP countdown column is the closest native pattern. (3) No dedicated test/simulation-mode screenshot \u2014 docs cover 'Send Test' for message previews only, with no workflow-simulation UI imaged. Seed URL customer.io/docs/journeys/build-workflows/ now 404s (redirects to docs.customer.io/messaging/build-workflows); the live equivalents used were docs.customer.io/journeys/workflow-builder/, /journeys/campaign-triggers/, /journeys/send/campaigns/journeys/, /journeys/campaign-metrics/, and /get-started/send-messages/. customer.io/features/journeys is JS-rendered marketing with only 4 Sanity CDN images, none stronger than the docs originals."
+  },
+  {
+   "images": [
+    {
+     "file": "braze-01.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/audience_paths/",
+     "image_url": "https://www.braze.com/docs/assets/img/audience_path/audience_path2.png",
+     "w": 1456,
+     "h": 1452,
+     "what_it_shows": "A Canvas journey tree in DRAFT state: a top Step card lists three audience groups (1 'Likes Big Bran...', 2 'Likes Big Bran...', 3 'Everyone Else'), which fan out through labeled branch pills '1 Likes Big Brand Shoes', '2 Likes Big Brand Bags', '3 Everyone Else'. Each branch leads to its own step card: 'Shoe-specific me...' with a green Messages block previewing 'BOGO 50% off shoe...', 'Bag-specific mes...' with 'Check out our new s...', and 'Delay for EE' with a purple Delay block reading 'After 3 days'. Under the message steps a caption reads 'All users who enter this step advance to the next step', flowing into 'Delay for Shoe gr...', 'Delay for Bag gro...', and 'General message' cards.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Name each branch pill by the audience rule and preview the first line of the actual message inside the node, so Katie can scan one tree and literally read which SMS each creator segment will get and what waits between them."
+    },
+    {
+     "file": "braze-02.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/",
+     "image_url": "https://www.braze.com/docs/assets/img_archive/Canvas_Analytics.png",
+     "w": 3110,
+     "h": 1428,
+     "what_it_shows": "The Canvas Details analytics view with a date range 2023/01/10 to 2023/02/28 and header stat blocks: MESSAGES SENT 1,287, CONVERSION RATE 0.00% (0), TOTAL ENTRIES 1,287, TOTAL REVENUE $0, TOTAL EXITS BY EXIT CRITERIA 0, ESTIMATED AUDIENCE ~1,265. Below are Channel checkboxes (In-App Messages, Webhook, Select All) and Statistics checkboxes (Sends, Unique Recipients, Total Conversions, Revenue, Impressions, Body Clicks, Button 1 Clicks, Button 2 Clicks, Errors). On the canvas itself a 'Variant 1' node shows 100% with Entries 1,287, Total Conversions (--), Revenue $0.00, connected by a curved arrow to a Step node with a green ACTIVE band and 'Entered 1,287'.",
+     "pattern": "node-analytics",
+     "steal_idea": "Overlay live counters directly on the flow nodes under a totals header, so the registry view doubles as monitoring: Katie sees how many creators entered each step and how many messages actually fired without leaving the map."
+    },
+    {
+     "file": "braze-03.png",
+     "source_page": "https://www.braze.com/docs/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics",
+     "image_url": "https://www.braze.com/docs/assets/img_archive/Journey_6.png",
+     "w": 1703,
+     "h": 1060,
+     "what_it_shows": "A running Canvas with per-node numbers: a 'Variant 1' node (100%) reports Entries 1,025,712, Total Conversions 94 (0.01%), Revenue $149.76; a delay Step marked ACTIVE reads 'After 5 minutes' with Entered 1,025,712, Proceeded to Next Step 1,025,712, Exited 0. Beside it, 'Step 2' (ACTIVE) shows an audience evaluation table with columns Checked, Matched, Not Matched: '1. Group 1' 1,025,712 / 9,239 / 1,016,473 and '2. Everyone...' 1,016,473 / 1,016,473 / 0, splitting into branch pills '1 Group 1' and '2 Everyone Else' with an inline note 'This audience group will exit the Canvas.'",
+     "pattern": "node-analytics",
+     "steal_idea": "Show checked/matched/not-matched counts at every condition node plus an explicit 'this group exits' annotation, so Katie can audit exactly how many creators a rule filtered out and where people silently leave the automation."
+    },
+    {
+     "file": "braze-04.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/",
+     "image_url": "https://www.braze.com/docs/assets/img_archive/Canvas_Scheduled_Delivery.png",
+     "w": 2007,
+     "h": 1848,
+     "what_it_shows": "The 'Entry Schedule' screen ('Decide when users should enter the Canvas') with three type cards: Scheduled ('Enter users at designated times', selected), Action-Based ('Enter user when they perform actions'), API-Triggered ('Enter users via API request'). Time-Based Options offers 'Enter users as soon as Canvas is launched' vs the selected 'Enter users at a designated time', then Entry Frequency 'Weekly', Start Time '12:00 pm', Recurrence '1' with hint 'Will repeat every week', Select Days checkboxes with Tue checked, Starting on date 2023/11/14, Ending parameters 'On a specific date' 2023/12/31, and a checked 'Enter users into this Canvas in their local time zone'.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Render the schedule as a plain-English recurrence sentence ('Will repeat every week', day chips, start/end dates, local-time-zone flag) so Katie can verify at a glance when the agent's SMS waves recur and when the automation stops entering new creators."
+    },
+    {
+     "file": "braze-05.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/",
+     "image_url": "https://www.braze.com/docs/assets/img_archive/Canvas_API_Triggered_Delivery.png",
+     "w": 1754,
+     "h": 1382,
+     "what_it_shows": "The same 'Entry Schedule' screen with the Action-Based card selected. Under 'Action Based Options' it says 'Enter Users into Canvas who perform any of the following actions' with a lightning-bolt trigger row 'Evaluate if user takes specified actions', a dropdown set to 'Make Purchase', and a teal '+ Add Trigger' button. An 'Entry Window' section explains users 'may continue to receive messages after this time window ends', with Start Time (Required) 2023/06/10 at 01:30 pm, 'Time zone: Pacific Time (US & Canada)', plus unchecked 'End Time (Optional)' and 'Enter users in their local time zone' boxes.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "State the entry rule as a stackable trigger sentence (event dropdown + Add Trigger + explicit entry window) so Katie can read exactly which creator action pulls someone into an automation and during what dates that door is open."
+    },
+    {
+     "file": "braze-06.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/",
+     "image_url": "https://www.braze.com/docs/assets/img_archive/action_paths_flow.png",
+     "w": 2494,
+     "h": 1178,
+     "what_it_shows": "An Action Paths 'Action Settings' editor: the left rail shows a 'Step 2' DRAFT node summarizing 'Window: 1 day', 'Ranking: On', 'Advance: End of Window', with ordered outcome groups '1 Group 1' and '2 Everyone Else', a '+ Add Action Group' link and a Done button; behind it a dimmed component palette lists Delay, Decision Split, Audience Paths, Action Paths. The main panel explains 'Action Paths allow you to set multiple outcomes (up to 8) based on actions users have taken within a given time frame', with an Evaluation Window input of '1 days' and an enabled toggle 'Advance users based on ranked order' ('Hold users until the end of the evaluation window and advance based on ranked order').",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Summarize each wait-and-branch node with a three-line badge (Window / Ranking / Advance rule) plus numbered outcome groups, giving Katie a compact way to see 'we wait 1 day for a reply, then route responders vs everyone else' without opening the config."
+    },
+    {
+     "file": "braze-07.png",
+     "source_page": "https://www.braze.com/docs/user_guide/engagement_tools/campaigns/managing_campaigns/search_campaigns",
+     "image_url": "https://www.braze.com/docs/assets/img/campaign_list_example.png",
+     "w": 2696,
+     "h": 1023,
+     "what_it_shows": "The Campaigns registry page with a Status dropdown set to 'Active' (echoed by a 'Status: Active' filter chip), a Tag selector, Filters and Columns buttons, a search box, a 'Create Campaign' button, and '851 Results'. The table columns are Name, Status, Stop date, Campaign type, Sent; visible rows are 'Promo - New users' (Active, Multichannel, 910 sent), 'Promo - Loyalty program rollout' (Active, Push Notification, 974) and 'Promo - Lapsed users' (Active, In-App Message, 490).",
+     "pattern": "automations-registry",
+     "steal_idea": "Give Katie a single filterable registry where every automation is one row with a status pill, channel badge, and sent counter, so 'what is currently allowed to text creators' is answerable with one Status=Active filter."
+    }
+   ],
+   "notes": "All 7 images are genuine Braze product UI pulled from braze.com docs pages (docs image CDN paths under braze.com/docs/assets/), downloaded, dimension-checked, and visually verified. Saved as braze-01.png through braze-07.png in /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img (folder also holds other platforms' shots; braze numbering starts fresh at 01). Could not get: (1) a per-person-path shot \u2014 the only user-level image in the Canvas docs (user_lookup.png) is just a 'User Lookup' search box modal with no journey-progress view, so that pattern is unrepresented for Braze; (2) a test/simulation-mode shot \u2014 the canvas_preview_test docs path returns a 404 shell and no preview/test-send screenshots surfaced on the pages fetched; (3) anything usable from braze.com/product/canvas \u2014 its only large image is marketing cover art (Customer Engagement Review 2026 photo collage), not UI, so it was discarded after viewing. Also downloaded but cut to stay within the 7-image cap: a small 700x528 variant-split canvas (70% Variant 1 / 30% Control with delay and message steps) and an 'Analyze Canvas' Path 1 vs Path 2 experiment table (entries, revenue, conversion rate, 98.940% confidence); both are real UI and remain in the scratchpad (scratchpad/braze/cand-multivariate_flow.png, cand-analyze_variants.png) if you want swaps. Note braze-07 shows the Campaigns list rather than the Canvas list; docs only ship a registry screenshot for Campaigns, but the layout (status filter, chips, sent counts) is the same registry pattern."
+  },
+  {
+   "images": [
+    {
+     "file": "klaviyo-01.png",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115003872171",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/3f431909598e4dfb82c5e3cd498b958ad11658f6-2058x1678.png",
+     "w": 2058,
+     "h": 1678,
+     "what_it_shows": "Full flow-builder canvas for 'Started Checkout Flow': a Trigger node reading 'When someone Placed Order' feeds 'Split #1', which fans into three condition cards on the canvas \u2014 'Path #1: $value is greater than 200', 'Path #2: $city equals Boston', and 'Everyone else'. Each path ends in an email node with its subject line ('Large order - First email: Thanks for your order!', 'Boston order', 'Regular order') and a gray 'Draft' status chip plus a smart-sending clock icon. The left 'Actions' sidebar lists draggable components grouped as Messages (Email, Text message, Push notification, WhatsApp), Data (Property update, List update, Internal alert, Webhook, Custom action), and Logic (Time delay, Split), with a 'Split' block mid-drag onto a + slot.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Render every agent-driven message as a card on a branching canvas where the card itself carries channel icon, first line of copy, and a Draft/Live status chip, so Katie can read the entire conditional send plan for a creator cohort at a glance."
+    },
+    {
+     "file": "klaviyo-02.png",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115003872171",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/33f0172c2583c0337d484a2e9edc0724e1d7ee95-2154x1554.png",
+     "w": 2154,
+     "h": 1554,
+     "what_it_shows": "The 'Split details' side panel open next to the canvas: 'Define a set of filter criteria for each path. Profiles will enter the first path where they match its criteria.' Paths (3) are listed in evaluation order with blue chips 'Check first', 'Check second', 'Check third', 'Otherwise': '1 Large order \u2014 $value is greater than 200', '2 Near store \u2014 $city equals Boston', '3 VIP \u2014 In VIP List', plus reorder arrows (a 'Move down' tooltip is visible), 'Add path' buttons, and Cancel/Save with an 'Unsaved changes' badge. On the canvas the same split renders as four labeled branches ending in 'Everyone else' and 'End' pills.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Show branch rules as an explicitly ordered checklist ('check first / check second / otherwise') mirrored onto the canvas branches, so the priority logic that decides which SMS a creator gets is readable and reorderable rather than buried in config."
+    },
+    {
+     "file": "klaviyo-03.jpg",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115002774932",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/0fd6037545ca8d4ce74cc87fda5f90a9250cdad9-1400x788.jpg",
+     "w": 1400,
+     "h": 788,
+     "what_it_shows": "Recipient activity for 'Welcome Series, Email #1' with a 'Manual' badge: the left rail counts Waiting (0), Needs Review (9), Recipients (513), Opened (93), Bounced (133), Clicked (15), Unsubscribed (23), Skipped (389). The Recipients table lists each email address with Name and a sortable 'Scheduled For' timestamp (e.g. 'Aug 10, 2023 at 9:07 am'), and the hovered row exposes per-message 'Preview', 'Send Now', and red 'Cancel Send' buttons; bulk 'Send All' and 'Cancell All' buttons sit above the table next to Export CSV.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "A 'Needs Review' queue listing every queued message with the exact person, scheduled timestamp, and one-click Preview / Send Now / Cancel Send is precisely the human-approval gate Katie needs before AI agents fire SMS at creators."
+    },
+    {
+     "file": "klaviyo-04.png",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115003872171",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/a033aac4bc35f01dbb2779c933a965fd8a442d8c-2138x1536.png",
+     "w": 2138,
+     "h": 1536,
+     "what_it_shows": "The same flow canvas in analytics mode with a 'Last 30 days' picker: 'Split #1' shows 'Waiting 2.4% (2), Entered 97.6% (81)' inside the node; the branch cards show 'Path #1 Entered 15% (12)', 'Path #2 Entered 30% (24)', 'Everyone else Entered 55% (45)'. Each email node carries its own stats block \u2014 e.g. 'Large order: Open rate 66% (8), Click rate 41% (5), Placed order 16% (2), Waiting 3, Review 456' \u2014 so send volume and conversion are visible per branch, in place, on the flow diagram.",
+     "pattern": "node-analytics",
+     "steal_idea": "Overlay live counts directly on the flow graph \u2014 how many people entered each branch and how each message performed \u2014 so Katie sees where creators pile up or leak out of an automation without opening a separate report."
+    },
+    {
+     "file": "klaviyo-05.png",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115002779351",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/f15eb139fab7acd1f1cba696a219164985d59d51-1152x972.png",
+     "w": 1152,
+     "h": 972,
+     "what_it_shows": "Close-up of a single message node in analytics view: 'Email #1 / Email #1 Subject' with 'Open rate 45% (5), Click rate 0% (0), Placed order 20% (2)' and below the divider a live queue ledger 'Waiting 4, Review 5, Delivered 11, Skipped 0'. The node footer holds a smart-sending clock icon, an 'A/B' chip, and a green 'Live' status dropdown; the top bar shows Preview, Exit, and 'Update status' buttons and a 'Last 30 days' selector.",
+     "pattern": "node-analytics",
+     "steal_idea": "Put the queue state on the message node itself \u2014 Waiting / Review / Delivered / Skipped counts plus a Live-Draft toggle \u2014 so each planned SMS in a flow doubles as a mini dashboard of what is about to go out versus what already did."
+    },
+    {
+     "file": "klaviyo-06.png",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/115003872171",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/c1bd49e70e3f6e67ce0026980261608dc1c28aeb-2180x1248.png",
+     "w": 2180,
+     "h": 1248,
+     "what_it_shows": "Flow preview mode with a banner 'This is a preview of your flow' and a right panel titled 'Split #1 details \u2014 Previewing as Michael Scott': it states 'Follows the Large order path' and shows the matched Path criteria with green checkmarks \u2014 '$value is greater than 200' and 'Michael Scot: $value is 300'. On the canvas, the exact route this person would take (Trigger \u2192 Split #1 \u2192 'Large order' path \u2192 'Large order' email marked Live) is highlighted in blue while other branches ('Near store', 'Boston order') stay gray.",
+     "pattern": "simulation-test",
+     "steal_idea": "Let Katie pick a real creator and watch their personal route light up through the flow, with the panel proving which condition matched and why \u2014 a dry-run answer to 'exactly which messages will the agent send this person, and when'."
+    },
+    {
+     "file": "klaviyo-07.jpg",
+     "source_page": "https://help.klaviyo.com/hc/en-us/articles/12930413372187",
+     "image_url": "https://cdn.sanity.io/images/6ct6b26e/help-center-prod/bb2c5b4d84a8e61a6d4f5cadc3e5c34c80ad3eaa-2000x664.jpg",
+     "w": 2000,
+     "h": 664,
+     "what_it_shows": "The Flows list page ('Flows' heading, 'Create flow' button): columns Flow, Type, Status, Last updated, Conversions, Conversion rate. Three rows show name plus trigger subtitle \u2014 'Abandoned Cart Reminder - Standard (Email & SMS) / Checkout Started' with a green 'Live' badge, 'Birthday / Starts 0 weeks before Birthday. Repeats annually.' as 'Draft', and 'Order Confirmation - Standard / Placed Order' as 'Manual' with both email and SMS type icons. Filters above the table read 'Search flows', 'Status', 'Tags', 'Has email sender alerts', plus 'Metric time period: Last 7 days' and 'Conversion metric: Placed Order'.",
+     "pattern": "automations-registry",
+     "steal_idea": "One registry table of every automation with its trigger sentence, channel icons, and a three-state Live / Manual / Draft badge gives Katie a single trustworthy inventory of everything that can text a creator and whether it is armed."
+    }
+   ],
+   "notes": "All 7 images are genuine Klaviyo product UI, downloaded from Klaviyo's Sanity CDN via their Help Center, visually verified, and saved as klaviyo-01..07 in the target img folder (5 PNG, 2 JPG, all 1152px wide or more). Coverage: flow canvas, ordered split-criteria config, scheduled/needs-review send queue, per-node analytics (canvas-wide and close-up), preview-as-a-person simulation, and the Flows registry with Live/Manual/Draft status. What I could not get: (1) a marketing shot from klaviyo.com/products/flows \u2014 that page is JS-rendered and its extractable images were logos and small nav thumbnails, not legible UI; (2) a dedicated Smart Sending settings screen \u2014 the smart-sending article (360003560731) rendered no article images via curl (JS-hydrated body), though smart-sending clock icons are visible on nodes in klaviyo-01 and klaviyo-05; (3) a calendar-style scheduled view \u2014 Klaviyo doesn't surface one for flows (their model is per-message 'Scheduled For' queues, shown in klaviyo-03). Rejected after viewing: two deliverability bar charts (performance by email domain / inbox provider), a message Overview line chart, a trigger-picker gallery, and a 526px-tall crop of the Flows list superseded by klaviyo-07. Note the same image set is served on both the conditional-split (115003872171) and trigger-split (115003885632) articles; I cited the conditional-split article."
+  },
+  {
+   "images": [
+    {
+     "file": "twilio-studio-01.png",
+     "source_page": "https://www.twilio.com/docs/studio/widget-library/send-wait-reply",
+     "image_url": "https://docs-resources.prod.twilio.com/1071ea281ae09bf9e2bc7f4906bd2047381f1a8cc4762461000e77676979a4f6.png",
+     "w": 1600,
+     "h": 1617,
+     "what_it_shows": "The canonical Studio canvas on a dotted grid: a red Trigger widget with four entry pills labeled Incoming Message, Incoming Call, REST API, and Subflow, wired by a red connector to a widget named first_message typed (Send & Wait For Reply) containing the text 'Are you enjoying creating Flows with Twilio Studio?'. Its three outcome chips Reply (orange), No Reply (orange), and Delivery Fails (grey) fan out via orange connectors to two Send Message widgets, first_reply ('Awesome! We can't wait to see what you build!') and no_reply_response, each with their own Sent / Failed to Send exit ports.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Every message node wears its outcome branches as labeled chips on its bottom edge (Reply / No Reply / Delivery Fails), so Katie could read at a glance what the agent will do on each possible creator response without opening any node."
+    },
+    {
+     "file": "twilio-studio-02.png",
+     "source_page": "https://www.twilio.com/docs/studio/tutorials/how-to-send-appointment-reminders",
+     "image_url": "https://docs-resources.prod.twilio.com/b108bca5552e6f7e618d5e876e158487065292d8b64e4f84264f509a1382b3d8.png",
+     "w": 1160,
+     "h": 1306,
+     "what_it_shows": "A complete appointment-reminder flow: Trigger feeds confirm_appt (Send & Wait For Reply, 'Your appointment is coming up on {{flow.data.appointment_time}}'), whose Reply chip leads to split_confirmation (Split Based On...) testing {{widgets.confirm_appt.inbound.Body}} with purple branch chips No Condition Matches / 1 / 2. Branches 1 and 2 run Make HTTP Request widgets (POST http://www.example.com/confirm and /cancel) with Success/Fail exits into send_confirmatio... ('Thanks! See you at the office.') and send_cancellatio... widgets, while the no-match branch fires send_no_match ('We're sorry, we couldn't understand your response.') whose Sent exit loops back up into the ask, forming a visible retry loop.",
+     "pattern": "flow-canvas",
+     "steal_idea": "One canvas shows the entire conditional SMS conversation including the retry loop drawn as a literal wire back up, letting an ops lead audit every dead end and infinite-loop risk in an automation before it ever texts a creator."
+    },
+    {
+     "file": "twilio-studio-03.png",
+     "source_page": "https://www.twilio.com/docs/studio/user-guide",
+     "image_url": "https://docs-resources.prod.twilio.com/20d5256eb4a0db9d4bbf9a79752c49b69f6bc29334a7d9586605dbee7f6c2605.png",
+     "w": 1000,
+     "h": 710,
+     "what_it_shows": "A selected Send Message widget named 'greeting' (blue outline, red error badge) beside its slide-in inspector titled SEND MESSAGE with Config and Transitions tabs. Config shows WIDGET NAME 'greeting' and a MESSAGE BODY editor containing a conditional template: '{% if flow.data.first_name %} Hello {{flow.data.first_name}} {% else %} Hello friend {% endif %}', with the variable token highlighted, plus a red Save button and duplicate/trash icons.",
+     "pattern": "other",
+     "steal_idea": "Personalization logic lives inside the message body as a readable if/else with highlighted variable tokens, a pattern for showing Katie exactly which creator fields an AI-drafted SMS will substitute and what the fallback copy is."
+    },
+    {
+     "file": "twilio-studio-04.png",
+     "source_page": "https://www.twilio.com/docs/studio/user-guide",
+     "image_url": "https://docs-resources.prod.twilio.com/fdc8b31fb86ad5bf2f61f3dc34fb69f6696bcde9f872de31288751ba268bb7ce.png",
+     "w": 1600,
+     "h": 292,
+     "what_it_shows": "The 'Flows' management table: a blue + button with 'CLICK + TO CREATE A FLOW', a '20 Per Page' selector, and columns FLOW, SID, DATE CREATED, DATE UPDATED, LOGS. Two rows ('Studio Example', 'My first flow') each show a full SID string, a timestamp like '18:24:22 UTC 2021-07-26', and per-row actions Logs, Duplicate Flow, and Delete Flow (red).",
+     "pattern": "automations-registry",
+     "steal_idea": "A flat registry where every automation row carries a one-click Logs link next to Duplicate/Delete suggests Katie's index of agent automations should pair each entry with its execution history, not hide logs in a separate tool."
+    },
+    {
+     "file": "twilio-studio-05.png",
+     "source_page": "https://www.twilio.com/docs/studio/tutorials/how-to-send-appointment-reminders",
+     "image_url": "https://docs-resources.prod.twilio.com/d0357824f96853a47224a6171973887aa1ee7508beaa1ebe2154e057bf12d170.png",
+     "w": 858,
+     "h": 1160,
+     "what_it_shows": "The SPLIT BASED ON... inspector, Config tab: WIDGET NAME 'split_confirmation' and a VARIABLE TO TEST field containing 'widgets.confirm_appt.inbound.Bod...' with an open autocomplete dropdown listing inbound.To, inbound.From, inbound.Body (highlighted), inbound.MediaUrl0, and a split_confirmation > Choice group. A disabled pink Save button plus duplicate/trash icons sit at the bottom.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Branch conditions are built by picking from a typed catalog of upstream data (the previous widget's inbound.Body etc.), a model for letting Katie see and edit exactly which creator reply field each agent decision keys on."
+    },
+    {
+     "file": "twilio-studio-06.png",
+     "source_page": "https://www.twilio.com/docs/studio/tutorials/how-to-send-appointment-reminders",
+     "image_url": "https://docs-resources.prod.twilio.com/b070fd762743719f0681e8aee973dcd34dd2c2bcdc484c5e370512f03ea32af0.png",
+     "w": 694,
+     "h": 1118,
+     "what_it_shows": "The SPLIT BASED ON... inspector on its Transitions tab: a condition card named '1' with a Rename link, an operator dropdown set to 'Equal To', a value field containing '1', a target dropdown reading 'Search or Select a Widget', and a red Delete link, above a red Save button and duplicate/trash icons.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Each branch is a self-contained card of operator + value + destination widget, so a conditional rule ('if reply equals 1 then go to X') reads as one sentence Katie could verify per automation without touching the canvas."
+    },
+    {
+     "file": "twilio-studio-07.png",
+     "source_page": "https://www.twilio.com/docs/studio/user-guide",
+     "image_url": "https://docs-resources.prod.twilio.com/1e97f2e53cecbc5bd3ade422a6e0946e2dbdfdc181dd6a4e4aefd5d768a5bf3d.png",
+     "w": 1284,
+     "h": 898,
+     "what_it_shows": "The selected Trigger widget (blue outline, pills Incoming Message / Incoming Call / REST API) wired into a gather_input widget typed (Gather Input On Call) saying 'Say: Hello, how can we direct your call?', beside the FLOW CONFIGURATION panel showing a copyable WEBHOOK URL (https://webhooks.twilio.com/v1...), a required TEST USERS field ('Add phone numbers, separated by commas, to test the latest draft of this flow'), a 'Using your flow with a Phone Number' link, and a 'Show Flow JSON' button.",
+     "pattern": "simulation-test",
+     "steal_idea": "A built-in TEST USERS allowlist lets the draft automation fire only at designated phone numbers before publishing, exactly the safe-rehearsal mode Katie needs to trial an agent's SMS sequence on herself before it reaches real creators."
+    }
+   ],
+   "notes": "Got 7 verified genuine Twilio Studio UI screenshots (all read visually, all 694px wide or larger) from the docs CDN (docs-resources.prod.twilio.com full-resolution .png variants). Coverage: flow canvas with branch chips (2), message config with conditional template, Flows registry table with per-row Logs links, Split condition config (variable picker + operator/value/target editor), and the test-users/webhook Flow Configuration panel. Could NOT get: (1) an execution-logs screen \u2014 the Studio Troubleshooting docs page (twilio.com/docs/studio/user-guide/studio-troubleshooting) describes the Logs/Execution/Step view in text but ships zero images, the support.twilio.com articles are JS-shells that return ~6KB to curl, and web searches surfaced no legible third-party screenshot of the Logs list; (2) a scheduled-send queue or calendar \u2014 Studio has no native scheduling UI (scheduling is done via REST API triggers or Message Scheduling API), so no such screen exists to capture; (3) per-node analytics \u2014 Studio does not overlay metrics on the canvas (that pattern lives in tools like Braze/Iterable). The marketing page twilio.com/en-us/serverless/studio contained no product screenshots (only an og-image and a VWO tracking gif). Discarded 7 additional downloads that were redundant close-ups of widgets already visible in the keepers (Split widget zooms, loop close-up, auto-responder variants, concurrent-calls advanced panel)."
+  },
+  {
+   "images": [
+    {
+     "file": "attentive-01.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/360051938271-Create-a-welcome-journey",
+     "image_url": "https://help.attentive.com/hc/article_attachments/52858913548308",
+     "w": 1296,
+     "h": 1386,
+     "what_it_shows": "The journey builder for \"Welcome New Subscribers (436)\" with Promotional and Draft badges, and a top bar of chips: \"Entry frequency 0 hr\", \"Concierge On\", \"Exit rules\", plus a \"Test mode\" checkbox. Left palette reads \"Steps: Drag and drop steps into the map\" with ACTIONS (Send text message, Send auto-reply text message, Add custom attribute, Send email, Send push notification) and RULES (Wait, Branch, A/B test, End journey). The canvas spine runs trigger \"Signed up for texts, 0 active sources\" into \"Send welcome text message\" with its compliance copy preview (\"Msg & data rates may apply...\"), a second message card (\"Don't forget to save our contact...\"), then \"Wait, 24 hours\", with a 100% zoom control.",
+     "pattern": "flow-canvas",
+     "steal_idea": "A single vertical spine where the trigger sits on top and every queued SMS is visible as a readable message-preview card directly under its node, so Katie can literally read what each automation will text a creator before it fires."
+    },
+    {
+     "file": "attentive-02.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/360051937871-Create-a-journey",
+     "image_url": "https://help.attentive.com/hc/article_attachments/48826003644436",
+     "w": 1509,
+     "h": 913,
+     "what_it_shows": "The canvas (left, \"Saved 4 minutes ago\") shows a browse-abandonment flow: \"Viewed a product\" into \"Wait / 1 hour\" into \"Branch\" with edge labels \"Channel type of Email Only\" vs \"Channel type of Text Only or Both Text + Email\", then \"Send text message\" and \"Wait / 6 hours\". The open \"Send text message\" drawer shows Message name \"Browse Abandonment Text Message (Email + SMS Journey)\", the body with a tracked link, \"Est. characters remaining: 24 | 1 SMS\", a \"Suggested messages\" AI strip, toggles \"Use Smart Sending\" (skips subscribers past 1 text every 8 hours) and \"Quiet Hours\", and a live phone preview with \"Send test message\".",
+     "pattern": "flow-canvas",
+     "steal_idea": "Put the send-safety guardrails (rate cap, quiet hours, character/segment count) directly on each message node's config so an ops lead can audit per-message throttling where the message lives, not in a separate settings page."
+    },
+    {
+     "file": "attentive-03.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/360051987231-View-a-journey-s-performance",
+     "image_url": "https://help.attentive.com/hc/article_attachments/51137537605908",
+     "w": 1440,
+     "h": 1135,
+     "what_it_shows": "The \"Cart Abandon\" journey (Promotional, Active) with Schedule and \"Edit draft\" buttons and a left \"Version Performance\" panel: Last 30 days, Total sent 1,154, Revenue $15,816, CTR 25.1% | 290, CVR 37.2% | 108, Subscribers entered 3,729 / exited 534 / \"Exited due to entry frequency 334\". On the canvas every element carries counts: \"3,729 entered journey\" under the \"Added to cart\" trigger, Branch edges labeled \"Has started checkout at least once since starting this journey, 825 subscribers\" vs \"Else, 2,904 subscribers\", \"Send text message, Messages sent 879\", \"Send email\" with Delivered 275, CTR 2.1%, CVR 2.2%, Revenue per send $4.50, and \"End journey, 534 exited journey\".",
+     "pattern": "node-analytics",
+     "steal_idea": "Paint live counts onto the nodes and branch edges themselves so the flow diagram doubles as the funnel: Katie could see how many creators sit on each conditional path and how each automated SMS performed without leaving the canvas."
+    },
+    {
+     "file": "attentive-04.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/19946491919764-Schedule-a-journey",
+     "image_url": "https://help.attentive.com/hc/article_attachments/40371437758100",
+     "w": 1548,
+     "h": 706,
+     "what_it_shows": "The journeys list filtered by a \"Scheduled\" status dropdown next to \"Search journey name\" and \"All triggers\", with columns Journey name / Status / Last edited / Entered / Sent. Rows include \"Joined a Segment, Live Oct 04, 2024\" with an \"Active\" pill carrying a calendar glyph (1 entered, 1 sent) and \"Added to cart 07-09-25 17:38:20\" with a \"Draft\" pill whose calendar glyph shows the tooltip \"Journey draft will be activated on Aug 14, 2025, 03:30 PM EDT and deactivated on Aug 16, 2025, 02:30 PM EDT.\"",
+     "pattern": "automations-registry",
+     "steal_idea": "A registry where the status pill itself wears a small calendar badge and hovering reveals the exact activation/deactivation window, giving Katie one filterable table of every automation that is armed, drafted, or time-boxed, with entered/sent counts per row."
+    },
+    {
+     "file": "attentive-05.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/19946491919764-Schedule-a-journey",
+     "image_url": "https://help.attentive.com/hc/article_attachments/40371437746452",
+     "w": 1306,
+     "h": 1356,
+     "what_it_shows": "The \"Schedule journey\" modal over the \"Browse Abandonment (64)\" builder. It stacks \"Entry frequency\" (24 Hours, with the note \"The frequency must exceed 8 hours, per carrier guidelines\") and \"When to turn on\" (\"Set your journey draft to turn on at a future date and/or time\") with fields Aug 31, 2025 / 02:00 PM / EDT, an off \"Schedule journey deactivation\" toggle, and Cancel / \"Schedule journey\" buttons.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Schedule the automation itself, an activation window plus a per-person entry-frequency throttle, so Katie manages when a whole SMS flow is allowed to run and how often any one creator can re-enter it, instead of babysitting individual sends."
+    },
+    {
+     "file": "attentive-06.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/360051938171-Add-an-A-B-test-step-to-a-journey",
+     "image_url": "https://help.attentive.com/hc/article_attachments/46453169831572",
+     "w": 1600,
+     "h": 1087,
+     "what_it_shows": "The full app chrome (left nav: Home, Sign-up Units, Subscribers, Segments, Journeys, Campaigns, Conversations 99+, Dashboards, Reports, Marketplace, Offers, Brand Kit, Email Templates) around the \"Joined a Segment - Text + Email (18)\" draft journey. An A/B test node sits on the canvas with the edge label \"Variation 1 50.0%\", and the open \"A/B test\" drawer reads \"Add up to 6 variations\", a \"Customize traffic split\" dropdown with Variation 1: 70% / Variation 2: 30%, \"+ Add variation\", \"Total traffic: 100%\", \"Metric to test: Conversion rate (CVR)\", and end conditions \"End once the test reaches significance\" / \"End on a specific date\" / \"End the test manually\".",
+     "pattern": "other",
+     "steal_idea": "Render experiment splits as percentage labels on the branch edges with the win-metric and stop-rule declared up front, so if Katie's agents try two outreach scripts she can see exactly what share of creators each arm will receive and when the test resolves."
+    },
+    {
+     "file": "attentive-07.png",
+     "source_page": "https://help.attentive.com/hc/en-us/articles/46432895619860-Exit-Rules-for-Journeys",
+     "image_url": "https://help.attentive.com/hc/article_attachments/46801487719572",
+     "w": 1600,
+     "h": 1150,
+     "what_it_shows": "The \"Exit rules\" modal (the toolbar chip shows a count of 3) over the \"0116 - Browse Abandonment (945)\" journey: \"Subscribers will be removed if they or their triggering product qualifies for the following condition(s)\", with nested Any/All groups reading \"Has added to cart at least once since starting this journey\", \"Has made a purchase at least once in the last 7 days\", All of \"Member of Thanx - Loyalty Anniversary\" and \"Member of thanx loyalty points > 10\", and \"Product inventory is less than or equal to 2\", plus Close and \"Edit exit rules\" buttons. Behind it a \"Send text message\" node carries a dark analytics chip \"0 SENT / 0.0% REPLIED\".",
+     "pattern": "trigger-criteria",
+     "steal_idea": "A journey-level exit-rules panel with nested Any/All condition groups is the one place that shows everything that CANCELS pending messages, exactly what Katie needs to trust that a creator who already replied or posted will not get the next automated nudge."
+    }
+   ],
+   "notes": "All 7 files are in /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img/ (attentive-01.png through attentive-07.png), each visually verified and 1296-1600px wide. Access notes: help.attentivemobile.com redirects to help.attentive.com, which Cloudflare-blocks both curl and WebFetch (403 challenge page); I loaded articles in the Browser pane, harvested attachment URLs via the Zendesk help-center API (article bodies include img tags), and the /hc/article_attachments/ files themselves turned out to be curl-downloadable. The marketing site (attentive.com/features/journeys) is JS-rendered Webflow and its extractable images were only favicons/nav thumbnails, so nothing usable came from there or the blog. Could NOT find: a per-person-path view (an individual subscriber's position/history inside a journey) \u2014 it does not appear in any help article I searched; and a dedicated test/simulation screenshot \u2014 Test mode exists only as an unchecked checkbox visible in attentive-01's toolbar, and the \\\"Journey reports\\\" article had no images at all. I reviewed and discarded ~35 other downloads: older-generation UI shots (circular-node canvas in the Branches/version-history articles), narrow config crops under 500px, a journeys template picker, an A/B menu screenshot redundant with attentive-06, and a Create-schedule modal redundant with attentive-05. One strong alternate worth knowing about if you want an 8th: the version-history side panel (Draft/Active versions with timestamps) from the Journey version management article, and a scheduled-state filter GIF; both remain in the scratchpad at /private/tmp/claude-501/-Users-julia-Documents-Benable-Coding/8bf681b3-1715-4023-bff3-c487a21408af/scratchpad/att/."
+  },
+  {
+   "images": [
+    {
+     "file": "postscript-01.png",
+     "source_page": "https://help.postscript.io/en/articles/13564033-guide-to-automation-flows",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2209985710/7be00208b321ed107333413ecbd6/automation-flows-1.png",
+     "w": 940,
+     "h": 510,
+     "what_it_shows": "Full Flow Builder screen titled \"5/15/2023 | Flow\" with a green \"Activated\" status pill, \"Save Changes\" and \"Deactivate\" buttons, and \"Last activated: Aug 30, 2023 @ 3:15 PM CDT\". A metrics header row reads Automation Triggered 8 (Unsubscribe Rate: 6.45%), Sent Messages 31, Total Clicks 0 (CTR: 0%), Total Orders 0, Attributed Revenue $0 (EPM: $0). Left palette \"Flow Actions\" lists draggable steps Delay, Send message, A/B split, Trigger event split, Subscriber event split, Update subscriber; the canvas shows an \"Automation properties\" node (Trigger event: Customer Created) wired into a \"Trigger event split\" node with branches A \"Addresses | Country Code any are 80016\" and B \"None of the above\", plus a minimap with zoom controls. Purple numbered callout badges from the help doc overlay the UI.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Put the flow's lifetime send/click/revenue counters in a persistent header above the canvas so Katie sees at a glance how many messages an automation has actually fired before she touches it."
+    },
+    {
+     "file": "postscript-02.png",
+     "source_page": "https://help.postscript.io/en/articles/13564033-guide-to-automation-flows",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2209987453/d93dcbe6b69ef53092f72704aceb/AutomationProperties.png",
+     "w": 830,
+     "h": 1388,
+     "what_it_shows": "\"EDITING Automation properties\" side panel with stacked entry-rule sections: \"Add a subscriber if\" (dropdown: Checkout Started), \"But only if...\" (filter: Subtotal Price is greater than 100, with + Filter buttons), \"And only subscribers who match\" (Number of Orders less than 2, with + Rule), \"Limit how often subscribers can enter...\" (Subscribers can enter the flow once in the last 30 days), and \"Remove a subscriber if\" (Order Created, + Trigger). Cancel/Save buttons and a red \"Remove All\" button are visible.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Express every automation's eligibility as one readable stacked sentence (enter if / but only if / limit re-entry / exit if) so an ops lead can audit exactly which creators will get pulled into an AI-fired sequence and which events eject them."
+    },
+    {
+     "file": "postscript-03.png",
+     "source_page": "https://help.postscript.io/en/articles/13564033-guide-to-automation-flows",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2209996238/5a0a3e2490f6f13236689eda2b96/Delay.png",
+     "w": 1924,
+     "h": 1138,
+     "what_it_shows": "\"EDITING Delay\" panel (\"Temporarily delays the next action for subscribers\") with a Type dropdown open showing three options: \"For an amount of time\", \"Until a specific date\", \"Until a certain time of the week\" (selected), plus Delete Step, Cancel and Save buttons. On the canvas the saved DELAY node reads \"Until the next Monday at 10:00am MDT\" with DUPLICATE/DELETE controls, wired into an ACTION \"Send message\" node whose SMS preview text starts \"Postscript Help Center: Happy Monday!! Your Sale of the Week is here!\".",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Render wait steps as first-class nodes that state the resolved send moment in plain words (\"Until the next Monday at 10:00am MDT\"), so scheduled sends are visible on the flow itself rather than buried in config."
+    },
+    {
+     "file": "postscript-04.png",
+     "source_page": "https://help.postscript.io/en/articles/13564033-guide-to-automation-flows",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2210001651/d1107b7214ae753a3a4d99db3ee8/trigger+event+split.png",
+     "w": 1371,
+     "h": 744,
+     "what_it_shows": "\"Trigger event split\" editor listing condition branches A: Total Price is less than 50, B: Total Price is within 50\u2013100 (Min/Max fields), C: Total Price is greater than 100, D: \"Above conditions not met\", with \"Add New Branch\" and \"9 of 13 available branches remaining\". The canvas beside it shows the Automation properties node (Order Created), the split node summarizing all four branches, and three parallel Message nodes whose texts read \"From Postscript: Hi! Thanks for your order! Track it here\" with variants \"PS-- save $10 on your next order with code: LOVERGIRL\" and \"save $20 ... code: VIPGIRL\".",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Summarize a conditional split's full rule set inside the node itself (A/B/C/D with their thresholds) and fan the canvas into labeled parallel lanes, so Katie can trace which message each creator cohort will receive without opening a config panel."
+    },
+    {
+     "file": "postscript-05.png",
+     "source_page": "https://help.postscript.io/en/articles/13564036-message-scheduling-in-automation-flow",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2035947732/5f6a5a1cb47c0cffe5f88b7dbb38/Screenshot+2026-01-26+at+12_59_06%E2%80%AFPM.png",
+     "w": 1380,
+     "h": 1462,
+     "what_it_shows": "Current (Jan 2026) flow editor: Delay panel with Type \"For an amount of time\" and Amount of time \"18 hours\", Cancel/Update buttons. The rail on the right runs Automation properties (Trigger event: Order Created) \u2192 highlighted Delay node \"For 18 hours\" \u2192 \"RCS Message\" node with RCS Content/Fallback tabs, message text offering \"50% off ... Just use UO3MN646VWM0\", and an inline per-node stats grid with Total/Messages/Conversations tabs reading Rev.: $0, EPM: --, Orders: 0, Clicks: 0, CTR: --, Sent: 0, Reply rate: 0%, Conversations: 0.",
+     "pattern": "node-analytics",
+     "steal_idea": "Attach a compact stats grid directly under each message node (sent, clicks, replies, revenue) so every scheduled message doubles as its own live scoreboard inside the flow."
+    },
+    {
+     "file": "postscript-06.png",
+     "source_page": "https://help.postscript.io/en/articles/13564036-message-scheduling-in-automation-flow",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2035948848/7fbd5995f26d91c7da398c604a8c/Screenshot+2026-01-26+at+1_12_33%E2%80%AFPM.png",
+     "w": 1322,
+     "h": 1064,
+     "what_it_shows": "Delay panel with Type \"Until a specific date\" (\"Good for when your next action needs to occur on an exact date\"), Date 03-02-2026, Time 11:11 AM EST, and a \"Use subscriber's timezone\" toggle switched off. The canvas shows the saved Delay node \"Until 3/2/2026 at 11:11am EST\" between two dashed \"Drag action here\" slots, feeding an RCS Message node with a bee photo card titled \"See What All The Buzz is About\", body \"Our new honey flavor drop has arrived!\", and buttons \"Tell Me More\" and \"Add to Cart Immediately!\".",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Offer per-recipient-timezone scheduling as an explicit toggle on the wait step and echo the resolved absolute datetime on the node, so \"when will this actually fire, and in whose clock\" is answered on the canvas."
+    },
+    {
+     "file": "postscript-07.png",
+     "source_page": "https://help.postscript.io/en/articles/13563953-guide-to-campaign-flows",
+     "image_url": "https://downloads.intercomcdn.com/i/o/nhh5ap9a/2031903713/c31c23efab2916dc23ed4edcee65/Screenshot+2024-06-11+at+9_34_15%E2%80%AFPM.png",
+     "w": 2118,
+     "h": 1230,
+     "what_it_shows": "Activated flow canvas with a \"Hide Action Stats\" toggle button and minimap. An \"A/B Split\" node is expanded to show per-branch analytics: branch A 25.00% (Rev.: $342.01, EPM: $6, Orders: 2, Sent: 57, Unsub.: 1.75%), branch B 50.00% (Rev.: $319.86, EPM: $3.37, Orders: 1, Conv.: 50%, Clicks: 2, CTR: 2.11%, Sent: 95), branch C 25.00% (Rev.: $0, Clicks: 1, CTR: 2.70%, Sent: 37), with the footnote \"Distribution of actual sent messages may vary.\"",
+     "pattern": "node-analytics",
+     "steal_idea": "Make analytics an overlay mode (\"Hide/Show Action Stats\") that inflates each branch with its own sent/converted counts in place, so the same canvas serves both as the plan of what will fire and the record of what did."
+    }
+   ],
+   "notes": "All 7 kept files were visually verified as genuine Postscript product UI (current purple Flow Builder era; postscript-05/06 are the newest Jan-2026 UI with RCS nodes). Help-center screenshots carry the doc's small numbered callout badges on some images (01, 03, 04) but the UI stays fully legible. Could NOT get: (1) an automations-registry list with on/off toggles \u2014 the Flows dashboard only appears in help docs as small animated GIFs (a 800x498 GIF's first frame showed the account Dashboard, not the list; no static list screenshot exists in the current articles); (2) the scheduled-send queue/calendar \u2014 Postscript's \\\"SMS and Email Message Planner\\\" calendar exists only as a 600x293 GIF, below the 500px-quality bar as a usable still; (3) per-person journey progress and test/simulation-mode shots \u2014 no such screenshots exist in the help center or feature pages. Marketing images on postscript.io/features were stylized simplified cards composited over product photos (chocolate bar, sweater), not legible real UI, so they were discarded. Image URLs are the Intercom CDN asset paths with signature query strings stripped; the signed variants expire, so re-fetch from the source pages if the bare paths 403."
+  },
+  {
+   "images": [
+    {
+     "file": "intercom-series-01.png",
+     "source_page": "https://www.intercom.com/help/en/articles/4425207-series-explained",
+     "image_url": "https://downloads.intercomcdn.com/i/o/246122522/76c82eed495c689537b40f85/image.png",
+     "w": 2784,
+     "h": 1362,
+     "what_it_shows": "The Series overview canvas for a 'Welcome campaign' (Paused chip, Set live / Edit / Show settings buttons) with a KPI strip reading 443 Started, 14% Finished, 42% Disengaged, 25% Exited, 100% Series goal hit. Blocks on the dot-grid canvas: ENTRY RULES 'Type is User, signed up exactly 1 day ago, tag i...' -> WHEN MATCHED -> EMAIL 'Welcome Email' -> WHEN SENT -> WAIT 'Wait for 1 day'; a WHEN PASSED branch drops to RULES \"Has opened the email 'Welcome Email'\" (Try to match once) -> CHAT 'Welcome Chat' (Wait up to 3d) -> WAIT 'Wait for 3 days'. Live per-block engagement counters sit under each node: 443 MATCHED, 237 SUCCESSFULLY SENT, 27 STILL WAITING, 84 MATCHED, 64 SENT, 0 WAITED (some circled in marker by the help doc).",
+     "pattern": "flow-canvas",
+     "steal_idea": "Print live throughput counts directly under every node (443 matched, 237 sent, 27 still waiting) so Katie reads where creators currently sit in each SMS flow from the same canvas that defines it, with edge labels (WHEN SENT / WHEN PASSED) naming the exact event that advances a person."
+    },
+    {
+     "file": "intercom-series-02.png",
+     "source_page": "https://www.intercom.com/help/en/articles/4425207-series-explained",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1257817718/0ffd1f6470b62c287356df5e6437/CleanShot+2024-11-19+at+15_16_46%402x.png",
+     "w": 2884,
+     "h": 642,
+     "what_it_shows": "The Outbound > Series registry: left nav (All messages, Series highlighted, Views: 'Chats for users', 'Latest'), header '86 series' with a search box, '+ Add filter', and a '+ New Series' button. The table columns are Series title, State, Created By, Started, Finished, Disengaged, Exited, Goal; the visible row 'Onboard new users' carries a 'Draft' state chip and Brian Byrne as creator with dashes in the stat columns.",
+     "pattern": "automations-registry",
+     "steal_idea": "One table of every automation with a state chip (Draft/Live/Paused) plus its funnel stats as columns gives Katie a single audit surface for which AI-agent flows exist, who made them, and whether each is actually running."
+    },
+    {
+     "file": "intercom-series-03.png",
+     "source_page": "https://www.intercom.com/help/en/articles/8780861-series-faqs",
+     "image_url": "https://downloads.intercomcdn.com/i/o/253320183/2dcd174e5d96296629549967/image.png",
+     "w": 2760,
+     "h": 984,
+     "what_it_shows": "Entry-rules editor for 'Onboard new users' (Draft): the ENTRY RULES block 'User signs into your app for the first time' is selected on the canvas, and the right panel shows 'When to enter' (+ Add a rule) and 'Who will enter' composed of chips: Users AND 'Signed up less than 1 day ago' AND 'Email is mytest@exampleapp.io'. Below, a live audience preview reads 'No users match these rules yet' \u2014 this is Intercom's documented way to dry-run a series against only your own test account before setting it live.",
+     "pattern": "simulation-test",
+     "steal_idea": "Pair every trigger definition with a live 'who matches right now' preview, and let Katie pin the audience to her own test number to fire the whole SMS flow at herself before any creator can enter it."
+    },
+    {
+     "file": "intercom-series-04.png",
+     "source_page": "https://www.intercom.com/help/en/articles/8780861-series-faqs",
+     "image_url": "https://downloads.intercomcdn.com/i/o/421231455/d90312d9ba0d5df23ab1245e/image-1.png",
+     "w": 1492,
+     "h": 485,
+     "what_it_shows": "The 'Black Friday' series (Draft) with a WAIT block selected reading 'Wait until Nov 26, 2021, 05:00'; a yellow note block pinned under it reads 'Start date: Nov 26'. The right config panel shows the two wait modes as a toggle \u2014 'Wait for a period of time' vs 'Wait until a specific date' \u2014 with pickers set to 'Nov 26, 2021' and '5:00AM' and the caption 'Chicago time (GMT-5)'. Downstream: WHEN PASSED -> RULES 'Active users only' (Try to match once) -> WHEN MATCHED -> EMAIL 'Black Friday Email #1'.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Model scheduling as a first-class wait node with two explicit modes (relative delay vs absolute date+time+timezone), so every future SMS Katie's agents will fire has a visible, inspectable 'goes out Nov 26, 5:00AM CT' anchor in the flow itself."
+    },
+    {
+     "file": "intercom-series-05.png",
+     "source_page": "https://www.intercom.com/help/en/articles/8780861-series-faqs",
+     "image_url": "https://downloads.intercomcdn.com/i/o/421231629/225167bd2f55c3fb1c66ba9e/image-2.png",
+     "w": 1724,
+     "h": 840,
+     "what_it_shows": "The full 'Black Friday' campaign canvas plus its Settings panel. Top lane: ENTRY RULES 'All users' -> WAIT 'Wait until Nov 26, 2021, 05:00' -> WHEN PASSED -> RULES 'Active users only' -> EMAIL 'Black Friday Email #1', annotated with sticky note blocks 'Start date: Nov 26' and 'Stop date: Dec 3 (tag users + exit Series)'. A second lane (outlined pink) is the kill switch: ENTRY RULES 'All users' -> WAIT 'Wait until Dec 3, 2021, 05:00' -> TAG 'Tag with exit', and the Settings panel defines Exit rules 'Tag is exit' with Goal 'No goal set' and a 'Company priority' row.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "A campaign window drawn on the canvas \u2014 a start-date wait, human-readable note blocks, and a parallel date-triggered lane that tags everyone out via the exit rule \u2014 shows Katie exactly when a flow opens, when it dies, and the mechanism that guarantees no SMS fires after the stop date."
+    },
+    {
+     "file": "intercom-series-06.png",
+     "source_page": "https://www.intercom.com/help/en/articles/4425234-measure-how-well-your-series-performs",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1266901553/422f2ec5e692e7807c0403009d80/CleanShot+2024-11-26+at+14_56_28%402x.png",
+     "w": 2438,
+     "h": 914,
+     "what_it_shows": "The 'NPS Follow up' series (Paused) with tabs 'Series Overview' and 'Performance Summary Report' and headline stats 27,260 Started, 0% (8) Finished, 81% (21,986) Disengaged. On the canvas, ENTRY RULES 'Everyone' shows '27,260 MATCHED' and SURVEY 'NPS Survey' (Wait up to 30d) shows '360 RECEIVED' with a dropdown caret, with edge labels WHEN DELIVERED and a conditional branch labeled 'IF NOT ONLINE AFTER 30D'. The open 'More' menu lists Duplicate series, Tag, Changelog, Export CSV (boxed), Delete series, next to 'Set series live' and 'Edit' buttons.",
+     "pattern": "node-analytics",
+     "steal_idea": "Expose the negative path as a labeled edge ('IF NOT ONLINE AFTER 30D') with clickable per-node counts, so Katie can see not just who got each message but the fallback route her non-responsive creators are silently taking \u2014 plus per-automation utilities (duplicate, changelog, CSV export) hanging off one menu."
+    },
+    {
+     "file": "intercom-series-07.png",
+     "source_page": "https://www.intercom.com/help/en/articles/5432434-see-recent-changes-and-a-history-of-updates-to-your-series",
+     "image_url": "https://downloads.intercomcdn.com/i/o/366332009/1839d7f0d98b2046ad4c4152/image.png",
+     "w": 2766,
+     "h": 1426,
+     "what_it_shows": "A series canvas where newly added blocks are tinted purple to mark recent edits: WAIT 'Wait for Show & Tell' (0 WAITED) -> WHEN PASSED -> CHAT 'Good Luck Reminder!' (Wait up to 30d, 0 SENT) -> WHEN DELIVERED -> highlighted WAIT 'Wait for 3 days' (0 WAITED) -> WHEN PASSED -> highlighted SMS 'Send a Congratulations Message!' (0 SENT). The companion crop of this same screen shows the 'Hide highlighted changes' toggle by the zoom control, and an SMS channel block sits directly in the flow as a first-class node.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Tint blocks that changed since you last looked \u2014 with SMS as a first-class node type \u2014 so Katie opens an agent-edited flow and instantly sees which scheduled texts are new or modified without diffing the whole canvas."
+    }
+   ],
+   "notes": "Kept 7 of 34 downloaded candidates; all are genuine Intercom Series product UI from intercom.com/help articles (Series explained, Series FAQs, Measure how well your series performs, See recent changes/history), all >=1490px wide, visually verified by reading each image. Image URLs listed are the downloads.intercomcdn.com base paths; the live CDN links carry expiring signature query params (expires=1787673600), so re-downloading later may need a fresh fetch of the article page. Deleted rejects included: a template-gallery picker (marketing-illustrated flow cards), a plain limits table, a toast message, a Contacts list (not Series), an Export CSV dialog, a tiny header crop, and several near-duplicate rule-config panels (compound AND/OR audience editor, exit-rules settings, goal config, if/then tag rule) plus a changelog side panel (Brian Byrne/Jack Jenkins edit history) and a performance summary card page \u2014 good but squeezed out by the 7-image cap; say the word and I can restore any from their URLs. Could NOT find: a true scheduled-send queue/calendar view (Intercom Series has no send-calendar; scheduling lives inside Wait blocks, covered by 04/05), and no per-person journey-progress screen in the help docs (the closest is the per-node count dropdown in 06 that lists who is at each block; Intercom shows per-person series membership only on the contact page, and no screenshot of that exists in the Series articles). Some shots carry the help center's own marker annotations (circles/arrows); interface detail stays fully legible. Note: existing intercom-01..08.png files in the folder are from a prior batch and were left untouched."
+  },
+  {
+   "images": [
+    {
+     "file": "onesignal-01.png",
+     "source_page": "https://documentation.onesignal.com/docs/journeys-overview",
+     "image_url": "https://mintcdn.com/onesignal/0qspEXXeJ8zJbkJ-/images/docs/8aca954d35a58b2afe46e7b752cdea04f55a4a3f4f4bf19c5a22073ef4cdc9f2-Screenshot_2025-01-30_at_2.02.07_PM.png?fit=max&auto=format&n=0qspEXXeJ8zJbkJ-&q=85&s=ed5d49c3f226cfe4f01442a473a991e9",
+     "w": 1918,
+     "h": 1590,
+     "what_it_shows": "Full Journeys canvas for 'Onboarding Journey' with an 'Active' badge and top buttons 'View Stats', 'Journey Report', 'More Options', 'Settings'. The vertical flow reads: Entrance card ('Future Users Only', 'Included: Subscribed Users', 'Started on: September 27th 2024, 9:38 am'), 'Wait / 1 Minute', 'Push Notification / 10OFF', another Wait, then a 'Yes/No Branch / Clicked 10OFF?' that fans out into a nested Yes/No Branch ('Included: 2nd session'), two 'Push Notification / It Worked!' cards and an 'Email / HTML Email to template test' card. Branches reconverge into an Exit card listing 'Exit Rules: User has received all messages' and 'Re-Entry Rules', with zoom controls and a minimap in the corners.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Print each node's actual config (segment chips, wait duration, the branch question) on the card face so Katie can audit an agent's entire conditional SMS logic from one zoomed-out canvas, with a minimap for long flows."
+    },
+    {
+     "file": "onesignal-02.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-examples",
+     "image_url": "https://mintcdn.com/onesignal/QOf62tdZP66tkOD2/images/docs/reengagement-journey.png?fit=max&auto=format&n=QOf62tdZP66tkOD2&q=85&s=63990452d48a0d82b27a87469bf7d00a",
+     "w": 1427,
+     "h": 1495,
+     "what_it_shows": "Journey builder in full app chrome (top nav: Dashboard, Messages, Journeys, Audience, Delivery, Settings) for 'Re-engagement Campaign' in 'Draft' state with buttons 'More Options', 'Journey Settings', 'Save & Close', 'Set Live'. A 'Subscription Reach' widget pinned to the canvas shows per-channel audience counts: Push 53, Email 5,086, SMS 20, In-App 58. The linear flow: Entrance ('Trigger: Inactive for 1 Week', 'Included: Free Users', 'Excluded: Paid Users') into Push 'Come back', 'Wait 1 Day', Push 'Get your free mystery gift', and Exit 'When user has received all messages or when user becomes active'.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Pin a live per-channel reach counter (how many creators each automation can actually text) next to the canvas plus an explicit Draft-vs-Set-Live state, so scope is visible before anything fires."
+    },
+    {
+     "file": "onesignal-03.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-examples",
+     "image_url": "https://mintcdn.com/onesignal/lYMMkFJp3v40a2sJ/images/journeys/recurring-journey-steps.png?fit=max&auto=format&n=lYMMkFJp3v40a2sJ&q=85&s=12657ad8e9b0cfc2de32a9d87f9eed2c",
+     "w": 598,
+     "h": 1460,
+     "what_it_shows": "A recurring weekly journey where the schedule is a node in the path: Entrance ('Trigger: Audience Segment', 'Included: Subscribed Users', 'Start: Immediately'), then an orange 'Time Window' card reading 'Days: Fri', 'Time: 8:00 AM to 6:00 PM', 'Timezone: User's Timezone', then 'Email / Your weekly summary is ready!', and an Exit card with 'Re-Entry Rules: Users can re-enter the Journey after 7 days' and 'Stop: Never'. This is how OneSignal renders a scheduled cadence inside a flow.",
+     "pattern": "scheduled-queue",
+     "steal_idea": "Make send timing a first-class Time Window node in the flow ('Fri 8AM-6PM, creator's timezone') instead of hidden settings, so Katie can see exactly when each scheduled SMS is allowed to fire and how often it repeats."
+    },
+    {
+     "file": "onesignal-04.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-actions",
+     "image_url": "https://mintcdn.com/onesignal/yt4lRKoquAlWvRvF/images/journeys/journeys-wait-until-action.png?fit=max&auto=format&n=yt4lRKoquAlWvRvF&q=85&s=1a27c7d1bb9e26bc68a9980d9662b400",
+     "w": 952,
+     "h": 1462,
+     "what_it_shows": "'Wait Until' condition editor with Cancel/Save buttons and a 'Condition Details' panel defining three named branches: Branch A 'Condition: Segment / 4+ sessions', Branch B 'Condition: Previous Message / 10OFF' with a 'Select...' interaction dropdown, Branch C 'Condition: Custom Event / event_1' with 'Add Properties' and a 'Custom Event List' link, plus an 'Add Branch' button. Below, a checked 'Expiration Branch' reads 'Wait a maximum of 1 Weeks and' with radio options 'Continue Journey' (selected) or 'Exit Journey'.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Express every 'waiting on the creator' state as named condition branches (replied, clicked, event fired) with a mandatory expiration branch, so no automated SMS thread can wait forever without a visible timeout and fallback path."
+    },
+    {
+     "file": "onesignal-05.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-settings",
+     "image_url": "https://mintcdn.com/onesignal/h5D53ACj6-juR4cp/images/journeys/journeys-exit-rules.png?fit=max&auto=format&n=h5D53ACj6-juR4cp&q=85&s=bd78087cb77df60d055fdac31c417aee",
+     "w": 1780,
+     "h": 1200,
+     "what_it_shows": "'Journey Settings' screen with left nav (Entry Rules, Goals, Exit Rules highlighted, Schedule) and the Exit Rules panel. 'Meet a certain condition' is selected over 'They moved through the entire Journey', with checked boxes: 'Exit when a user becomes active in your app/website', 'Exit when custom event condition occurs' (Custom Event Name field showing 'checkout_started'), and 'Exit when a user enters a segment' with an 'Opted Out of Onboarding' chip. At bottom, 'Tag users when they exit early' shows a 'new_user: false' tag.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Give every automation a readable kill-switch panel \u2014 the exact events, segments, and replies that stop the messages, plus a tag stamped on anyone who exits early \u2014 so Katie can answer 'what makes this stop texting a creator' in one glance."
+    },
+    {
+     "file": "onesignal-06.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-actions",
+     "image_url": "https://mintcdn.com/onesignal/56ctKxZSV4m5VEkn/images/docs/b7a62545ad25878949fe7b0fffc1b64ddee30730dbe351cd51eaea5ed8e9964f-Screenshot_2024-12-23_at_1.37.49_PM.png?fit=max&auto=format&n=56ctKxZSV4m5VEkn&q=85&s=b9f67d64e3721cba629798663860be3f",
+     "w": 1916,
+     "h": 1430,
+     "what_it_shows": "Live journey canvas with per-node stats overlaid on every card: Entrance ('Included: All Subscribers', 'Started 1.17k', 'Started on: December 23rd 2024, 12:24 pm') into a 'Split Branch / Percentage' node (Waiting 0, Completed 1.17k) whose connectors are labeled 'A: 33.3% (401)', 'B: 33.3% (392)', 'C: 33.4% (374)'. The three arms are 'Email / Cross Promotion Email' (Sent 59, Delivered 46, Opens 23, Bounced 1, Failed 12, Suppressed 155, Completed 401), 'In-App Message / Cross Promotion In-app' ('Expires in 1 Day', Impressions/Clicks/CTR, Completed 392), and 'Push Notification / Cross Promotion Push' (Sent 49, Delivered 43, Confirmed 4, Failed 6, Completed 374), reconverging into Exit ('Completed 1.17k', 'Stop: Never').",
+     "pattern": "node-analytics",
+     "steal_idea": "Overlay Waiting/Completed/Sent/Delivered counters on each node and person-counts on each branch connector, so the flow doubles as a live queue map showing where every creator currently sits and where messages are failing."
+    },
+    {
+     "file": "onesignal-07.png",
+     "source_page": "https://documentation.onesignal.com/docs/en/journeys-analytics",
+     "image_url": "https://mintcdn.com/onesignal/l9ri6AkR3Oi6ambB/images/journeys/journeys-report.png?fit=max&auto=format&n=l9ri6AkR3Oi6ambB&q=85&s=1641b44f55d3a46a48f17ec520d38db6",
+     "w": 1764,
+     "h": 1530,
+     "what_it_shows": "Journey Report for 'Onboarding Journey' (Created August 7th 2025) with 'Refresh Stats' and 'Close' buttons. Four stat tiles: Started 764.65k, In Progress 0.67% (5.13k), Early Exit 0% (0), Completed 99.32% (759.51k). Below, a 'Journey Statistics' 30-day time-series chart with legend chips Started / Exited Early / Completed and an 'Add Stat' control, then a 'Messages Included in the Journey' table listing 'Message 1 / Email / Sent 388 / Delivered 357' and 'Message 2 / Webhook / Sent 388 / Delivered 357' with Clicked and CTR columns.",
+     "pattern": "node-analytics",
+     "steal_idea": "Roll each automation up to a four-number funnel (Started / In Progress / Early Exit / Completed) with a messages-included table underneath, so every individual SMS is traceable back to the flow that scheduled it."
+    }
+   ],
+   "notes": "All 7 files are genuine OneSignal dashboard UI, downloaded full-size from the Mintlify CDN behind documentation.onesignal.com and visually verified one by one (I read each image; every element quoted in what_it_shows is literally legible). Image URLs are signed (the s= query param is required; stripping it breaks the link). Coverage: 2 flow canvases, 1 recurring/Time Window scheduled flow, 2 trigger/condition configs, 2 analytics views (per-node overlay + journey report). What I could not get: (1) a Journeys index/registry listing all automations with on-off status \u2014 no such screenshot exists in current docs (the managing-journeys page's images are a Note textarea and an A/B stats crop) and the marketing site only has a stylized builder render; (2) the Delivery > Scheduled queue of upcoming sends \u2014 the legacy docs page (documentation.onesignal.com/v7.0.0/docs/notification-delivery) now returns a Next.js error shell with no content, and current message-report pages show sent-message analytics only; (3) the Journey Settings 'Schedule' tab (visible as a nav item in onesignal-05) has no screenshot anywhere in docs; (4) no test/simulation-mode screenshots exist in OneSignal docs. Rejected during review: entry-rules config (overlaps 05), per-message 'Welcome push 1' report and Audience Activity per-person delivery log (weaker fit than 06/07), goal report, A/B split canvas, wait-node stat crop (590px, redundant), and two cropped/trivial images (a Note field, a cut-off canvas). Candidates remain in the scratchpad cand/ folder if you want swaps \u2014 notably the per-person Audience Activity log (analytics-list.png) and the A/B note canvas (managing-2.png)."
+  },
+  {
+   "images": [
+    {
+     "file": "n8n-01.png",
+     "source_page": "https://docs.n8n.io/build-your-first-workflow",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/get-started/.gitbook/assets/tutorial-first.png",
+     "w": 1259,
+     "h": 742,
+     "what_it_shows": "Full workflow editor for 'Tutorial-workflow' with an Inactive toggle, Editor / Executions / Tests tabs, and Share/Save buttons in the header. The canvas reads Schedule Trigger (clock icon with lightning-bolt trigger badge) -> NASA node subtitled 'get:donkiSolarFlare' -> If node whose two outputs are labeled 'true' and 'false' on the wires, fanning to PostBin(true) and PostBin(false), each subtitled 'send: request'. An orange 'Test workflow' button sits bottom-center of the canvas.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Print the branch value (true/false) directly on the connector wire so Katie can trace which creators get which SMS without opening a single node, and keep an armed/disarmed (Active/Inactive) toggle in the flow header itself."
+    },
+    {
+     "file": "n8n-02.png",
+     "source_page": "https://docs.n8n.io/build/integrate-ai/test-and-improve-ai-workflows/fix-common-issues",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/build/.gitbook/assets/add-second-output-branch.png",
+     "w": 1938,
+     "h": 1034,
+     "what_it_shows": "Canvas with 'When chat message received' trigger feeding an 'AI Agent (Tools Agent)' node that has typed diamond sub-ports underneath labeled 'Chat Model*' (required, red asterisk), 'Memory', and 'Tool', with a dashed connector dropping to a circular 'OpenAI Chat Model' node via a port labeled 'Model'. The agent's main output splits to 'Set outputs (setOutput)' and to a 'No Operation' node wrapped in a yellow sticky note reading 'Adding this node makes sure the chat gets the right data'.",
+     "pattern": "flow-canvas",
+     "steal_idea": "Draw the AI-agent brain (model/memory/tools) as visually distinct dashed, typed sub-connectors below the node, so the machinery deciding a message is separable at a glance from the solid path the SMS actually travels to a creator."
+    },
+    {
+     "file": "n8n-03.png",
+     "source_page": "https://docs.n8n.io/courses/level-one/chapter-5/ (Level 1 course page, removed in n8n's 2025 GitBook migration; image retrieved from the n8n-io/n8n-docs repo history)",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/3b9d79c226ce9b386ecc235c7f9498b0e89458ef/docs/_images/courses/level-one/chapter-five/l1-c5-5-7-schedule-trigger-node.png",
+     "w": 3840,
+     "h": 2063,
+     "what_it_shows": "Schedule Trigger config panel with Parameters/Docs tabs and a 'Test step' button. A yellow banner states 'This workflow will run on the schedule you define here once you activate it' and suggests manual test runs via 'test workflow'. The Trigger Rules form reads: Trigger Interval 'Weeks', Weeks Between Triggers '1', Trigger on Weekdays 'Monday' (chip), Trigger at Hour '9am', Trigger at Minute '0', with an 'Add Rule' button; the OUTPUT pane offers 'Test this node to output data or insert test data'.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "Express a scheduled send as stacked plain-language rules (every 1 week, Monday, 9am) with an explicit 'runs once you activate it' warning, so Katie reads exactly when the agent will text creators before the flow is armed."
+    },
+    {
+     "file": "n8n-04.png",
+     "source_page": "https://docs.n8n.io/courses/level-one/chapter-5/ (removed course chapter; image retrieved from the n8n-io/n8n-docs repo history)",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/3b9d79c226ce9b386ecc235c7f9498b0e89458ef/docs/_images/courses/level-one/chapter-five/l1-c5-5-3-if-node-output.png",
+     "w": 3840,
+     "h": 2063,
+     "what_it_shows": "Open If node showing the Conditions builder: expression {{ $json[\"orderStatus\"] }} with operator 'is equal to' and value 'processing', plus an 'Add condition' button and orange 'Test step' button. The left INPUT pane lists the incoming schema from HTTP Request (orderID, customerID, employeeName 'Mario', orderPrice, orderStatus) over '30 items'; the right OUTPUT pane splits into tabs 'True Branch (14 items)' and 'False Branch (16 items)' above a real data table of matching rows.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "The moment a condition is edited, show the live audience split (14 true / 16 false) with the actual rows landing in each branch, so Katie verifies exactly which creators would receive the conditional message before anything sends."
+    },
+    {
+     "file": "n8n-05.png",
+     "source_page": "https://docs.n8n.io/courses/level-two/chapter-4/ (removed course chapter; image retrieved from the n8n-io/n8n-docs repo history)",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/3b9d79c226ce9b386ecc235c7f9498b0e89458ef/docs/_images/courses/level-two/chapter-four/explanation_workflowexecutions_readonly.png",
+     "w": 1537,
+     "h": 1011,
+     "what_it_shows": "Executions tab of workflow 'L2 Course - Excercises': a left sidebar lists timestamped runs with green/red edge bars ('15 Feb at 12:40:54 Succeeded in 1.1s', multiple 'Failed in 0.842s/0.732s' rows with retry icons), the selected run header reads 'Failed in 0.842s | ID#5779038' with an orange 'Debug in editor' button. The read-only canvas replays that run: green connectors labeled '1 item', green checkmarks on 'When clicking \"Test workflow\"' and 'HTTP Request1', and a red border plus warning triangle on 'Extract From File'.",
+     "pattern": "per-person-path",
+     "steal_idea": "Replay any single run directly on the flow map, with item counts on green wires stopping at the red failed node, so 'why didn't creator X get her text' is answered by clicking that run rather than reading logs."
+    },
+    {
+     "file": "n8n-06.png",
+     "source_page": "https://docs.n8n.io/courses/level-one/chapter-5/ (removed course chapter; image retrieved from the n8n-io/n8n-docs repo history)",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/3b9d79c226ce9b386ecc235c7f9498b0e89458ef/docs/_images/courses/level-one/chapter-five/l1-c5-5-8-execution-list.png",
+     "w": 2852,
+     "h": 1502,
+     "what_it_shows": "Instance-wide 'Executions' page ('All executions' selected in the left nav) with an 'Auto refresh' checkbox and a Filters button showing 1 active filter. The table (Name / Started At / Status / Execution ID) lists three 'L1 Course' runs with green success bars: 'Succeeded in 15.329s' #754, 'Succeeded in 5.857s' #753, and #752 started '16 Oct at 09:00:00' \u2014 the 9am scheduled run visibly landing on time.",
+     "pattern": "other",
+     "steal_idea": "Keep one auto-refreshing, filterable log where every scheduled fire shows its exact start time, duration, status color, and a run ID, so Katie can confirm this morning's 9am creator texts actually went out and drill into any one of them."
+    },
+    {
+     "file": "n8n-07.png",
+     "source_page": "https://docs.n8n.io/changelog/release-notes-1.x",
+     "image_url": "https://raw.githubusercontent.com/n8n-io/n8n-docs/main/docs/changelog/.gitbook/assets/Insights-dashboard.png",
+     "w": 2492,
+     "h": 1528,
+     "what_it_shows": "Insights dashboard with five KPI tiles: 'Prod. executions 163,922 (+11.46%)', 'Failed prod. executions 1,688 (+14.93%)', 'Failure rate 1%', 'Time saved 3h (+37m)', 'Run time (avg.) 5.37s', over a Successful/Failed stacked bar chart for Apr 8\u201315. Below, a 'Workflow insights' table ranks named automations \u2014 e.g. 'Automatically Send Personalized Email Follow-Ups...' with 34,174 executions, 514 failed, 1.5% failure rate, an 'Estimate' link under Time Saved, and 0.07s avg run time.",
+     "pattern": "node-analytics",
+     "steal_idea": "Roll all messaging automations into one ranked health table (runs, failures, failure rate, avg time per flow) with a trend chart on top, so Katie spots which SMS flow is quietly erroring at scale before creators start complaining."
+    }
+   ],
+   "notes": "All 7 files verified by viewing them; saved to /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img/n8n-01.png through n8n-07.png. What I could not get, and why: (1) The live docs.n8n.io was migrated to GitBook in 2025 and its executions/debugging/schedule pages are now text-only, so the executions-list, execution-replay, IF-condition, and Schedule Trigger screenshots came from the pre-migration n8n-io/n8n-docs GitHub history (commit 3b9d79c, Apr 2025); their original course pages no longer exist on the live site. (2) n8n has no true forward-looking 'scheduled sends queue/calendar' UI \u2014 the closest real thing is the executions log showing a 09:00:00 scheduled run landing (n8n-06), so that gap is noted rather than faked. (3) No per-node analytics overlay on the canvas exists in n8n; Insights (n8n-07) is per-workflow. (4) n8n.io marketing pages are JS-rendered with stylized composite renders, so I preferred legible real-UI docs screenshots. Also downloaded and reviewed but cut to respect the 7-image cap: an all-failed executions list with retry/View buttons, the workflows registry with a green Active toggle (dark mode, sparse), the Insights drill-down with its time-range dropdown open, the evaluations wiring canvas (has orange doc-annotation boxes), and a node config panel with a live expression preview; say the word if you want any of these added."
+  },
+  {
+   "images": [
+    {
+     "file": "activecampaign-01.png",
+     "source_page": "https://www.zephi.co.uk/2024/10/22/taking-a-look-at-the-new-activecampaign-automations-builder/",
+     "image_url": "https://www.zephi.co.uk/wp-content/uploads/2024/10/ACAutomationBuilder-3.1.png",
+     "w": 1840,
+     "h": 845,
+     "what_it_shows": "Real (classic) automation builder canvas on a dotted grid: a dashed 'Add a start trigger' slot at top, then a vertical spine of nodes 'Send an email \"New Product Promotion\" View Reports', a pink 'Start 3 other automations' node, and 'Subscribe contact to multiple lists', with + insertion buttons between every step. Right sidebar has Actions/AI Builder tabs, a 'Search actions' box, and a Sending Options list reading 'Send an email, Send a site message, Send an SMS, Send a notification email, Send a 1:1 email, Send a transactional email', plus collapsed groups 'Conditions and Workflow, Contacts, Salesforce, CRM, CX Apps'. Bottom-left shows a mini-map thumbnail with 100% zoom, expand, and download-canvas controls; top-left a 'Try the new automations builder' toggle.",
+     "pattern": "flow-canvas",
+     "steal_idea": "A single vertical spine with + slots between steps and a typed action palette (email/SMS/site message as siblings) is the cleanest way to show Katie every message an agent flow will fire, in order, on one canvas."
+    },
+    {
+     "file": "activecampaign-02.png",
+     "source_page": "https://slickbusiness.co/activecampaign-automations-updates/",
+     "image_url": "https://slickbusiness.co/wp-content/uploads/2024/10/overview-1920x957.png",
+     "w": 1920,
+     "h": 957,
+     "what_it_shows": "Real new-builder screenshot (with the blogger's red callout labels like 'Spacious Sidebar', 'Mini Map') of the 'Add a Wait Condition' sidebar: subtitle 'Wait for a certain period of time, or until conditions are matched', radio 'Wait until specific conditions are met', a condition row built as Tag / Exists / 'NEW: quiz' with '+ Add another condition', 'Add condition group', and 'Select a segment to use its conditions > Saved Segments'. Below is a checked option 'Continue automation if conditions are not met within a specific time period' with 'Continue after 2 hour(s)'. The canvas behind shows an if/else node 'Does the contact match the following conditions? Tag exists MEMBER: active AND stage of enquiry is approved... OR...' with a Yes branch, plus nodes 'Goal: PURCHASED during nurture' and 'Wait until condition Tag exists NEW: quiz', and the header's Active/Inactive toggle.",
+     "pattern": "trigger-criteria",
+     "steal_idea": "The wait-until pattern with an escape hatch ('continue anyway after 2 hours') is exactly how to visualize a scheduled SMS that is really conditional: show the condition, the timeout, and what fires when the clock beats the condition."
+    },
+    {
+     "file": "activecampaign-03.jpg",
+     "source_page": "https://www.activecampaign.com/blog/announcing-automations-map",
+     "image_url": "https://active-campaign.transforms.svdcdn.com/production/general/wp/2021_10_47arl6naq_map-shelf-data.png?w=1600&q=80&auto=format&fit=clip&dm=1731929015&s=7589366eeb7329ebf49fc7ccc46b62e9",
+     "w": 1600,
+     "h": 4336,
+     "what_it_shows": "Real 'Automation Details' shelf that opens from the Automations Map: automation 'Demo 1' with an 'ACTIVE' toggle, then a Connections section reading 'STARTS \u25b6 Movies (Inactive)', 'IS STARTED BY \u25b6 My Second Automation, Demo 65, Demo 2', 'ENDS \u25a0 Demo 2'. Below: Contacts '21 Contacts currently in the Automation', Campaigns 'Test Campaign 0% OPEN RATE', and Goals 'Test1 97.5% completion rate'. Tall narrow panel crop; a Help chat pill overlaps the bottom.",
+     "pattern": "node-analytics",
+     "steal_idea": "Steal the STARTS / IS STARTED BY / ENDS grammar plus a live in-flight contact count: one click on any automation should tell Katie which flows feed it, which it triggers, which it kills, and how many creators are sitting inside it right now."
+    },
+    {
+     "file": "activecampaign-04.png",
+     "source_page": "https://slickbusiness.co/activecampaign-automations-updates/",
+     "image_url": "https://slickbusiness.co/wp-content/uploads/2024/10/start-end-985x1080.png",
+     "w": 985,
+     "h": 1080,
+     "what_it_shows": "Real 'Start an automation' action panel ('Add a contact to another automation'): a Search field, two tabs 'Active automations' (selected, blue) and 'Inactive automations', a 'Select All' checkbox, and a scrollable list of automations each shown with a checkbox, a miniature thumbnail of its actual flow diagram, its name, and a colored label chip: 'COMMUNITY: add' [CIRCLE], 'WELCOME: we want emails' [OPTIN], 'SWITCH: upgrade ess to adv' [SUBSCRIPTIONS].",
+     "pattern": "automations-registry",
+     "steal_idea": "A registry row = flow-thumbnail + name + status tab + category chip; rendering each automation as a tiny picture of its own graph makes an agent's arsenal of SMS flows scannable and makes chaining ('this flow starts that one') a checkbox, not a mystery."
+    },
+    {
+     "file": "activecampaign-05.png",
+     "source_page": "https://www.activecampaign.com/platform/marketing-automation",
+     "image_url": "https://active-campaign.transforms.svdcdn.com/production/general/Automation-02.png?w=1600&h=1600&q=80&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1758744579&s=727eef7d5f4d40afa23b0afa7b700aec",
+     "w": 1600,
+     "h": 1600,
+     "what_it_shows": "Official stylized (dark 'Actions in this automation' card) render of a multichannel conditional flow: trigger 'Start automation when Contact joins list \"Fall 2025 semester kickoff!\"' \u2192 'Wait 2 hours' \u2192 'Send email: Welcome to State College, Class of 2029' \u2192 condition node 'Does contact match these conditions? Has opened any email in the last 3 days' \u2192 two branches, 'Send SMS: Campus kickoff starts in 2 hours!' (pink phone icon) and 'Send WhatsApp: Campus kickoff starts in 2 hours!' (green icon). Top-right shows a tree-view/grid-view toggle.",
+     "pattern": "flow-canvas",
+     "steal_idea": "This is Katie's exact shape \u2014 timer, then engagement check, then channel fork \u2014 so every scheduled SMS should render as trigger \u2192 wait \u2192 condition \u2192 channel-branch cards, with channel-colored icons making the SMS legs pop out of the tree at a glance."
+    },
+    {
+     "file": "activecampaign-06.png",
+     "source_page": "https://www.activecampaign.com/platform/ai-automation-builder",
+     "image_url": "https://active-campaign.transforms.svdcdn.com/production/general/Automations-Map.png?w=1600&h=1600&q=80&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1716990802&s=0fe7e53f3b58d75b26c6c66335160962",
+     "w": 1600,
+     "h": 1600,
+     "what_it_shows": "Official stylized render of the dedicated 'Automations Map' screen (title bar readable top-left): white cards on a light-blue canvas, each labeled with a name plus the word 'Automation'. Three entry flows 'Filled out interest form', 'Signed up for newsletter', 'Requested a quote' feed via elbow connectors into a central 'Sales Funnel Drip', which fans out to 'Post purchase follow up' and 'Win back sequence'.",
+     "pattern": "other",
+     "steal_idea": "A meta-map where whole automations are single nodes and edges mean 'this flow enrolls people into that one' is the missing top layer for Katie: one screen showing how re-invite, reminder, and ghosting SMS flows hand creators to each other."
+    },
+    {
+     "file": "activecampaign-07.png",
+     "source_page": "https://www.activecampaign.com/platform/ai-automation-builder",
+     "image_url": "https://active-campaign.transforms.svdcdn.com/production/general/Automation-Builder.png?w=1600&h=1600&q=80&auto=format&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5&dm=1716990801&s=87df34cadf7dcfcbb6829563d015eb53",
+     "w": 1600,
+     "h": 1600,
+     "what_it_shows": "Official stylized render of the builder in full app chrome, floated over an office photo: breadcrumb 'Automations / Rewards member', 'Saved at 03:25PM' with history icon, 'Manage Emails' and 'View Contacts' buttons, and an Active / '\u2022 Inactive' status toggle top-right. The spine reads trigger 'Start automation when Contact Subscribes to list \"Rewards member\"' \u2192 'Add contact to Facebook Custom Audience [Rewards member]' \u2192 'Add tag [Rewards member]' \u2192 'Send site message: 1 purchase away from next reward!' \u2192 'Did contact make second purchase?'. Bottom-left is the mini-map with 100% zoom control.",
+     "pattern": "flow-canvas",
+     "steal_idea": "The header trio \u2014 saved-at timestamp, View Contacts, and a one-click Active/Inactive kill switch on the flow itself \u2014 is the safety chrome Katie needs on every agent automation: see who is inside it and pause all its scheduled sends from the same bar."
+    }
+   ],
+   "notes": "Kept 7 of 20 inspected candidates; every kept image was opened and visually verified, and all quoted labels are literally readable. Mix: 3 genuine screenshots (01, 02, 04 \u2014 02 carries the blogger's red callout labels but the underlying UI is authentic), 1 genuine product panel from AC's own blog (03), and 3 official ActiveCampaign stylized renders where the interface detail is fully legible (05, 06, 07). Could NOT get: (a) anything from help.activecampaign.com \u2014 it is Cloudflare-fronted (curl and WebFetch both blocked), and even via Playwright the article bodies of the seeded article 115000481230 redirect target, 'How to view your automation', 'Automation map', and 'All Automations report' contain ZERO images \u2014 ActiveCampaign has stripped screenshots from its docs, so the canonical Automations overview list (rows with green status dots + Current Contacts column) and the real Automations Map canvas (circles = automations sized by busyness, diamonds = start points, with a 'Download current view as image' button) exist only as text descriptions; 04's active/inactive-tabbed picker and 03's map shelf are the closest real substitutes I found. (b) The automations-map animation GIF from the announcement blog: its first frame is skeleton placeholder boxes, useless as a still. (c) No public shots of a scheduled-send queue/calendar, per-person journey path, or per-node send counts \u2014 AC surfaces per-automation (not per-node) stats, covered by 03. Also discarded: AI Builder prompt-box render, split-test conclusion modal (half photo), flat illustrations, and duplicate/small variants. Sources fetched: activecampaign.com/platform/marketing-automation, /platform/ai-automation-builder, /blog/announcing-automations-map, zephi.co.uk and slickbusiness.co builder reviews."
+  }
+ ]
+}

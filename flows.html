@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The scheduled and the conditional: visualizing the SMS that have not fired yet</title>
+<link rel="stylesheet" href="study.css">
+<style>
+  .pattern { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:24px 26px; margin-bottom:26px; }
+  .pattern .pnum { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px;
+    border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:800; margin-right:10px; flex:0 0 auto; }
+  .pattern h3 { font-size:19px; display:flex; align-items:center; margin-bottom:6px; }
+  .pattern .who { font-size:13px; color:var(--ink-med); margin-bottom:14px; }
+  .pattern .why { font-size:14px; line-height:1.6; margin-bottom:16px; max-width:760px; }
+  .pattern .why .q { color:#5B3FD1; font-weight:600; }
+
+  .shots { display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; margin-bottom:16px; }
+  .shot { flex:1 1 340px; max-width:660px; }
+  .shot.narrow { flex:0 1 300px; }
+  .shot .frame { border:1px solid #e3e3e6; border-radius:12px; overflow:hidden; background:#fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.06); }
+  .shot .bar { display:flex; align-items:center; gap:5px; background:#f0eef4; padding:7px 10px; }
+  .shot .bar i { width:8px; height:8px; border-radius:50%; background:#d9d5e0; }
+  .shot .bar span { font-size:11px; color:var(--ink-med); font-weight:600; margin-left:6px; }
+  .shot img { display:block; width:100%; }
+  .shot figcaption { font-size:12.5px; color:var(--ink-med); margin-top:8px; line-height:1.5; }
+  .shot figcaption a { color:var(--accent); text-decoration:none; font-weight:600; }
+  .badge { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    border-radius:5px; padding:2px 7px; vertical-align:1px; margin-right:6px; }
+  .badge.real { background:#EFFBF7; color:#1a7a44; }
+  .badge.render { background:#FFF0E0; color:#9a4a15; }
+  .badge.reco { background:#F9F7FF; color:#5B3FD1; }
+
+  .benable-map { background:var(--accent-bg); border:1px solid var(--accent-soft); border-radius:12px;
+    padding:13px 16px; font-size:13.5px; line-height:1.6; max-width:820px; }
+  .benable-map b { color:#5B3FD1; }
+
+  .toc { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 30px; }
+  .toc a { font-size:12px; font-weight:700; color:var(--ink-med); text-decoration:none;
+    border:1px solid #e3e3e6; background:#fff; border-radius:999px; padding:6px 12px; }
+  .toc a:hover { color:var(--accent); border-color:var(--accent); }
+
+  .brief { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .fourq { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:12px; margin-top:14px; }
+  .fourq .qcard { border:1px solid #e3e3e6; border-radius:12px; padding:12px 14px; font-size:13px; line-height:1.55; }
+  .fourq .qcard b { display:block; font-size:13.5px; margin-bottom:3px; }
+  .fourq .qcard .ans { color:#5B3FD1; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.05em; }
+
+  .method { font-size:12.5px; color:var(--ink-med); background:#fff; border:1px dashed #d9d5e0; border-radius:12px;
+    padding:10px 14px; margin-bottom:30px; max-width:900px; }
+
+  .rules { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .rules ol { margin:12px 0 0 20px; font-size:14px; line-height:1.75; color:#3a3a3c; max-width:860px; }
+  .rules li { margin-bottom:8px; }
+  .rules b { color:var(--ink); }
+
+  /* ---- recreated mocks ---- */
+  .mockwrap { display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; }
+  .mock { border:1px solid #e3e3e6; border-radius:14px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,.06);
+    font-size:13px; overflow:hidden; flex:0 1 400px; }
+  .mock .m-head { padding:11px 16px; border-bottom:1px solid #f0f0f2; font-weight:700; font-size:12.5px;
+    display:flex; align-items:center; gap:8px; color:var(--ink); }
+  .mock .m-body { padding:14px 16px; overflow-x:auto; }
+  .mcap { font-size:12.5px; color:var(--ink-med); margin-top:8px; line-height:1.5; max-width:400px; }
+
+  .sms { border-radius:14px; padding:7px 12px; font-size:13px; line-height:1.45; max-width:88%; margin-bottom:7px; width:fit-content; }
+  .sms.in { background:#ececef; }
+  .sms.out { background:#2BAF87; color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+  .sms.ghost { background:#fff; color:var(--ink-med); border:1.5px dashed #b9b3c9; margin-left:auto; border-bottom-right-radius:4px; }
+  .ghostmeta { font-size:11px; color:var(--ink-med); text-align:right; margin:-3px 2px 8px 0; }
+  .ghostmeta b { color:#9a4a15; font-weight:700; }
+  .ghostmeta a { color:var(--accent); font-weight:700; text-decoration:none; }
+  .daybreak { text-align:center; font-size:10.5px; color:var(--ink-subtle); text-transform:uppercase; letter-spacing:.06em; margin:10px 0 8px; }
+
+  table.matrix { border-collapse:collapse; font-size:12px; width:100%; }
+  table.matrix th { font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-med);
+    font-weight:700; padding:6px 8px; text-align:center; border-bottom:1px solid #ececec; }
+  table.matrix th:first-child { text-align:left; }
+  table.matrix td { padding:6px 8px; text-align:center; border-bottom:1px solid #f4f4f5; }
+  table.matrix td:first-child { text-align:left; font-weight:600; color:var(--ink); white-space:nowrap; }
+  .cell { display:inline-block; width:20px; height:20px; border-radius:6px; line-height:20px; font-size:11px; font-weight:800; }
+  .cell.on { background:#EFFBF7; color:#1a7a44; }
+  .cell.off { background:#f2f2f3; color:#b3b3b3; }
+  .cell.paused { background:#FFF0E0; color:#9a4a15; }
+  .cell.err { background:#FFF1F1; color:#E82C3F; }
+</style>
+</head>
+<body>
+
+<div class="crumb"><a href="index.html">KATIE COMMAND CENTER · UI FIELD STUDY</a> · PART 2 · AUG 25, 2026</div>
+<h2>The scheduled and the conditional</h2>
+<p class="subtitle" style="max-width:840px;">Part 1 covered supervising the agent in conversation. This part covers the other half of Katie's tooling: seeing every SMS that has not fired yet. The queued, the scheduled, and the ones agents will fire when a creator meets criteria, plus how those messages link into flows. 34 verified screenshots from the systems that visualize this best: Klaviyo, Braze, Customer.io, Attentive, Postscript, Twilio Studio, HubSpot, ActiveCampaign, Intercom Series, OneSignal, Buffer and n8n.</p>
+
+<div class="toc">
+  <a href="#f1">1 · The canvas</a>
+  <a href="#f2">2 · Criteria and exits</a>
+  <a href="#f3">3 · The registry</a>
+  <a href="#f4">4 · What fires next</a>
+  <a href="#f5">5 · Counts on the map</a>
+  <a href="#f6">6 · One creator's path</a>
+  <a href="#f7">7 · Rehearsal</a>
+  <a href="#frules">How to visualize it</a>
+</div>
+
+<div class="brief">
+  <div class="label">THE REAL SHAPE OF THE QUESTION</div>
+  <p style="font-size:14px; max-width:820px;">"Show me everything that's going to fire" is actually four different questions, and they need four different pictures. The field mostly ships all four; the mistake would be building one screen that half-answers each.</p>
+  <div class="fourq">
+    <div class="qcard"><span class="ans">View 1 · a table</span><b>What automations exist, and are they on?</b>The registry. Would have caught the 28 Litsea bug: reminders live for MD, silently dead for 28 Litsea.</div>
+    <div class="qcard"><span class="ans">View 2 · a queue</span><b>What fires next, concretely?</b>Time-ordered upcoming sends with hold and cancel. Would have caught the invite text firing instantly instead of after 2h.</div>
+    <div class="qcard"><span class="ans">View 3 · a map</span><b>How do messages chain?</b>The flow canvas: trigger, wait, condition, message. The "low-code look", generated from the real rules.</div>
+    <div class="qcard"><span class="ans">View 4 · a timeline</span><b>What is coming for THIS creator?</b>The per-person path: what she got, where she is, what is queued for her and under which condition.</div>
+  </div>
+</div>
+
+<div class="method">
+  <b>Method note.</b> Same rules as Part 1: images downloaded Aug 25, 2026 from each vendor's own docs, help center or site, verified by eye, captions describe only what is visible and link to the source. <span class="badge real">real ui</span> genuine product screenshot · <span class="badge render">render</span> vendor's stylized recreation · <span class="badge reco">recreation</span> our own Benable mock. 84 shots collected, the 34 strongest shown.
+</div>
+
+<!-- ============ F1 ============ -->
+<div class="pattern" id="f1">
+  <h3><span class="pnum">1</span>The canvas: the low-code look, and what belongs on a node</h3>
+  <div class="who">Klaviyo · Attentive · Twilio Studio · ActiveCampaign · n8n · Intercom Series</div>
+  <p class="why">Every serious messaging system converged on the same drawing: trigger on top, messages as cards, waits and splits between them. What separates the good ones is how much truth the node face carries: the actual first line of copy, the channel, the live status, and the outcome branches.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Flow builder</span></div><img loading="lazy" src="img/klaviyo-01.png" alt="Klaviyo flow canvas"></div>
+      <figcaption><span class="badge real">real ui</span>The reference canvas: a trigger ("When someone Placed Order") feeding a split with three condition cards, each path ending in a message node that shows its actual subject line and a Draft/Live status chip. The whole conditional send plan reads without opening anything. <a href="https://help.klaviyo.com/hc/en-us/articles/115003872171" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Attentive · Journey</span></div><img loading="lazy" src="img/attentive-01.png" alt="Attentive SMS journey builder"></div>
+      <figcaption><span class="badge real">real ui</span>SMS-first version: a vertical spine where the welcome text's real copy (compliance line included) is readable inside its node, with journey-level chips on top: entry frequency, Concierge on, exit rules, and a test mode checkbox. <a href="https://help.attentive.com/hc/en-us/articles/360051938271-Create-a-welcome-journey" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Twilio Studio</span></div><img loading="lazy" src="img/twilio-studio-01.png" alt="Twilio Studio canvas with outcome chips"></div>
+      <figcaption><span class="badge real">real ui</span>Every message node wears its outcome branches as labeled chips on its bottom edge: <b>Reply / No Reply / Delivery Fails</b>. What happens on each possible creator response is readable at a glance, including the failure path. <a href="https://www.twilio.com/docs/studio/widget-library/send-wait-reply" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ActiveCampaign</span></div><img loading="lazy" src="img/activecampaign-05.png" alt="ActiveCampaign conditional channel fork"></div>
+      <figcaption><span class="badge render">render</span>Katie's exact shape in one card: trigger, wait 2 hours, send email, then "has opened in the last 3 days?" forking into SMS vs WhatsApp with channel-colored icons. Timer, engagement check, channel fork. <a href="https://www.activecampaign.com/platform/marketing-automation" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>n8n · Agent node</span></div><img loading="lazy" src="img/n8n-02.png" alt="n8n AI agent node with typed sub-ports"></div>
+      <figcaption><span class="badge real">real ui</span>The agent-era detail: the AI node's machinery (model, memory, tools) hangs below it as dashed, typed sub-connectors, visually separate from the solid path the message travels. The brain and the send path are distinguishable at a glance. <a href="https://docs.n8n.io/build/integrate-ai/test-and-improve-ai-workflows/fix-common-issues" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Series</span></div><img loading="lazy" src="img/intercom-series-07.png" alt="Intercom Series changed blocks tinted"></div>
+      <figcaption><span class="badge real">real ui</span>Blocks that changed since you last looked are tinted purple, with a "hide highlighted changes" toggle, and SMS is a first-class node. For flows that agents edit, this is the killer feature: open the canvas, instantly see what the machine changed. <a href="https://www.intercom.com/help/en/articles/5432434-see-recent-changes-and-a-history-of-updates-to-your-series" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> our flows are stage-driven, not drip sequences, so the honest canvas is the campaign stage ladder as a spine, message nodes hanging off each transition and timer, one swimlane per fork (product, local, brand-reviews-content). Node face shows: intent name, the base copy's first line, channel, Live/Draft/Held, and Twilio-Studio-style outcome chips. Agent-edited nodes get the Intercom purple tint.</div>
+</div>
+
+<!-- ============ F2 ============ -->
+<div class="pattern" id="f2">
+  <h3><span class="pnum">2</span>Criteria, waits, and the rules that cancel a send</h3>
+  <div class="who">Postscript · Klaviyo · Customer.io · Attentive · OneSignal</div>
+  <p class="why">"The agents will fire if the creators fill different criteria" is exactly what these panels draw. The best pattern makes eligibility one readable sentence stack, waits into visible nodes with escape hatches, and, most important for trust, puts everything that <em>cancels</em> a pending message in one place.</p>
+  <div class="shots">
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Postscript · Entry rules</span></div><img loading="lazy" src="img/postscript-02.png" alt="Postscript stacked eligibility rules"></div>
+      <figcaption><span class="badge real">real ui</span>Eligibility as one stacked sentence: <b>add a subscriber if</b> (Checkout Started), <b>but only if</b> (subtotal over 100), <b>and only those who match</b> (under 2 orders), <b>limit re-entry</b> (once per 30 days), <b>remove if</b> (Order Created). Who gets pulled in, and what ejects them, in one column. <a href="https://help.postscript.io/en/articles/13564033-guide-to-automation-flows" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Split details</span></div><img loading="lazy" src="img/klaviyo-02.png" alt="Klaviyo ordered split criteria"></div>
+      <figcaption><span class="badge real">real ui</span>Branch rules as an explicitly ordered checklist ("Check first / Check second / Otherwise") with reorder arrows, mirrored onto the canvas branches. The priority logic deciding which message someone gets is readable and reorderable. <a href="https://help.klaviyo.com/hc/en-us/articles/115003872171" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Customer.io · Wait until</span></div><img loading="lazy" src="img/customerio-02.png" alt="Customer.io wait until node with exits"></div>
+      <figcaption><span class="badge real">real ui</span>"Send only if they still haven't acted" drawn honestly: a <b>Wait Until</b> node with separate exit lanes for "condition met" vs "maximum wait". The escape hatch (creator replied, posted, ghosted) is on the map, not hidden in message settings. <a href="https://docs.customer.io/get-started/send-messages/" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Attentive · Exit rules</span></div><img loading="lazy" src="img/attentive-07.png" alt="Attentive journey exit rules"></div>
+      <figcaption><span class="badge real">real ui</span>The journey-level exit panel: nested Any/All groups listing everything that removes someone ("has added to cart since starting", "has purchased in the last 7 days"). One place that answers "why will this creator NOT get the next nudge". <a href="https://help.attentive.com/hc/en-us/articles/46432895619860-Exit-Rules-for-Journeys" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>OneSignal · Exit rules</span></div><img loading="lazy" src="img/onesignal-05.png" alt="OneSignal exit rules kill switch"></div>
+      <figcaption><span class="badge real">real ui</span>The kill-switch panel: exact events, segments and conditions that stop the messages, plus a tag stamped on anyone who exits early, so departures are queryable afterward. <a href="https://documentation.onesignal.com/docs/en/journeys-settings" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> every automation's page opens with its Postscript-style sentence stack: fires when, but only if, held while, canceled by. The "canceled by" list is where the intelligence layer becomes visible: away-until-Wednesday, already replied, consent missing, thread owned by Katie. That list is precisely what was missing when the vacationing creator still got her 3-day reminder.</div>
+</div>
+
+<!-- ============ F3 ============ -->
+<div class="pattern" id="f3">
+  <h3><span class="pnum">3</span>The registry: everything armed, in one table</h3>
+  <div class="who">Klaviyo · HubSpot · Attentive · ActiveCampaign</div>
+  <p class="why">The Aug 17 to-do was literally this: <span class="q">"a live dashboard of every automation"</span>. The field ships it as a filterable table where every row wears its trigger sentence and an unmissable on/off state. The Benable twist no vendor ships: our automations vary per brand, so the registry needs a second axis.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Flows list</span></div><img loading="lazy" src="img/klaviyo-07.jpg" alt="Klaviyo flows list"></div>
+      <figcaption><span class="badge real">real ui</span>Every flow as one row: name, its trigger restated as a subtitle ("Checkout Started", "Starts 0 weeks before Birthday, repeats annually"), channel icons, and a three-state Live / Manual / Draft badge. The inventory of everything that can message a person. <a href="https://help.klaviyo.com/hc/en-us/articles/12930413372187" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>HubSpot · Workflows index</span></div><img loading="lazy" src="img/hubspot-wf-03.png" alt="HubSpot workflows index"></div>
+      <figcaption><span class="badge real">real ui</span>The index with saved-view tabs including a counted <b>"Needs review"</b> tab, an On/Off column with green dots, and per-row actions. Auditing which flows are armed is a table scan, and flipping one off never requires entering the builder. <a href="https://knowledge.hubspot.com/workflows/organize-your-workflows" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Attentive · Journeys list</span></div><img loading="lazy" src="img/attentive-04.png" alt="Attentive journeys list with scheduled badge"></div>
+      <figcaption><span class="badge real">real ui</span>The status pill itself carries a calendar badge; hovering reveals the exact activation window ("will be activated on Aug 14, 03:30 PM and deactivated Aug 16"). Time-boxed automations announce their own schedule. <a href="https://help.attentive.com/hc/en-us/articles/19946491919764-Schedule-a-journey" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ActiveCampaign · Picker</span></div><img loading="lazy" src="img/activecampaign-04.png" alt="ActiveCampaign automations with flow thumbnails"></div>
+      <figcaption><span class="badge real">real ui</span>Each automation rendered as a tiny thumbnail of its own flow diagram next to its name and category chip. A registry you can visually recognize, and chaining ("this flow starts that one") becomes a checkbox. <a href="https://slickbusiness.co/activecampaign-automations-updates/" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>ActiveCampaign · Map</span></div><img loading="lazy" src="img/activecampaign-06.png" alt="ActiveCampaign automations map"></div>
+      <figcaption><span class="badge render">render</span>The meta-map: whole automations as single nodes, edges meaning "this flow enrolls people into that one". The top layer showing how re-invite, reminder and wrap-up flows hand creators to each other. Their detail shelf adds a STARTS / IS STARTED BY / ENDS grammar with a live in-flight count. <a href="https://www.activecampaign.com/blog/announcing-automations-map" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="mockwrap">
+    <div class="mock">
+      <div class="m-head">The Benable twist: automations × brands</div>
+      <div class="m-body">
+        <table class="matrix">
+          <tr><th>Automation</th><th>MD Solar</th><th>28 Litsea</th><th>Celeste</th><th>Trilogy</th></tr>
+          <tr><td>Portal invite text</td><td><span class="cell on">●</span></td><td><span class="cell on">●</span></td><td><span class="cell on">●</span></td><td><span class="cell paused">◐</span></td></tr>
+          <tr><td>Product shipped</td><td><span class="cell on">●</span></td><td><span class="cell on">●</span></td><td><span class="cell on">●</span></td><td><span class="cell off">○</span></td></tr>
+          <tr><td>Content reminder 5d/3d</td><td><span class="cell on">●</span></td><td><span class="cell err">!</span></td><td><span class="cell on">●</span></td><td><span class="cell off">○</span></td></tr>
+          <tr><td>Overdue nudge</td><td><span class="cell on">●</span></td><td><span class="cell err">!</span></td><td><span class="cell on">●</span></td><td><span class="cell off">○</span></td></tr>
+          <tr><td>Re-invite window</td><td><span class="cell paused">◐</span></td><td><span class="cell off">○</span></td><td><span class="cell on">●</span></td><td><span class="cell off">○</span></td></tr>
+        </table>
+        <div style="font-size:11px; color:var(--ink-med); margin-top:8px;">● live &nbsp; ◐ paused &nbsp; ○ off &nbsp; <span style="color:#E82C3F;font-weight:700;">!</span> live but zero sends in 7 days</div>
+      </div>
+    </div>
+    <p class="mcap"><span class="badge reco">recreation</span>The one view no vendor ships, because no vendor has our shape: the same automation can be live for one brand and silently dead for another. The red <b>!</b> cell is a health state, not a config state: "this says live, but nothing has fired in 7 days for an active brand." That cell is the 28 Litsea bug, caught by a table instead of by Katie's memory.</p>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the registry is this matrix. Rows are intents, columns are active brands, cells are live / paused / off / suspicious. Click a cell to see that brand's version of the flow and its last 10 sends. Row click gives the Klaviyo trigger sentence and the ActiveCampaign-style STARTS / STARTED BY / ENDS links. Katie's pause action from the Aug 18 call ("stop this onboarding text for this population") is a cell toggle here.</div>
+</div>
+
+<!-- ============ F4 ============ -->
+<div class="pattern" id="f4">
+  <h3><span class="pnum">4</span>What fires next: the queue, the calendar, the countdown</h3>
+  <div class="who">Klaviyo · Customer.io · Buffer · Postscript · OneSignal</div>
+  <p class="why">The flow map answers "how does it work"; this view answers <span class="q">"what exactly goes out, to whom, at what time"</span>. Katie paused the invite text precisely because she could not see its fire times. The field has three shapes for it: the per-recipient table, the per-person countdown roster, and the calendar.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Recipients</span></div><img loading="lazy" src="img/klaviyo-03.jpg" alt="Klaviyo recipient queue with cancel send"></div>
+      <figcaption><span class="badge real">real ui</span>The money shot: every queued message as a row with the person, the exact "Scheduled For" timestamp, and per-row <b>Preview / Send Now / Cancel Send</b>, plus a counted "Needs Review" bucket. A queue Katie can actually intervene in, one message at a time. <a href="https://help.klaviyo.com/hc/en-us/articles/115002774932" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Customer.io · Journeys</span></div><img loading="lazy" src="img/customerio-05.png" alt="Customer.io roster with next step countdown"></div>
+      <figcaption><span class="badge real">real ui</span>The minimum viable queue: everyone currently inside an automation, one row each, with a <b>NEXT STEP countdown</b> column ("In a day"). Who is in the flow and when the next message is due, without opening the canvas. <a href="https://docs.customer.io/journeys/campaign-metrics/" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Buffer · Calendar</span></div><img loading="lazy" src="img/buffer-16.jpg" alt="Buffer week calendar of scheduled posts"></div>
+      <figcaption><span class="badge real">real ui</span>Everything scheduled, placed at its true hour on a week grid, copy preview readable in the cell. The time-of-day audit: three texts landing on one creator in the same lunchtime window is visible before it happens. <a href="https://support.buffer.com/en-us/articles/how-to-use-buffers-calendar-feature-FSSKbH32DN" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Postscript · Delay</span></div><img loading="lazy" src="img/postscript-06.png" alt="Postscript delay until date with timezone toggle"></div>
+      <figcaption><span class="badge real">real ui</span>The wait node states its resolved moment in plain words ("Until 3/2/2026 at 11:11am EST") with a per-recipient-timezone toggle. "When will this actually fire, in whose clock" answered on the node itself. <a href="https://help.postscript.io/en/articles/13564036-message-scheduling-in-automation-flow" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>OneSignal · Time window</span></div><img loading="lazy" src="img/onesignal-03.png" alt="OneSignal time window node"></div>
+      <figcaption><span class="badge real">real ui</span>Send timing as a first-class Time Window node in the path: "Fri, 8:00 AM to 6:00 PM, user's timezone". Our quiet-hours rule, drawn on the map instead of buried in middleware. <a href="https://documentation.onesignal.com/docs/en/journeys-examples" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> a "Next 24 hours" tab: Klaviyo's table (creator, intent, campaign, fire time, hold and cancel per row) grouped by hour, with Buffer's week calendar as the zoomed-out view for wave planning (re-invite blasts, launch days). Every row links to the ghost bubble in that creator's thread. Quiet hours render as shaded bands on the calendar so held night sends are visibly parked, not missing.</div>
+</div>
+
+<!-- ============ F5 ============ -->
+<div class="pattern" id="f5">
+  <h3><span class="pnum">5</span>Counts on the map: the canvas as the monitor</h3>
+  <div class="who">Klaviyo · Intercom Series · Attentive · Braze · n8n</div>
+  <p class="why">Once numbers live on the nodes, the same drawing that defines the flow becomes the dashboard that watches it. This is Brian's "surfacing abnormalities" rendered spatially: creators piling up at a wait step, or a branch quietly sending zero.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Analytics mode</span></div><img loading="lazy" src="img/klaviyo-04.png" alt="Klaviyo canvas analytics overlay"></div>
+      <figcaption><span class="badge real">real ui</span>The same canvas in analytics mode: the split shows Waiting and Entered percentages, each branch card shows how many entered it, each message node its own stats block. Where people pile up or leak out, in place. <a href="https://help.klaviyo.com/hc/en-us/articles/115003872171" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Series</span></div><img loading="lazy" src="img/intercom-series-01.png" alt="Intercom Series live counters"></div>
+      <figcaption><span class="badge real">real ui</span>Live throughput under every node (443 matched, 237 sent, 27 still waiting) with edge labels naming the advancing event (WHEN SENT, WHEN PASSED), and a funnel strip on top (Started, Finished, Disengaged, Exited). <a href="https://www.intercom.com/help/en/articles/4425207-series-explained" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Attentive · Performance</span></div><img loading="lazy" src="img/attentive-03.png" alt="Attentive journey performance counts on edges"></div>
+      <figcaption><span class="badge real">real ui</span>Counts on the branch edges themselves ("has started checkout: 825 subscribers" vs "Else: 2,904"), plus an honest "exited due to entry frequency: 334" in the side panel. The rate-limit's cost is a visible number. <a href="https://help.attentive.com/hc/en-us/articles/360051987231-View-a-journey-s-performance" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Braze · Canvas</span></div><img loading="lazy" src="img/braze-03.png" alt="Braze checked matched not matched"></div>
+      <figcaption><span class="badge real">real ui</span>Condition nodes report Checked / Matched / Not Matched counts and annotate "this audience group will exit the Canvas". How many creators a rule filtered out, and where people silently leave, is explicit. <a href="https://www.braze.com/docs/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>n8n · Insights</span></div><img loading="lazy" src="img/n8n-07.png" alt="n8n insights ranked health table"></div>
+      <figcaption><span class="badge real">real ui</span>The rollup: all automations ranked by runs, failures and failure rate with a trend chart. The flow that is quietly erroring at scale surfaces here before anyone complains. <a href="https://docs.n8n.io/changelog/release-notes-1.x" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the flow map gets a stats overlay toggle: creators currently waiting at each node, sends per node this week, held count per node (the agent's suppressions made visible), and a red ring on any node whose 7-day sends dropped to zero while its brand stayed active. The n8n-style ranked health table is the home-page abnormality strip's drill-down.</div>
+</div>
+
+<!-- ============ F6 ============ -->
+<div class="pattern" id="f6">
+  <h3><span class="pnum">6</span>One creator's path, including her future</h3>
+  <div class="who">Customer.io · HubSpot · n8n</div>
+  <p class="why">Katie thinks in creators, not cohorts: <span class="q">"which messages will the agent send this person, and when?"</span> The field shows the past well. The piece worth inventing is showing the future inside the thread itself.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Customer.io · Person</span></div><img loading="lazy" src="img/customerio-04.png" alt="Customer.io per person journey ledger"></div>
+      <figcaption><span class="badge real">real ui</span>The per-person play-by-play: a timestamped ledger of exactly which branch she took ("sent down true path based on 2 conditions"), with a one-click <b>"End this journey"</b> kill switch for this one person. <a href="https://docs.customer.io/journeys/send/campaigns/journeys/" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>HubSpot · Enrollment</span></div><img loading="lazy" src="img/hubspot-wf-04.png" alt="HubSpot enrollment history"></div>
+      <figcaption><span class="badge real">real ui</span>Per-person event trail with green Success and red Error dots, a <b>"Why did this enroll?"</b> explainer, and a link to the workflow version in force at the time of the event. "What did we send her, and why" answered in one pane. <a href="https://knowledge.hubspot.com/workflows/understand-your-workflow-details-page" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>n8n · Executions</span></div><img loading="lazy" src="img/n8n-05.png" alt="n8n execution replay on canvas"></div>
+      <figcaption><span class="badge real">real ui</span>Any single run replayed on the map: green wires with item counts stopping at the red failed node. "Why didn't creator X get her text" is answered by clicking that run, not by reading logs. <a href="https://docs.n8n.io/courses/level-two/chapter-4/" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="mockwrap">
+    <div class="mock">
+      <div class="m-head">Lauren · MD Solar Sciences · content due Fri</div>
+      <div class="m-body">
+        <div class="sms in">Just got the package, so excited to try!!</div>
+        <div class="sms out">Yay! Can't wait to see what you create. Content is due Friday, you've got this!</div>
+        <div class="daybreak">Queued next</div>
+        <div class="sms ghost">Hi Lauren! Friendly nudge, your MD Solar content is due in 3 days. Need anything from us?</div>
+        <div class="ghostmeta">fires <b>Wed 9:00am her time</b> · unless she posts first · <a href="#">hold</a> · <a href="#">edit</a></div>
+        <div class="sms ghost">Great news, your Celeste product is on the way too!</div>
+        <div class="ghostmeta">fires <b>on delivery scan</b> · agent will adapt copy to thread · <a href="#">hold</a></div>
+      </div>
+    </div>
+    <p class="mcap"><span class="badge reco">recreation</span>The invention worth prototyping: <b>ghost bubbles</b>. The SMS thread shows its own future at the bottom, dimmed and dashed: every queued message for this creator, its fire time, the condition that cancels it, and hold/edit per bubble. The "los" to Lauren fix becomes visible too: update the name and watch the queued bubbles rewrite themselves. This slots directly into Nisarg's new admin first tab (stage history + SMS thread side by side).</p>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> every creator's thread ends with its ghost bubbles, and the flag card links to them ("this draft, plus 2 more queued behind it"). The per-person ledger reuses HubSpot's success/error dots and "why did this fire" explainer, sourced from the same audit log the send API already writes.</div>
+</div>
+
+<!-- ============ F7 ============ -->
+<div class="pattern" id="f7">
+  <h3><span class="pnum">7</span>Rehearsal: prove it before it's armed</h3>
+  <div class="who">Klaviyo · HubSpot · Twilio Studio · Intercom · n8n</div>
+  <p class="why">The counterpart of shadow mode, for flows: pick a person, run them through, watch the route light up. Every serious system ships a version of this, and it is what turns "I think this automation is right" into "I watched it be right".</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Klaviyo · Preview</span></div><img loading="lazy" src="img/klaviyo-06.png" alt="Klaviyo preview as person"></div>
+      <figcaption><span class="badge real">real ui</span>Preview as a specific person: their exact route through the flow highlights in blue, other branches grey out, and the panel proves which condition matched and why ("$value is 300"). <a href="https://help.klaviyo.com/hc/en-us/articles/115003872171" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>HubSpot · Test</span></div><img loading="lazy" src="img/hubspot-wf-06.png" alt="HubSpot test enrollment criteria"></div>
+      <figcaption><span class="badge real">real ui</span>Dry-run a real contact against entry criteria: each condition group outlines green or red with per-value check and x marks. "Would we text this person?" answered before going live. <a href="https://knowledge.hubspot.com/workflows/test-your-workflow" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Twilio Studio</span></div><img loading="lazy" src="img/twilio-studio-07.png" alt="Twilio Studio test users allowlist"></div>
+      <figcaption><span class="badge real">real ui</span>A built-in <b>TEST USERS</b> allowlist: the draft flow fires only at designated phone numbers before publishing. Katie trials the whole sequence on her own phone before a creator can enter it. <a href="https://www.twilio.com/docs/studio/user-guide" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Entry rules</span></div><img loading="lazy" src="img/intercom-series-03.png" alt="Intercom entry rules audience preview"></div>
+      <figcaption><span class="badge real">real ui</span>Every trigger definition paired with a live "who matches right now" preview, pinnable to your own test account. The audience is a fact you check, not a hope. <a href="https://www.intercom.com/help/en/articles/8780861-series-faqs" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>n8n · Condition</span></div><img loading="lazy" src="img/n8n-04.png" alt="n8n live branch split preview"></div>
+      <figcaption><span class="badge real">real ui</span>The moment a condition is edited, the live split shows (14 items true, 16 false) with the actual rows landing in each branch. Editing a rule and seeing its audience are the same act. <a href="https://docs.n8n.io/courses/level-one/chapter-5/" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the playbook test box from Part 1, extended to flows: pick a real creator, watch her route light up on the map with the matched conditions proven, and a standing test-numbers allowlist (Katie's and Julia's phones) that any draft flow can fire at. Editing a criteria row instantly shows "would match 41 creators across 3 brands".</div>
+</div>
+
+<!-- ============ SYNTHESIS ============ -->
+<div class="rules" id="frules">
+  <div class="label">HOW TO VISUALIZE IT</div>
+  <h3 style="margin-bottom:4px;">The answer to "how do we best visualize the pre-scheduled?"</h3>
+  <ol>
+    <li><b>Build four linked views, not one screen.</b> Registry matrix (what exists, per brand), the next-24h queue plus calendar (what fires), the flow map (how it chains), and ghost bubbles (what is coming for this creator). Every view links into the others: matrix cell to map node to queue rows to thread bubbles.</li>
+    <li><b>The canvas is generated, never hand-drawn.</b> This is the reconciliation with the Aug 18 no-DSL decision: Brian's dependency graph and the Rails triggers are the source of truth, and the map is rendered from them, like ActiveCampaign's auto-generated Automations Map or n8n's execution view. If the map can drift from reality, it will, and Katie will stop trusting it.</li>
+    <li><b>Low-code look, read-heavy, control-light.</b> Katie's edit surface on the map is parameters: pause and resume per automation per brand, timing changes, holds, audiences. Structure changes come from agents and Brian. That is the exact split from the call: she gets "stop this onboarding text for this population" without waiting on anyone, and nobody hand-wires spaghetti.</li>
+    <li><b>Nodes are intents, not copy.</b> The agent personalizes wording per thread, so the map shows "3-day reminder" with the base copy's first line, and the per-creator adaptation lives in the ghost bubble. Held counts on nodes make the intelligence layer's suppressions visible instead of spooky.</li>
+    <li><b>Waits, exits and quiet hours are drawn, not implied.</b> Wait-until nodes with escape lanes (Customer.io), exit rules in one panel (Attentive), time windows as nodes (OneSignal). Everything that delays or cancels a message is on the picture.</li>
+    <li><b>Numbers live on the drawing.</b> Waiting, sent and held per node; counts on branch edges; a red ring for "live but silent 7 days". The map doubles as the abnormality monitor Nisarg called the most important part.</li>
+    <li><b>Diffs are first-class.</b> Intercom's purple tint on changed blocks becomes essential once agents edit flows: Katie opens the map and sees what the machine changed since she last looked, with a changelog per automation.</li>
+    <li><b>Rehearsal beats review.</b> Preview-as-creator with the route lit up, live audience counts on every criteria edit, and a test-numbers allowlist. No flow arms without having been walked.</li>
+  </ol>
+</div>
+
+<div class="lean">
+  <strong>Where I would start.</strong> Build in the order the views pay off: the <strong>registry matrix</strong> and the <strong>next-24h queue</strong> first. Both are renderings of data Rails already has, both would have caught real bugs from the last two weeks (28 Litsea's dead reminders, the instant invite text), and neither depends on Brian's system existing yet. Then <strong>ghost bubbles</strong>, which ride on Nisarg's new admin creator tab and make the whole system feel trustworthy per creator. The <strong>generated flow map</strong> comes last, once Brian's dependency graph exists to generate it from, and arrives with counts-on-nodes and the purple diff tint on day one. Worth bringing to the Brian kickoff as the visualization roadmap, alongside <a href="index.html">Part 1</a> for the conversation side.
+</div>
+
+<p style="font-size:12px; color:var(--ink-subtle); margin-top:30px;">Sources: all screenshots © their respective vendors, collected Aug 25, 2026 from public sites, docs and help centers for internal design research. Full metadata for all 84 collected shots in data2.json.</p>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Watching all the screens: Katie command center UI study</title>
+<link rel="stylesheet" href="study.css">
+<style>
+  /* ---- study-specific additions ---- */
+  .pattern { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:24px 26px; margin-bottom:26px; }
+  .pattern .pnum { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px;
+    border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:800; margin-right:10px; flex:0 0 auto; }
+  .pattern h3 { font-size:19px; display:flex; align-items:center; margin-bottom:6px; }
+  .pattern .who { font-size:13px; color:var(--ink-med); margin-bottom:14px; }
+  .pattern .why { font-size:14px; line-height:1.6; margin-bottom:16px; max-width:760px; }
+  .pattern .why .q { color:#5B3FD1; font-weight:600; }
+
+  .shots { display:flex; gap:16px; flex-wrap:wrap; align-items:flex-start; margin-bottom:16px; }
+  .shot { flex:1 1 340px; max-width:660px; }
+  .shot.narrow { flex:0 1 300px; }
+  .shot .frame { border:1px solid #e3e3e6; border-radius:12px; overflow:hidden; background:#fff;
+    box-shadow:0 6px 18px rgba(0,0,0,.06); }
+  .shot .bar { display:flex; align-items:center; gap:5px; background:#f0eef4; padding:7px 10px; }
+  .shot .bar i { width:8px; height:8px; border-radius:50%; background:#d9d5e0; }
+  .shot .bar span { font-size:11px; color:var(--ink-med); font-weight:600; margin-left:6px; }
+  .shot img { display:block; width:100%; }
+  .shot figcaption { font-size:12.5px; color:var(--ink-med); margin-top:8px; line-height:1.5; }
+  .shot figcaption a { color:var(--accent); text-decoration:none; font-weight:600; }
+  .badge { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    border-radius:5px; padding:2px 7px; vertical-align:1px; margin-right:6px; }
+  .badge.real { background:#EFFBF7; color:#1a7a44; }
+  .badge.render { background:#FFF0E0; color:#9a4a15; }
+
+  .benable-map { background:var(--accent-bg); border:1px solid var(--accent-soft); border-radius:12px;
+    padding:13px 16px; font-size:13.5px; line-height:1.6; max-width:820px; }
+  .benable-map b { color:#5B3FD1; }
+
+  .toc { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 30px; }
+  .toc a { font-size:12px; font-weight:700; color:var(--ink-med); text-decoration:none;
+    border:1px solid #e3e3e6; background:#fff; border-radius:999px; padding:6px 12px; }
+  .toc a:hover { color:var(--accent); border-color:var(--accent); }
+
+  .brief { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .brief ul { margin:10px 0 0 18px; font-size:14px; line-height:1.7; color:#3a3a3c; }
+  .method { font-size:12.5px; color:var(--ink-med); background:#fff; border:1px dashed #d9d5e0; border-radius:12px;
+    padding:10px 14px; margin-bottom:30px; max-width:900px; }
+
+  .rules { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .rules ol { margin:12px 0 0 20px; font-size:14px; line-height:1.75; color:#3a3a3c; max-width:860px; }
+  .rules li { margin-bottom:8px; }
+  .rules b { color:var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="crumb">KATIE COMMAND CENTER · UI FIELD STUDY · AUG 25, 2026</div>
+<h2>Watching all the screens</h2>
+<p class="subtitle" style="max-width:820px;">How ten AI-supervision inboxes actually look: 48 verified screenshots from Missive, Gorgias, Front, Chatwoot, Podium, Gladly, Intercom, Zendesk, Kustomer and Ada, organized by the pattern Katie needs, not by vendor. Tony's image from the 10x call: <b>"Katie is just watching all the screens."</b> This is what those screens look like in the wild.</p>
+
+<div class="lean" style="margin:0 0 22px;">
+  <strong>This study has two parts.</strong> This page covers supervising the agent in conversation (escalation, review, takeover). <a href="flows.html" style="color:var(--accent); font-weight:700;">Part 2: The scheduled and the conditional</a> covers seeing every SMS that has not fired yet: the flow canvases, registries, queues and per-creator timelines, in 34 more shots. Companion deliverable: the <a href="https://juliabenable.github.io/sms-channel-audit-1/" style="color:var(--accent); font-weight:700;">Creator SMS Channel Audit</a>.
+</div>
+
+<div class="toc">
+  <a href="#p1">1 · The queue</a>
+  <a href="#p2">2 · Draft review</a>
+  <a href="#p3">3 · Why escalated</a>
+  <a href="#p4">4 · Who owns it</a>
+  <a href="#p5">5 · Take over fast</a>
+  <a href="#p6">6 · Context rail</a>
+  <a href="#p7">7 · Readable rules</a>
+  <a href="#p8">8 · Where flags land</a>
+  <a href="#p9">9 · Clocks</a>
+  <a href="#p10">10 · Scoreboard</a>
+  <a href="#p11">11 · Teaching loop</a>
+  <a href="#rules">Rules of the field</a>
+</div>
+
+<div class="brief">
+  <div class="label">WHAT WE ARE SHOPPING FOR</div>
+  <p style="font-size:14px; max-width:800px;">The Aug 18 call fixed the requirements. Katie needs a home page that is a prioritized to-do across all buckets ("here's the drafts that were flagged... the orders... the content that needs to be reviewed... as opposed to a Slack alert"). Flags must arrive with a pre-written draft. Ownership must be obvious. She must be able to take a thread over, and give it back. And per Brian, the hard problem is the bird's eye view: <span style="color:#5B3FD1;font-weight:600;">"how do we give Katie a bird's eye view of the millions of decisions... almost like a little stock trading dashboard."</span> Every screenshot below is evidence for one of those needs.</p>
+</div>
+
+<div class="method">
+  <b>Method note.</b> All images were downloaded Aug 25, 2026 from each vendor's own site, docs or help center, then verified by eye; captions describe only what is visible in the shot and link to the source page. <span class="badge real">real ui</span> = a genuine product screenshot from docs or the live app. <span class="badge render">render</span> = the vendor's own stylized marketing recreation of its UI (faithful, but staged). 79 shots were collected; the 48 strongest are shown.
+</div>
+
+<!-- ============ 1 ============ -->
+<div class="pattern" id="p1">
+  <h3><span class="pnum">1</span>The queue that says what the AI needs</h3>
+  <div class="who">Podium · Zendesk · Missive · Gladly</div>
+  <p class="why">Katie today: <span class="q">"I have to go review every single individual Slack channel... especially overnight or over the weekend... sometimes we miss them."</span> The field's answer is a queue where the rows themselves announce the machine's state, and stuck conversations form their own bucket instead of hiding among handled ones.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Podium · Inbox</span></div><img loading="lazy" src="img/podium-05.png" alt="Podium inbox with AI Needs Help filter"></div>
+      <figcaption><span class="badge real">real ui</span>The inbox is split by ownership: All / Unassigned / Assigned to You / <b>Assigned to AI</b> / <b>AI Needs Help</b>. Every escalated row wears a blue "AI needs help" pill, and the filtered "Escalated" view is the triage queue. The pill auto-clears when the conversation closes, a human replies, or the AI is unassigned. <a href="https://www.podium.com/whats-new/25-11" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · Agent Home</span></div><img loading="lazy" src="img/zendesk-01.png" alt="Zendesk Agent Home with AI state chips"></div>
+      <figcaption><span class="badge real">real ui</span>Each row carries a machine-state chip ("Review suggestions", "Working on it", "Waiting for reply") plus a color-coded time badge (red -5m, amber 30m, green 1h). The row alone tells you what the AI needs from you and how urgently. <a href="https://support.zendesk.com/hc/en-us/articles/5064623131418" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · AI Sessions</span></div><img loading="lazy" src="img/gladly-04.png" alt="Gladly AI sessions table with outcome badges"></div>
+      <figcaption><span class="badge real">real ui</span>Every AI-handled conversation in one table with a three-state outcome badge: <b>resolved / handed off / did not respond</b>, filterable by channel and agent version. This is the "what did the AI do overnight" review, as one scannable table. <a href="https://help.gladly.com/docs/sidekick-conversations-page-overview" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Missive · Tasks</span></div><img loading="lazy" src="img/missive-08.png" alt="Missive tasks grouped by assignee"></div>
+      <figcaption><span class="badge render">render</span>The to-do view grouped per owner (You 5, Elise 3, Etienne 5), every row wearing a due pill (overdue red, Today amber) and a team chip. Workload balance and slippage readable in one scroll, which is exactly the delegation-to-Des shape. <a href="https://missiveapp.com" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the home queue is bucket tabs (Flagged texts · Orders · Content review · Overnight ledger) where each row carries the agent's state chip and a clock, plus an ownership filter cloned from Podium: Assigned to agent / Assigned to Katie / Assigned to Des / Agent needs help. The overnight ledger is Gladly's table with our three outcomes: sent / flagged / held.</div>
+</div>
+
+<!-- ============ 2 ============ -->
+<div class="pattern" id="p2">
+  <h3><span class="pnum">2</span>The draft review ritual</h3>
+  <div class="who">Zendesk · Intercom · Missive · Chatwoot</div>
+  <p class="why">The Aug 18 decision: <span class="q">"if they send a flag of, I'm not sure I should be sending this SMS. Here's what I've drafted."</span> The converged industry pattern is a draft in a clearly bounded panel with exactly two verbs, and keyboard-speed approval.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · Auto assist</span></div><img loading="lazy" src="img/zendesk-02.png" alt="Zendesk auto assist draft with Edit and Approve"></div>
+      <figcaption><span class="badge real">real ui</span>The AI draft sits in an "Auto assist" panel inside the real ticket, with exactly two buttons: <b>Edit</b> and <b>Approve</b>. Full context around it: intent label in the header, an SLA badge, tags, the customer panel. <a href="https://support.zendesk.com/hc/en-us/articles/9945148867866" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · Auto assist</span></div><img loading="lazy" src="img/zendesk-03.png" alt="Zendesk draft with why popover and action chips"></div>
+      <figcaption><span class="badge real">real ui</span>The draft carries a "why this suggestion" popover citing its sources, and its side effects ("Action: Return order #262", "Action: Change Status to Solved") are separate labeled chips. You approve the reply and its consequences knowingly. <a href="https://support.zendesk.com/hc/en-us/articles/9945148867866" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Copilot</span></div><img loading="lazy" src="img/intercom-03.png" alt="Intercom suggestion bar with Tab and Esc"></div>
+      <figcaption><span class="badge real">real ui</span>The suggestion bar between the question and the composer: <b>Tab</b> inserts, <b>Esc</b> rejects. One key per decision is what makes a 40-draft morning survivable. <a href="https://www.intercom.com/help/en/articles/8587194-how-to-use-copilot" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Missive · Drafts</span></div><img loading="lazy" src="img/missive-03.png" alt="Missive draft card in thread with Discard and Open"></div>
+      <figcaption><span class="badge render">render</span>The draft as a card pinned inside the thread ("You created a draft") with Discard / Open, plus an at-mention line: "Jessica, can you review and send the draft above?" Review-and-send as a one-click ritual, in place. <a href="https://missiveapp.com/features" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Chatwoot · Copilot</span></div><img loading="lazy" src="img/chatwoot-04.png" alt="Chatwoot Captain draft with Use this button"></div>
+      <figcaption><span class="badge real">real ui</span>Captain stages its draft in a side pane behind an explicit <b>"Use this"</b> button; nothing reaches the customer until a human promotes it into the composer. <a href="https://www.chatwoot.com/hc/user-guide/articles/1738110272-how-to-use-captain-copilot" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the flag card is the SMS bubble as it would send, two verbs (Approve · Edit), Tab/Esc keyboard flow, and any side effect (deadline moved, reminder suppressed, payment mentioned) as its own amber chip that Katie approves with the text, never hidden inside it.</div>
+</div>
+
+<!-- ============ 3 ============ -->
+<div class="pattern" id="p3">
+  <h3><span class="pnum">3</span>"Why I escalated," said in the thread</h3>
+  <div class="who">Gladly · Gorgias · Front</div>
+  <p class="why">A flag without a reason makes Katie re-read the whole conversation. The best systems make the AI publish its escalation as a legible object: the reason, the suspect content, and a one-line summary. And crucially, giving up is a visible event, never silence.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Handoff</span></div><img loading="lazy" src="img/gladly-02.png" alt="Gladly handoff reason with flagged sentences"></div>
+      <figcaption><span class="badge real">real ui</span>The escalation in three visible pieces: (A) <b>Handoff reason</b> naming the exact suspect sentences ("These sentences may contain factual inconsistencies"), (B) the holding message the customer saw, (C) a one-line <b>Handoff summary</b>. Judgeable in five seconds. <a href="https://help.gladly.com/docs/sidekick-conversations-page-overview" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gorgias · Handover</span></div><img loading="lazy" src="img/gorgias-04.jpg" alt="Gorgias handover summary card"></div>
+      <figcaption><span class="badge render">render</span>An inline handover card with the summary, a sentiment badge, and the explicit reason rule that fired ("the customer mentioned a handover topic"), plus a "Show AI Agent reasoning" expander on the message above. <a href="https://updates.gorgias.com/publications/helpdesk-2-0-is-live" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Review trace</span></div><img loading="lazy" src="img/gladly-03.png" alt="Gladly conversation review decision chain"></div>
+      <figcaption><span class="badge real">real ui</span>The full decision chain per message: which Guide was used, which rules were evaluated ("full name is verified" / "is not verified"), which quality checks fired, ending in "Gladly handed off the conversation due to flagged quality checks." Auditing a decision, not re-reading a thread. <a href="https://help.gladly.com/docs/sidekick-conversations-page-overview" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · Autopilot</span></div><img loading="lazy" src="img/front-05.png" alt="Front AI give-up event in thread"></div>
+      <figcaption><span class="badge real">real ui</span>The give-up state as a first-class event in the thread: <b>"AI could not generate an informative response."</b> The AI declining is information, stamped where the next human will look. <a href="https://help.front.com/en/articles/3737408" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> every flag card leads with a reason line written by the checker agent ("creator sounds frustrated", "mentions a product problem", "can't verify the deadline I want to reference"), the specific suspect sentence highlighted inside the draft, and a one-line summary. This is the UI face of the checker agent from the kickoff brief.</div>
+</div>
+
+<!-- ============ 4 ============ -->
+<div class="pattern" id="p4">
+  <h3><span class="pnum">4</span>Whose thread is it right now</h3>
+  <div class="who">Front · Zendesk · Chatwoot · Kustomer · Podium</div>
+  <p class="why">Katie's fear is double-texting a creator the agent is mid-conversation with, or assuming the agent has something she actually owns. Every serious system makes ownership an explicit, visible state with a one-click takeover.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · Autopilot</span></div><img loading="lazy" src="img/front-03.png" alt="Front Autopilot handling banner with Step in"></div>
+      <figcaption><span class="badge real">real ui</span>A persistent lavender banner: <b>"Autopilot is handling this conversation"</b> with a one-click <b>Step in</b>. Clicking it warns that Autopilot will stop replying, then moves the pending draft into the composer. Ownership explicit and reversible. <a href="https://help.front.com/en/articles/3737408" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · AI ticket</span></div><img loading="lazy" src="img/zendesk-04.png" alt="Zendesk read-only AI agent ticket"></div>
+      <figcaption><span class="badge real">real ui</span>An AI-owned ticket is visibly different: bot icon on the tab, purple "AI agent" badge, greyed-out read-only fields, and a banner: "This is an AI agent ticket and can't be edited." Escalation flips it to a normal editable ticket. <a href="https://support.zendesk.com/hc/en-us/articles/9204149016346" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Chatwoot · Thread</span></div><img loading="lazy" src="img/chatwoot-03.png" alt="Chatwoot system event chips in thread"></div>
+      <figcaption><span class="badge real">real ui</span>Every assignment, takeover and priority change is an inline grey system chip in the thread itself ("Mathew M self-assigned this conversation", "set the priority to high"), with a yellow private note beside the messages. Ownership history reads in sequence with the conversation. <a href="https://www.chatwoot.com/hc/user-guide/articles/1738110272-how-to-use-captain-copilot" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Kustomer · Thread</span></div><img loading="lazy" src="img/kustomer-02.jpg" alt="Kustomer ownership change system lines"></div>
+      <figcaption><span class="badge real">real ui</span>"Business rules assigned this conversation to AI Agent", then the AI's own message: "I've handed you off to a human agent." Both directions of the handoff printed as system lines. <a href="https://www.kustomer.com/resources/blog/enhanced-hitl-handoffs/" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Podium · Settings</span></div><img loading="lazy" src="img/podium-03.png" alt="Podium assignment policy picker"></div>
+      <figcaption><span class="badge real">real ui</span>Takeover policy as a three-option picker with one-sentence consequences: always take over / only if unowned / never. The ownership rule is a readable choice, not an implicit behavior. <a href="https://www.podium.com/whats-new/25-5" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> each thread header states its owner (Agent · Katie · Des · Suppressed) with Front's step-in banner when the agent holds it, Zendesk's visual read-only treatment while it does, and Chatwoot's inline system chips as the permanent record. Stepping in pauses the agent's queued sends for that creator automatically.</div>
+</div>
+
+<!-- ============ 5 ============ -->
+<div class="pattern" id="p5">
+  <h3><span class="pnum">5</span>Take over without re-reading</h3>
+  <div class="who">Ada · Front · Gladly · Kustomer</div>
+  <p class="why">The cost of an escalation is the read-in. The field's best trick is making the AI write the read-in for you: a living summary, the step trail of what already happened, and on close, a record of who did what.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · Summary</span></div><img loading="lazy" src="img/front-08.png" alt="Front living AI summary strip and context panel"></div>
+      <figcaption><span class="badge real">real ui</span>A one-line AI summary pinned in the thread header, expanding into a verb-first event timeline (Reported, Thanked, Mentioned, Offered, Provided) in the "Conversation context" panel. It re-writes itself with every new message. Mid-flight takeover without archaeology. <a href="https://help.front.com/en/articles/1164608" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Ada · Handoff</span></div><img loading="lazy" src="img/ada-01.png" alt="Ada handoff with relayed transcript and prefilled context"></div>
+      <figcaption><span class="badge real">real ui</span>On handoff the whole bot transcript is relayed into the human's window with speaker prefixes (USER: / BOT:), and the context rail arrives pre-filled by the bot: name, email, phone, department chip, tags, past visits. The human never re-asks for anything the AI already collected. <a href="https://docs.ada.cx/docs/handoffs/zendesk/zendesk-chat/zendesk-chat-handoff-usage" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Step trail</span></div><img loading="lazy" src="img/gladly-01.png" alt="Gladly self-service step trail"></div>
+      <figcaption><span class="badge real">real ui</span>A dotted step trail of what the person already tried before reaching a human: what they searched, which help answers they viewed. Katie never suggests the thing the creator already read. <a href="https://help.gladly.com/docs/self-service-handoff" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Kustomer · Closing</span></div><img loading="lazy" src="img/kustomer-09.png" alt="Kustomer closing summary with per-actor attribution"></div>
+      <figcaption><span class="badge render">render</span>The auto-written closing summary attributes each action to its actor: sparkle avatar for the AI's step, human avatar for Sarah's. Every conversation ends with an ownership audit trail. <a href="https://www.kustomer.com/ai-for-reps/" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> flag cards open with the agent-written read-in: one line of summary, the last thing the creator was told, and what the agent already checked. On close, the same mechanism writes the creator note automatically, which is exactly the note-agent behavior Nisarg described.</div>
+</div>
+
+<!-- ============ 6 ============ -->
+<div class="pattern" id="p6">
+  <h3><span class="pnum">6</span>The context rail</h3>
+  <div class="who">Missive · Gorgias · Front · Intercom</div>
+  <p class="why">Approving a draft to a creator requires her campaign state next to the thread: stage, deadline, shipment, payment. Helpdesks solve this with a context sidebar; none of them can show campaign context, which is precisely Benable's advantage in building its own.</p>
+  <div class="shots">
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Missive · Sidebar</span></div><img loading="lazy" src="img/missive-02.png" alt="Missive Shopify context panel"></div>
+      <figcaption><span class="badge render">render</span>The commerce panel docked beside the thread: lifetime spend, average order, and an orders list with green Paid / Fulfilled badges. Replace "orders" with "collabs" and this is the rail Katie needs. <a href="https://missiveapp.com" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gorgias · Sidebar</span></div><img loading="lazy" src="img/gorgias-01.png" alt="Gorgias widget-based reorderable sidebar"></div>
+      <figcaption><span class="badge real">real ui</span>The sidebar is widget-based and re-orderable: drag handles and show/hide toggles per data block (Shopify, shipping insurance, subscriptions). The ops lead pins the blocks that matter per account, which is the Katie-owns-her-tool principle applied to a sidebar. <a href="https://updates.gorgias.com/publications/helpdesk-2-0-a-more-flexible-sidebar" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · Copilot</span></div><img loading="lazy" src="img/front-07.png" alt="Front copilot activity trace"></div>
+      <figcaption><span class="badge real">real ui</span>An askable sidebar that shows its work: "Find other conversations related to this issue" produces an expandable trace (searched chips, "Reviewed 9 of 2,231 conversations") before the answer. Trustworthy cross-history lookups like "has this creator ghosted before?" need exactly this. <a href="https://help.front.com/en/articles/4848832" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Copilot</span></div><img loading="lazy" src="img/intercom-04.png" alt="Intercom copilot citations and source filter"></div>
+      <figcaption><span class="badge real">real ui</span>Every claim in the answer carries a numbered citation chip, and a source filter restricts answers to vetted internal material. Receipts, not vibes. <a href="https://www.intercom.com/help/en/articles/8587194-how-to-use-copilot" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> a per-creator rail with stage, fork, deadline clock, shipment state, payment state, consent state, and the auto-notes ("prefers DMs", "away until Wednesday"), built as re-orderable blocks so Katie tunes it herself. Plus one ask-box wired to the same CreatorContext payload the agent uses, answering with citations into admin.</div>
+</div>
+
+<!-- ============ 7 ============ -->
+<div class="pattern" id="p7">
+  <h3><span class="pnum">7</span>Rules Katie can read (and test)</h3>
+  <div class="who">Gladly · Chatwoot · Intercom · Missive · Zendesk</div>
+  <p class="why">The kickoff brief proposes escalation policy as plain-language playbooks. The field agrees, and adds two things: rules should wear their own usage stats, and there should be a way to test a rule against a message before it goes live.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Handoff rules</span></div><img loading="lazy" src="img/gladly-06.png" alt="Gladly plain-English handoff scenarios"></div>
+      <figcaption><span class="badge real">real ui</span>Escalation triggers as an editable list of plain-English sentences ("The customer is asking explicitly for a human", "The customer is threatening legal action"), each with guidance, a trash icon, an Add button, and a <b>Test</b> button in the header. <a href="https://help.gladly.com/docs/set-up-transfer-to-agent-scenarios" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Chatwoot · Captain</span></div><img loading="lazy" src="img/chatwoot-02.png" alt="Chatwoot instructions editor with playground"></div>
+      <figcaption><span class="badge real">real ui</span>The instructions editor lives next to a live <b>Playground</b> pane: type a tricky message, watch whether the AI escalates or answers, before the rule ships. Policy editing with instant rehearsal. <a href="https://www.chatwoot.com/blog/captain-custom-instructions" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Guidance</span></div><img loading="lazy" src="img/intercom-05.png" alt="Intercom escalation guidance cards with counters"></div>
+      <figcaption><span class="badge real">real ui</span>Two layers on one screen: deterministic <b>Escalation Rules</b> on data, and plain-language <b>Escalation Guidance</b> cards, each wearing its own Used / Resolved / Routed counters. You can see which rules actually fire before trusting them. <a href="https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Missive · Rules</span></div><img loading="lazy" src="img/missive-05.png" alt="Missive AI prompt as rule condition"></div>
+      <figcaption><span class="badge render">render</span>A plain-language AI prompt as a rule condition ("Does this email have actionable items... reply Yes or No") with a <b>"Log prompt result in conversations"</b> audit toggle. Why-did-it-fire is inspectable in the thread. <a href="https://missiveapp.com/features" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · Setup</span></div><img loading="lazy" src="img/zendesk-08.png" alt="Zendesk autonomy toggle cards"></div>
+      <figcaption><span class="badge real">real ui</span>Autonomy as two plain toggle cards: suggestions "based on confidence" vs "based on tag". The dial reads like a sentence, not a rules engine. <a href="https://support.zendesk.com/hc/en-us/articles/10738928033690" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the playbook library is a card per scenario (away creator, product problem, angry creator, deadline ask), each card showing how often it fired this month and where it routed, with a test box at the top ("paste a creator text, see what the agent would do"). Katie edits cards, Brian's system compiles them.</div>
+</div>
+
+<!-- ============ 8 ============ -->
+<div class="pattern" id="p8">
+  <h3><span class="pnum">8</span>Where escalations land, and who gets pinged</h3>
+  <div class="who">Podium · Intercom</div>
+  <p class="why">An escalation is only as good as its routing. The SMS-native answer (Podium) is to route per reason to named people, previewing exactly what the ping will look like. Intercom adds the missing middle mode between autonomy and handover: ask a human first.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Podium · Escalations</span></div><img loading="lazy" src="img/podium-01.png" alt="Podium per-reason escalation routing"></div>
+      <figcaption><span class="badge real">real ui</span>One row per escalation reason (Sales Appointment Set, General help, Service Help Requested...), each with avatar chips for exactly who gets mentioned when that case fires. Escalations on success too, not only failure: "task complete" pings the human for the next step. <a href="https://www.podium.com/whats-new/25-5" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Podium · Preview</span></div><img loading="lazy" src="img/podium-04.png" alt="Podium escalation note preview modal"></div>
+      <figcaption><span class="badge real">real ui</span>The routing modal previews a sample of the actual @mention note the AI will write ("@Shannon @Morgan this customer is looking for information about financing"). You see what an escalation will look like before saving the rule. <a href="https://www.podium.com/whats-new/25-6" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Workflow</span></div><img loading="lazy" src="img/intercom-07.png" alt="Intercom handover branches by reason"></div>
+      <figcaption><span class="badge real">real ui</span>The "if Fin hands over" connector branches by escalation reason to a named owner (Assign to Sales / Billing / Async Support). Nothing lands in a generic pile when the AI gives up. <a href="https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Rule</span></div><img loading="lazy" src="img/intercom-06.png" alt="Intercom ask-for-input middle mode"></div>
+      <figcaption><span class="badge real">real ui</span>Between full autonomy and full handover: <b>"Ask for input"</b>. Under a confidence threshold, Fin asks a named set of teammates first, with a proceed-after-48h timer. This is the draft-for-approval lane as a product control. <a href="https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> a routing table per escalation reason (product problem → Katie, brand complaint → Katie + Julia, task complete on a paid collab → Katie), each row previewing the flag card it will produce. The agent's escalation IS a note in the thread plus a row in the queue, exactly Podium's mechanic, so it works even before the dashboard exists.</div>
+</div>
+
+<!-- ============ 9 ============ -->
+<div class="pattern" id="p9">
+  <h3><span class="pnum">9</span>Clocks that chase you</h3>
+  <div class="who">Chatwoot · Front · Intercom · Podium</div>
+  <p class="why">Katie's overnight and weekend anxiety is a deadline problem: which waiting creator breaches first. The field solves it with countdowns attached to the work itself, and pushes for what slipped anyway.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Chatwoot · SLA</span></div><img loading="lazy" src="img/chatwoot-05.png" alt="Chatwoot SLA countdown chips"></div>
+      <figcaption><span class="badge real">real ui</span>The same countdown chip ("FRT due | 5m") appears on the queue row and in the open-thread header, next to Resolve. One clock chases you from list to conversation until the reply is out. <a href="https://www.chatwoot.com/hc/user-guide/articles/1713167310-service-level-agreemtns" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · Time goals</span></div><img loading="lazy" src="img/front-02.png" alt="Front pie timer badge with tooltip"></div>
+      <figcaption><span class="badge real">real ui</span>A pie-timer badge with hours remaining on each row, hover tooltip splitting "Reply in 8h" vs "Resolve in 2d", and a breach marker on the row that slipped. Messages self-sort by urgency without being opened. <a href="https://help.front.com/en/articles/3038464" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Sort</span></div><img loading="lazy" src="img/intercom-02.png" alt="Intercom sort by next SLA target"></div>
+      <figcaption><span class="badge real">real ui</span>The queue sorts by <b>"Next SLA target"</b> and "Priority first", not just recency. The item about to break its promise floats to the top. <a href="https://www.intercom.com/help/en/articles/6546152-set-slas-for-conversations-and-tickets" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Podium · Push</span></div><img loading="lazy" src="img/podium-08.png" alt="Podium waiting-since-yesterday push notification"></div>
+      <figcaption><span class="badge render">render</span>The morning push: "Leads waiting: you have 3 messages that have been waiting for a response since yesterday." Slippage becomes a nudge on the phone, not a dashboard you have to remember. <a href="https://www.podium.com/product/inbox" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> every flag carries a reply-by clock (frustrated creator = short clock, routine draft = longer), the queue defaults to next-clock-first, and the 8am digest lists what breached overnight, which replaces scrolling every Slack channel back to Friday.</div>
+</div>
+
+<!-- ============ 10 ============ -->
+<div class="pattern" id="p10">
+  <h3><span class="pnum">10</span>The scoreboard</h3>
+  <div class="who">Intercom · Gladly · Gorgias · Zendesk</div>
+  <p class="why">Nisarg on the call: <span class="q">"the biggest thing is gonna be abnormalities... detecting what's not normal is probably gonna be very important."</span> The field's dashboards answer a calmer version of the same question: how much did the AI finish alone, where did it bail, and is it getting better.</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Intercom · Performance</span></div><img loading="lazy" src="img/intercom-08.png" alt="Intercom performance funnel"></div>
+      <figcaption><span class="badge real">real ui</span>The headline is a funnel: conversations in, AI involved, split into resolved-by-AI vs sent-to-teammate, ending in satisfaction bands. The escalated slice always reads against total volume, never as a raw scary number. <a href="https://www.intercom.com/fin" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Dashboard</span></div><img loading="lazy" src="img/gladly-07.png" alt="Gladly sidekick dashboard tiles"></div>
+      <figcaption><span class="badge real">real ui</span>Paired KPI tiles: what the AI finished alone vs what it handed over, with the resolution-rate formula printed on the tile ("Resolutions / (Resolutions + Assisted)") and a stacked daily bar. Honest math, visible. <a href="https://help.gladly.com/docs/sidekick-dashboard" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gorgias · Statistics</span></div><img loading="lazy" src="img/gorgias-03.png" alt="Gorgias AI agent outcome mix"></div>
+      <figcaption><span class="badge real">real ui</span>The AI's outcome mix as a first-class table: Handover with message 63%, Close with message 22%, Snooze 7%. Exactly how often and how the AI is bailing out, per period. <a href="https://updates.gorgias.com/publications/dedicated-page-for-ai-agent-statistics" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Zendesk · Auto assist</span></div><img loading="lazy" src="img/zendesk-07.png" alt="Zendesk acceptance rate by source"></div>
+      <figcaption><span class="badge real">real ui</span>Acceptance rate and coverage over 7 days, broken down by knowledge source (procedures, articles, tickets), each with its own acceptance rate. Which playbook content is pulling its weight, measured. <a href="https://support.zendesk.com/hc/en-us/articles/10738928033690" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · By reason</span></div><img loading="lazy" src="img/gladly-08.png" alt="Gladly per-reason assisted vs resolved"></div>
+      <figcaption><span class="badge real">real ui</span>Per contact reason: % assisted vs % resolved, with inline bars. This is the graduation table: which request types are safe to leave fully automated, decided row by row. <a href="https://help.gladly.com/docs/sidekick-dashboard" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> the scoreboard is the graduation dashboard from the kickoff brief: per-intent %-sent-unedited (the Superhuman metric), the outcome mix (sent / flagged / held), and an abnormality strip (send volume per brand per intent, STOP-rate, reply-rate) that would have caught the 28 Litsea dead-reminders bug in a day.</div>
+</div>
+
+<!-- ============ 11 ============ -->
+<div class="pattern" id="p11">
+  <h3><span class="pnum">11</span>Supervision that teaches</h3>
+  <div class="who">Gorgias · Gladly · Front · Kustomer</div>
+  <p class="why">Katie's review minutes are training data if the UI catches them. The best systems put provenance and a one-tap verdict on every AI message, and turn a rejection into "here's what you should have used instead."</p>
+  <div class="shots">
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gorgias · In thread</span></div><img loading="lazy" src="img/gorgias-05.png" alt="Gorgias provenance and voting in thread"></div>
+      <figcaption><span class="badge real">real ui</span>Under the AI's reply: "Is the response accurate?" with thumbs and an Improve Response button, and a rail showing exactly which GUIDANCE and KNOWLEDGE produced the reply, each votable. Provenance and verdict in the same glance. <a href="https://www.gorgias.com/blog/our-ai-approach" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gorgias · Feedback</span></div><img loading="lazy" src="img/gorgias-06.png" alt="Gorgias pick the resource it should have used"></div>
+      <figcaption><span class="badge real">real ui</span>The rejection flow asks the productive question: <b>"Should AI Agent have used something else?"</b> with a searchable picker of playbooks. A correction becomes a routing fix, not just a complaint. <a href="https://www.gorgias.com/blog/our-ai-approach" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Gladly · Review</span></div><img loading="lazy" src="img/gladly-05.png" alt="Gladly thumbs plus why box"></div>
+      <figcaption><span class="badge real">real ui</span>Every transcript carries thumbs up/down plus a "why" box. Supervision minutes become labeled training feedback without a separate QA tool. <a href="https://help.gladly.com/docs/sidekick-conversations-page-overview" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Front · AI reply</span></div><img loading="lazy" src="img/front-04.png" alt="Front AI reply with author chip and sources pill"></div>
+      <figcaption><span class="badge real">real ui</span>Every AI-sent message wears its receipts: an "Automated" author chip, a "19 sources" pill, a "Generated by AI" label, and thumbs. Any outbound reply is auditable in seconds. <a href="https://help.front.com/en/articles/3737408" target="_blank">source</a></figcaption>
+    </figure>
+    <figure class="shot narrow">
+      <div class="frame"><div class="bar"><i></i><i></i><i></i><span>Kustomer · Evals</span></div><img loading="lazy" src="img/kustomer-06.png" alt="Kustomer scenario scorecard"></div>
+      <figcaption><span class="badge render">render</span>Autonomy earned scenario by scenario: named test cases ("No prior order 97%", "Damaged/missing item 100%") with per-scenario pass scores. Trust as a table, not a feeling. <a href="https://www.kustomer.com/concierge/" target="_blank">source</a></figcaption>
+    </figure>
+  </div>
+  <div class="benable-map"><b>In the command center:</b> every agent message shows which playbook and which facts produced it, Katie's edits are diffed and stored as new few-shot examples automatically, and rejections ask "which playbook should this have used?" That closes the loop the kickoff brief calls the maturity ladder, and it is how Katie stops babysitting.</div>
+</div>
+
+<!-- ============ RULES ============ -->
+<div class="rules" id="rules">
+  <div class="label">RULES OF THE FIELD</div>
+  <h3 style="margin-bottom:4px;">What every good AI-supervision UI agrees on</h3>
+  <ol>
+    <li><b>Ownership is a visible state, never an inference.</b> Banner, badge, read-only treatment, and a one-click Step in (Front, Zendesk, Chatwoot).</li>
+    <li><b>Escalations form their own queue and clean up after themselves.</b> Podium's "AI Needs Help" filter with auto-clear is the reference.</li>
+    <li><b>A flag always carries its reason, its draft, and a one-line summary.</b> Gladly's handoff trio is the fullest version; silence is never a state (Front's give-up event).</li>
+    <li><b>Review is two verbs and one key.</b> Edit / Approve, Tab / Esc. Anything heavier stops being a ritual and becomes a chore.</li>
+    <li><b>Side effects are chips, not sentences.</b> Zendesk shows actions separately from the reply so approval is informed.</li>
+    <li><b>The thread is the audit log.</b> System lines for every assignment, rule and handoff, in sequence with the messages (Chatwoot, Kustomer, Missive).</li>
+    <li><b>Rules are plain sentences that wear their own stats and have a test box.</b> Gladly + Intercom + Chatwoot converge on exactly the playbook-cards idea.</li>
+    <li><b>There is a middle mode between autonomy and handover.</b> Intercom's "ask for input" under a confidence threshold is the draft lane, productized.</li>
+    <li><b>Clocks live on the work.</b> Same countdown on the row and in the thread; sort by next breach; push the overnight misses at 8am.</li>
+    <li><b>The scoreboard is a funnel plus an outcome mix,</b> with formulas printed on tiles and a per-reason graduation table (Intercom, Gladly, Gorgias).</li>
+    <li><b>Corrections must teach.</b> Provenance on every message, thumbs plus why, and "what should it have used instead" (Gorgias).</li>
+    <li><b>Nobody shows campaign context.</b> Every context rail here is commerce data bolted on. A rail with stage, deadline, shipment, payment and consent is the one thing no vendor can give Katie, and the strongest reason her command center is ours to build.</li>
+  </ol>
+</div>
+
+<div class="lean">
+  <strong>Where I would start.</strong> Prototype two screens first: the <strong>home queue</strong> (pattern 1: bucket tabs, ownership filter, state chips, clocks) and the <strong>flag card</strong> (patterns 2, 3, 5 in one component: reason line, one-line read-in, the draft as an SMS bubble, Approve / Edit, side-effect chips). Those two encode rules 1 through 6 and are enough for shadow mode to have a place to land. The scoreboard (pattern 10) only becomes real once shadow mode produces data, and the teaching loop (pattern 11) rides on the flag card anyway. Katie is building her own version this week; this page is the shared evidence base to compare both designs against.
+</div>
+
+<p style="font-size:12px; color:var(--ink-subtle); margin-top:30px;">Sources: all screenshots © their respective vendors, collected Aug 25, 2026 from public sites, docs and help centers for internal design research. Companion doc: the Messaging Intelligence Kickoff briefing (escalation policy and architecture decisions).</p>
+
+</body>
+</html>

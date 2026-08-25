@@ -1,0 +1,844 @@
+{
+ "collections": [
+  {
+   "images": [
+    {
+     "file": "zendesk-01.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/5064623131418-Using-Agent-Home-to-manage-your-work-efficiently",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/agent_copilot_agent_home.png",
+     "w": 2116,
+     "h": 1268,
+     "what_it_shows": "Zendesk Agent Home queue filtered to an 'Auto assist' section in the left nav (Your work: All tickets / Auto assist; Shared work: CC'd, Following; Completed work: Last 30 days). Each ticket row carries an Open status square, an AI-state chip ('Review suggestions', 'Working on it', 'Waiting for reply'), a message snippet, timestamp and ticket number. Colored time badges on the right of each title (red '-5m', green '1h', orange '30m', green '1d') plus red unread dots; header has Channel and Status filters and a 'Recommended' sort.",
+     "pattern": "home-queue",
+     "steal_idea": "Give Katie one queue where every collab thread carries a machine-state chip (Draft ready to review / AI working / Waiting on creator) plus a color-coded time-left badge, so the rows themselves say what the AI needs from her next."
+    },
+    {
+     "file": "zendesk-02.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/9945148867866-About-auto-assist",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ai_auto_assist_approve.png",
+     "w": 1160,
+     "h": 725,
+     "what_it_shows": "Full Agent Workspace ticket view: left properties rail (Brand, Requester, Assignee 'Support/Oscar Blue', Followers, Tags vip/order/delivery), center conversation with a red '-5m' SLA-style badge and an Intent 'Order return' label in the ticket header, right customer panel with Interactions timeline. Below the thread sits an 'Auto assist' panel marked 'On' containing a drafted reply ('Hi Riley, I'm happy to take a look for you. Can you verify your order number?') with a Details link and Edit / Approve buttons next to 'Submit as New'.",
+     "pattern": "draft-review",
+     "steal_idea": "Put the AI draft in a clearly bounded panel inside the real thread with exactly two verbs, Edit and Approve, so reviewing a Benny-drafted creator reply is a one-click decision made in full context."
+    },
+    {
+     "file": "zendesk-03.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/9945148867866-About-auto-assist",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/copilot_auto_assist_suggestion_sources.png",
+     "w": 1015,
+     "h": 625,
+     "what_it_shows": "An Auto assist draft with an opened 'Why this suggestion was generated' popover: a one-line rationale ('The requester wants to return their item and has provided their order number...') and a Sources list linking 'Refund and exchange steps' and another article. Under the draft text sit two proposed action chips, 'Action: Return order #262' and 'Action: Change Status to \"Solved\"', with Edit and Approve buttons below.",
+     "pattern": "draft-review",
+     "steal_idea": "Every AI draft should carry a 'why' popover citing its sources and show side-effect actions as separate labeled chips, so Katie approves the reply and its consequences (payment release, status change) knowingly, not blindly."
+    },
+    {
+     "file": "zendesk-04.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/9204149016346-Understanding-AI-agent-tickets-for-AI-agent-only-conversations",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiae_ai_agent_ticket_identifying.png",
+     "w": 1138,
+     "h": 711,
+     "what_it_shows": "An AI-agent-only ticket in Agent Workspace with five numbered doc callouts: a bot icon on the ticket tab, a purple 'AI agent' badge under the conversation title, a grayed-out (read-only) left properties rail, the Z Bot vs Riley Green message thread, and a bottom banner reading 'This is an AI agent ticket and can't be edited'. The right panel shows customer email, phone, org, tags (premium, priority shipping) and an Interactions timeline.",
+     "pattern": "ownership-state",
+     "steal_idea": "When the AI fully owns a conversation, mark it with a bot badge and make it visibly read-only with an explicit banner, so Katie always knows which threads are autopilot versus hers to touch."
+    },
+    {
+     "file": "zendesk-05.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/4685355428250-Viewing-intelligent-triage-classifications-in-tickets",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/agent_copilot_sentiment_intents_events_log.png",
+     "w": 1145,
+     "h": 356,
+     "what_it_shows": "A ticket events log where a customer message from Magda Pereira ('Finally!!! I'm now able to login... How can I reset my password?') is followed by a 'system' entry listing machine-applied Tags, Intent ('Software::Login issues::Instructions for changing password') and Sentiment ('Neutral'), with the previous values (Negative sentiment, old intent) shown struck through. A 'Convert to internal note' link sits between the message and the log.",
+     "pattern": "other",
+     "steal_idea": "Log every AI classification change as a system event with the old value struck through, giving Katie an auditable trail of what the machine believed about a collab and when it changed its mind."
+    },
+    {
+     "file": "zendesk-06.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/4685355428250-Viewing-intelligent-triage-classifications-in-tickets",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/agent_copilot_ticket_sentiment_update.png",
+     "w": 922,
+     "h": 498,
+     "what_it_shows": "A ticket header for 'Thank You for the Scholarship Opportunity!' showing channel ('Via web form'), a clickable Intent label ('Scholarship offer') and a smiley-icon sentiment label ('Very positive') with its dropdown open: Very positive (checked), Positive (hovered), Neutral, Negative, Very negative. The email body and an 'Assign' link are visible beneath.",
+     "pattern": "context-sidebar",
+     "steal_idea": "Surface AI-read intent and sentiment as compact editable labels in the thread header, so Katie can correct a misread creator mood in two clicks and the correction trains the system."
+    },
+    {
+     "file": "zendesk-07.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/10738928033690-Using-the-updated-auto-assist-experience-EAP",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ai_auto_assit_new_page.png",
+     "w": 1876,
+     "h": 1404,
+     "what_it_shows": "The admin 'Auto assist' page (breadcrumb AI > Agent copilot > Auto assist) with a Settings button, a '7-day performance' section with 'Acceptance rate' and 'Ticket coverage' metric cards plus a 'View dashboard' link, and a 'Sources' table listing Procedures (4), Public articles (30) and Tickets (140) with per-source Acceptance rate and Source coverage columns.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Score the AI itself for the ops lead: an acceptance-rate and coverage scorecard, broken down by knowledge source, tells Katie whether Benny's drafts are getting better and which playbook content is pulling its weight."
+    },
+    {
+     "file": "zendesk-08.png",
+     "source_page": "https://support.zendesk.com/hc/en-us/articles/10738928033690-Using-the-updated-auto-assist-experience-EAP",
+     "image_url": "https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ai_auto_assist_setup_step2.png",
+     "w": 2256,
+     "h": 1400,
+     "what_it_shows": "Setup wizard 'Step 2 of 3: Customize auto assist for your workflow' with a 'Who has access' multi-select showing an 'All groups' chip, and a 'Suggestion modes' section with two toggle cards: 'Based on confidence' (suggestions only when the AI is confident they're correct) and 'Based on tag' (all tickets with the agent_copilot_enabled tag), both on; Back and Next buttons at bottom right.",
+     "pattern": "escalation-config",
+     "steal_idea": "Make the autonomy dial a pair of plain-language toggle cards (confidence-gated vs tag-gated) so Katie can decide which collab types get AI suggestions without touching anything that looks like a rules engine."
+    }
+   ],
+   "notes": "All 8 kept images were downloaded from Zendesk's official docs CDN (zen-marketing-documentation.s3.amazonaws.com) via curl with a browser UA; all four seed articles rendered fine to curl. Downloaded 17 candidates, viewed 15, kept 8, deleted 9 (two under the 500px width floor: ticket-header sentiment chip 444px, intelligent-triage fields panel 355px; the rest were redundant or thin: two small composer crops from the EAP article, a settings checkbox with no chrome, a procedures-list wizard step, an 'AI Agent as assignee' view list, a solved-AI-ticket variant, and a second Agent Home shot overlapping zendesk-01 but covered in red doc callouts). Could not get: a dedicated SLA-badge article shot (the two SLA article URLs I tried 404'd or contained unrelated images; partial coverage exists via the colored time badges in zendesk-01 and the red '-5m' badge in zendesk-02) and a takeover/handback moment (Zendesk documents AI-to-human handoff in prose, not screenshots, on the pages I fetched). Note zendesk-04 contains red numbered documentation callouts overlaid on the real UI; the interface beneath is legible. Files live in /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img alongside other vendors' sets (ada-, chatwoot-, cop-, esc-, gladly-, missive-), which were left untouched."
+  },
+  {
+   "images": [
+    {
+     "file": "missive-01.png",
+     "source_page": "https://missiveapp.com",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/69c41cd3b235ee600732da9c_2603-img-sharedinbox.png",
+     "w": 2272,
+     "h": 1600,
+     "what_it_shows": "Full three-pane Missive app: left sidebar with Inbox showing a split 1/4 counter, Team spaces (Conference Badge, Support 2/8, Sales 5, Design) and Labels; middle conversation list with rows carrying task counters (0/1, 0/2), assignee avatars and label chips (SXSW 2025, CES 2025). Right pane shows the 'Design request' email thread with an 'Assign to me' button, a purple SXSW 2025 label, a 'Rule applied' event line, internal team-chat bubbles between Rafael and Philippe threaded between emails, and two task rows ('Finalize designs by EOW', 'Follow up with Sarah') each with assignee avatar, due-date pill (Friday/Tomorrow) and team chip. A 'Chat with your team...' composer sits at the bottom.",
+     "pattern": "inbox-thread",
+     "steal_idea": "Interleave Katie's internal notes, AI 'rule applied' receipts, and assigned follow-up tasks directly inside each creator conversation thread so the escalation story reads top-to-bottom in one place."
+    },
+    {
+     "file": "missive-02.png",
+     "source_page": "https://missiveapp.com",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/67bcd4b117c1b131a75bd48e_tabs-integrations-context.png",
+     "w": 1060,
+     "h": 1060,
+     "what_it_shows": "A Shopify integration panel docked beside an open email: header 'Shopify' with tabs 'SJ' and 'SXSW', contact card for Sarah Johnson (sarah@sxsw.com), stat blocks 'Lifetime spent $12,585.90' and 'Average order $4,201.35', and an 'Orders (3)' list where #1091 and #1007 each show green 'Paid' and 'Fulfilled' check badges plus a 'View' link and date. A right icon rail shows other integrations (ClickUp, OpenAI, GitHub, video).",
+     "pattern": "context-sidebar",
+     "steal_idea": "Give Katie a per-creator context rail next to every thread with lifetime deliverables, campaign history, and payment status pulled from Benable's own tables, so she never tabs away to judge an AI draft."
+    },
+    {
+     "file": "missive-03.png",
+     "source_page": "https://missiveapp.com/features",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/67a28b4b72ce7e300b6a1552_img-features-draft--m.png",
+     "w": 1960,
+     "h": 896,
+     "what_it_shows": "A handoff-over-a-draft flow inside a thread: an event line 'Jessica assigned You', then 'You created a draft', then a draft card addressed from Philippe Lehoux to jessica@sxsw.com with visible 'Discard' and 'Open' buttons and the draft's first line ('Hi Jessica, We have good news for you!...'). Below it a highlighted chat bubble reads 'Jessica \u2014 Can you review and send the draft above?', with the conversation list and team-space sidebar visible on the left.",
+     "pattern": "draft-review",
+     "steal_idea": "Render every AI-written reply as a draft card pinned in the thread with Approve/Open/Discard controls plus an at-mention hand-off line, so review-and-send is a one-click ritual instead of a separate queue."
+    },
+    {
+     "file": "missive-04.png",
+     "source_page": "https://missiveapp.com/features",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/67a4e3223860fb27dbab794d_img-features-analytics.png",
+     "w": 1960,
+     "h": 896,
+     "what_it_shows": "The Analytics screen, Overview tab, filtered to 'Last 4 weeks (Jul 1\u2013Jul 28)', 'Everyone', 'Team inboxes'. Three KPI tiles read 'First reply time 49m 54s' with a green -17m 53s delta, 'Reply time 1h 9m' with -20m 47s, and 'Handle time 1m 40s' with a red +4s. Below are 'Messages received 3,052 (+118)' and 'Messages sent 1,438 (+72)' line charts comparing the current blue line against a grey prior-period line, plus stacked distribution bars for First reply time / Reply time / Handle time. A left nav lists Users, Teams, Accounts, Labels.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Katie's dashboard should lead with response-time KPIs that carry green/red deltas versus the prior period and a grey ghost line on every chart, making 'is the AI keeping up this week' answerable at a glance."
+    },
+    {
+     "file": "missive-05.png",
+     "source_page": "https://missiveapp.com/features",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/67d9d113d7288122e76716a8_img-features-AI-rules-outline.png",
+     "w": 980,
+     "h": 640,
+     "what_it_shows": "A rule editor: a 'Conditions' section with 'All of these conditions must match', a row 'Prompt result / contains / Yes' above the actual AI prompt text ('Does this email has actionable items/tasks... reply with either \"Yes\", \"No\".'), a 'Select your AI integration: OpenAI' dropdown, and a 'Log prompt result in conversations' debug checkbox. An 'Actions' section shows 'Add label(s)' and 'Add tasks with AI' with its own prompt field ('Create tasks from this email...').",
+     "pattern": "escalation-config",
+     "steal_idea": "Let Katie write escalation triggers as plain-language AI prompts whose Yes/No result feeds a condition row, with a 'log prompt result in conversation' toggle so she can audit why the AI escalated or held a message."
+    },
+    {
+     "file": "missive-06.jpg",
+     "source_page": "https://missiveapp.com",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/67b502ca1d413cad241200c5_img-collaboration-status.jpeg",
+     "w": 1864,
+     "h": 1440,
+     "what_it_shows": "A zoomed thread header for 'Inquiry: Discount on badges without...': a row of five overlapping teammate avatars plus a grey '+3' overflow circle. The first avatar has a blue focus ring, and two avatars carry small solid-blue presence dots showing they are currently viewing the conversation. Below, the first message card shows sender 'Jason Martinez (pinnacle.event)' to contact@conferencebadge.com with the opening line 'Hey Conference Badge,'.",
+     "pattern": "ownership-state",
+     "steal_idea": "Show an avatar stack with live presence dots and a ring on the current owner at the top of every creator thread, so it is instantly visible whether the AI, Katie, or a teammate 'has' the conversation right now."
+    },
+    {
+     "file": "missive-07.png",
+     "source_page": "https://missiveapp.com/features/rules",
+     "image_url": "https://missiveapp.com/docs/~gitbook/image?url=https%3A%2F%2F3242897856-files.gitbook.io%2F%7E%2Ffiles%2Fv0%2Fb%2Fgitbook-x-prod.appspot.com%2Fo%2Fspaces%252F1If7JwIQhfz5wGM9LiIU%252Fuploads%252Fgit-blob-e6bf6228d2cce793c5102c30f30419f2cd26473c%252Fguides-rule-label-disney.png%3Falt%3Dmedia&width=768&dpr=3&quality=100&sign=812fb62&sv=2",
+     "w": 1133,
+     "h": 719,
+     "what_it_shows": "The thread 'When should I order?' from Carlos Ramirez (disney.com) with a blue 'Disney' label chip beside the subject and an 'Assign to me' button in the toolbar. Under the message, a centered event line reads 'Rule applied' followed by the same Disney label pill, showing the automation stamped its work into the thread timeline. The right icon rail includes an OpenAI logo and contact/check/calendar icons.",
+     "pattern": "escalation-flag",
+     "steal_idea": "Stamp a visible 'Rule applied: <label>' receipt into the thread timeline whenever automation routes or tags a creator conversation, giving Katie an in-context audit trail she can trust without opening settings."
+    },
+    {
+     "file": "missive-08.png",
+     "source_page": "https://missiveapp.com",
+     "image_url": "https://cdn.prod.website-files.com/66c7823b4706f4a0a95d2d31/69c41cf4646c2a33ba41faa1_2603-img-taskview.png",
+     "w": 2272,
+     "h": 1600,
+     "what_it_shows": "The Tasks view (Tasks 12 selected in sidebar) sorted by 'Assignees': collapsible per-person groups 'You 5', 'Elise Mary 3', 'Etienne 5', each row a task or conversation with a checkbox or progress badge (0/1, 0/2, 0/3), assignee avatar, due-date pill ('Today' amber, 'Yesterday' red, 'Tomorrow'/'Thursday' grey), and team/label chips like Design, Sales, Support, Engineering, 'Social media campaign', 'Damaged badges'. Rows include 'Write blog post about sustainable badge materials' and 'Contact the delivery partner'.",
+     "pattern": "home-queue",
+     "steal_idea": "Build Katie's home queue as a per-owner grouped list where every escalated item wears a color-coded due pill (overdue red, today amber) and a campaign chip, so workload balance and SLA risk are readable per person in one scroll."
+    }
+   ],
+   "notes": "Got 8 verified real-UI screenshots; all Read and visually confirmed, all 980px+ wide. What I could not get: (1) https://missiveapp.com/docs/developers/ui-iframe-integrations returned zero image URLs via curl (JS-rendered GitBook page; its static HTML carries no img assets), so no custom-sidebar dev screenshot; the Shopify context-sidebar shot (missive-02) covers that pattern instead. (2) The SMS FAQ page's images are small GitBook screenshots of third-party provider setup (Twilio/SignalWire account config), not Missive product UI, so I skipped them. (3) https://missiveapp.com/features/ai ships no screenshot assets in static HTML (JS-loaded), but the features index page already carried its AI assets, two of which I kept (AI rules editor, draft flow). Discarded after viewing: an AI-assistant journey marketing diagram (no UI), a To-do/In-progress/Closed status-pill diagram, two sidebar zoom fragments and an emoji quick-reply toolbar fragment (too little UI), a round-robin assignment dropdown fragment (legible but redundant with the rules editor for config), and a near-duplicate older render of the shared-inbox hero. Note the marketing renders are stylized but faithful reproductions of the real app chrome with fully legible interface detail."
+  },
+  {
+   "images": [
+    {
+     "file": "chatwoot-01.png",
+     "source_page": "https://www.chatwoot.com/blog/captain-custom-instructions",
+     "image_url": "https://www-internal-blog.chatwoot.com/content/images/size/w1600/2025/05/436491519-41cea09b-0a87-4997-9863-2ce03a4232da.png",
+     "w": 1904,
+     "h": 1485,
+     "what_it_shows": "A conversation thread (customer asking about HubSpot/LeadSquared CRM integration) with a composer offering Reply and Private Note tabs, a formatting toolbar, an 'AI Assist' button, and a 'Send (cmd+enter)' button. The right sidebar shows collapsible 'Conversation Actions', 'Contact Notes' (three timestamped notes authored by 'You', e.g. 'Follow-up Email and Resource Share - Alex Johnson', each with an Expand button), and a 'Macros' section.",
+     "pattern": "context-sidebar",
+     "steal_idea": "Keep a timestamped, expandable log of ops notes about each creator/brand pinned in a sidebar beside the thread, so Katie can read the last three touchpoints without leaving the conversation."
+    },
+    {
+     "file": "chatwoot-02.png",
+     "source_page": "https://www.chatwoot.com/blog/captain-custom-instructions",
+     "image_url": "https://www-internal-blog.chatwoot.com/content/images/size/w1600/2025/05/CleanShot-2025-05-06-at-19.24.28@2x.png",
+     "w": 1600,
+     "h": 1045,
+     "what_it_shows": "The settings page for an AI assistant named 'Chip': an 'Instructions' rich-text editor containing numbered rules ('When asked for a custom quote... then transfer to a human agent') with a 216/20000 character counter and Update button, plus 'System Messages' fields for a 'Handoff Message' ('I'm transferring this conversation to a support agent to better assist you.') and 'Resolution Message'. A right-hand 'Playground' pane shows a live test chat where the assistant asks for license count before promising to 'connect you with a human agent'.",
+     "pattern": "escalation-config",
+     "steal_idea": "Pair the escalation-rules editor with a live playground pane so Katie can type a tricky creator message and immediately watch whether the AI escalates or answers, before the rule goes live."
+    },
+    {
+     "file": "chatwoot-03.png",
+     "source_page": "https://www.chatwoot.com/hc/user-guide/articles/1738110272-how-to-use-captain-copilot",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCTW1uQ2dFPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--327c443e402ab902981209eadb2eb8180c78f7cf/copilot-1.png",
+     "w": 1438,
+     "h": 780,
+     "what_it_shows": "The full agent inbox: left nav with Conversations/Mentions/Unattended, Folders (Priority Conversations, Residents, Leads Inbox), Teams (sales, support l1, support m2) and Channels; a conversation list with 'Mine 11 / Unassigned 6 / All 19' tabs and per-conversation channel and label chips (device-setup, billing, lead). The open thread shows grey system-event chips ('Assigned to support m2 by Mathew M', 'Mathew M self-assigned this conversation', 'Mathew M set the priority to high') and a yellow private note '@Ben Nugent Can we use Captain here to automate these queries?'; the right Copilot tab offers prompt chips 'Summarize this conversation', 'Suggest an answer', 'Rate this conversation'.",
+     "pattern": "inbox-thread",
+     "steal_idea": "Record every assignment, takeover and priority change as inline system-event chips in the thread itself, so ownership history reads in sequence with the messages instead of hiding in an audit log."
+    },
+    {
+     "file": "chatwoot-04.png",
+     "source_page": "https://www.chatwoot.com/hc/user-guide/articles/1738110272-how-to-use-captain-copilot",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCS1NvQ2dFPSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--5add11bf911e52f3d791ae6772c1ef76361537d8/copilot-2.png",
+     "w": 2076,
+     "h": 1170,
+     "what_it_shows": "Close-up of the Copilot sidebar with 'Contact' and 'Copilot' tabs. A 'You' message instructs the AI to analyze the inquiry and draft a response; 'Captain' replies with a complete drafted customer reply (asking for device make/model), followed by a 'Use this' button that would drop the draft into the composer.",
+     "pattern": "draft-review",
+     "steal_idea": "Have the AI stage its drafted reply in a side pane behind an explicit 'Use this' button, so nothing reaches a creator until Katie consciously promotes the draft into the composer."
+    },
+    {
+     "file": "chatwoot-05.png",
+     "source_page": "https://www.chatwoot.com/hc/user-guide/articles/1713167310-service-level-agreemtns",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN1ljbmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--9700b77a0f29c02c220346a503132b219c0b1cf3/sla-chips.png",
+     "w": 3024,
+     "h": 1716,
+     "what_it_shows": "SLA countdowns in context (highlighted with callouts in the source): a yellow 'FRT due | 5m' badge in the conversation header next to the green Resolve button, a matching '5m' timer chip on the conversation card in the list, and a system event 'Automtion Rule added SLA policy Enterprise P0' in the thread. The right sidebar shows Conversation Actions: Assigned Agent (Shivam Mishra), Assigned Team (None), Priority set to 'Urgent', Conversation Labels, and Macros like 'Free plan customer query'.",
+     "pattern": "sla-badges",
+     "steal_idea": "Show one live countdown chip ('reply due 5m') in both the queue row and the open-thread header, so the same clock chases Katie from list to conversation until first response is out."
+    },
+    {
+     "file": "chatwoot-06.png",
+     "source_page": "https://www.chatwoot.com/hc/user-guide/articles/1713167310-service-level-agreemtns",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd2tibmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--2f891f1ef9ab8207033f90217321e2db853e9e6a/CleanShot%202024-04-15%20at%2013.44.30@2x.png",
+     "w": 3024,
+     "h": 1716,
+     "what_it_shows": "An 'Add SLA' modal over the SLA settings page: fields for SLA Name ('Enterprise P0'), Description ('Urgent issues, from Enterprises'), then three threshold rows each with a number input and unit dropdown: First Response Time 15 minutes, Next Response Time 15 minutes, Resolution Time 120 minutes, plus an 'Only during business hours' toggle and Cancel/Create buttons. Behind it, existing SLA cards (Enterprise P0, Enterprise P1) show 'RT 24h' and 'RT 4d' summaries.",
+     "pattern": "escalation-config",
+     "steal_idea": "Define response promises as named reusable policies with exactly three numbers (first reply, next reply, resolve) that automations can attach to any collab thread, instead of hardcoding deadlines per conversation."
+    },
+    {
+     "file": "chatwoot-07.png",
+     "source_page": "https://www.chatwoot.com/hc/user-guide/articles/1713167310-service-level-agreemtns",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeFlibmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--4f46e44c9ccf4ca5d061e3c4fb4d670326afdb72/automation-rule.png",
+     "w": 3024,
+     "h": 1716,
+     "what_it_shows": "An 'Add Automation Rule' modal on the Automations settings page: Rule Name 'Assign P0 SLA', Event dropdown 'Conversation Updated', a Conditions builder with three rows joined by AND dropdowns (Status Equal to 'Open', Email Contains '@important-customer.com', Priority Equal to 'Urgent') each with a remove X, and an Actions section ('Add SLA' -> 'P0 Enterprise') with green 'Add Condition' and 'Add Action' buttons plus Cancel/Create.",
+     "pattern": "escalation-config",
+     "steal_idea": "Use a plain-English condition builder (field / operator / value rows joined by AND) so Katie can express 'urgent + big brand = tighter clock and flag to me' without engineering."
+    },
+    {
+     "file": "chatwoot-08.png",
+     "source_page": "https://www.chatwoot.com/docs/user-guide/features/reports/overview/",
+     "image_url": "https://app.chatwoot.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL1Y1VHc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--27cec9bf238b45b32bf8e1d75f0e4493c48c22e2/overview%20report%20in%20chatwoot.png",
+     "w": 2566,
+     "h": 1242,
+     "what_it_shows": "The live 'Overview' report: an 'Open Conversations' card with a green 'Live' badge showing Open 7, Unattended 1, Unassigned 1; an 'Agent status Live' card showing Online 1, Busy 0, Offline 5; and a 'Conversations by agents Live' table listing each agent with OPEN and UNATTENDED counts (agent names are blurred in the source screenshot, and red doc callouts highlight the Overview nav item).",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Katie's command-center home should be three live numbers (open, unattended, unassigned) plus a per-worker open/unattended table, making 'who is drowning and what nobody owns' readable in five seconds."
+    }
+   ],
+   "notes": "Kept 8 of 13 downloads, all visually verified with the Read tool. What I could not get: the JS-rendered marketing pages (chatwoot.com home, /captain, /features/sms-integration/) expose no product screenshots to curl, only the og:image preview card, so no images came from those three seed pages; all keepers came from the blog post (www-internal-blog.chatwoot.com CDN) and the help-center/docs articles (app.chatwoot.com Active Storage blobs), which downloaded cleanly with a browser User-Agent. Deleted after visual review: an Auto-resolve-conversations settings form (generic, weak fit), an Edit Automation Rule modal nearly identical to chatwoot-07, two small stat-card crops that duplicate chatwoot-08, and a conversation-traffic heatmap (least relevant to the pattern list). No true takeover-handback screenshot exists in what I could reach; the closest evidence is the system-event chips in chatwoot-03 and the Handoff Message config in chatwoot-02. Note: chatwoot-08 contains small red annotation boxes added by Chatwoot's own docs, and its agent names are blurred at the source. The target folder also contains ada-*, cop-*, esc-*, gladly-*, kustomer-*, missive-*, zendesk-* images from parallel collectors; I touched only chatwoot-* files."
+  },
+  {
+   "images": [
+    {
+     "file": "podium-01.png",
+     "source_page": "https://www.podium.com/whats-new/25-5",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/05/AI-Escalations.png",
+     "w": 2042,
+     "h": 1150,
+     "what_it_shows": "Real Podium Settings screen with left nav (Your Profile, Your Business, Users, Numbers, AI Employee highlighted, Appointments, Bulk Messages, Inbox, Payments, etc.) and a right pane titled 'Escalations and Outcomes: Choose who to notify when the AI Employee needs help or is done', with a 'Podium Motors' location picker. Six escalation-reason rows (Sales Appointment Set, Service Appointment Set, General help, Sales Help Requested, Service Help Requested, Vehicle availability), each labeled 'Mention these users in a note' with avatar chips like 'Everyone', 'Morgan Thompson', 'Service BDC team', a '+2' overflow counter, and a plus button to add people.",
+     "pattern": "escalation-config",
+     "steal_idea": "Give Katie a per-reason escalation router: one row per outcome type (draft stuck, creator ghosting, brand complaint) with avatar chips showing exactly who gets pinged when the AI hits that case."
+    },
+    {
+     "file": "podium-02.png",
+     "source_page": "https://www.podium.com/whats-new/25-5",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/05/AI-Working-on-a-Response.png",
+     "w": 978,
+     "h": 342,
+     "what_it_shows": "A cropped real conversation thread: an outbound blue bubble 'Do you still need help?' attributed to 'Hedge Hog 8:53 AM', an inbound customer reply 'Yes do you have a 2024 ford maverick?' at 8:54 AM, and below it a dashed-outline status pill reading 'Searching for vehicles...' next to a purple lightning-bolt AI icon. The pill shows the AI's current working step inside the thread before its reply is sent.",
+     "pattern": "inbox-thread",
+     "steal_idea": "Show the AI's live working step ('Checking creator's draft status...') as a dashed status pill inline in the thread, so an ops lead glancing at a conversation knows the agent is mid-task, not stalled."
+    },
+    {
+     "file": "podium-03.png",
+     "source_page": "https://www.podium.com/whats-new/25-5",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/05/AssignmentSettings.png",
+     "w": 868,
+     "h": 610,
+     "what_it_shows": "A real settings dropdown, currently set to 'Assign only if unassigned', expanded to show three assignment policies with plain-language descriptions: 'Always assign to the answering user' (conversation is always reassigned to whoever the call routes to), 'Assign only if unassigned' (assigns only when the conversation has no owner), and 'Never assign' (calls never change conversation ownership). Each option pairs a bold title with a two-line explanation of the ownership consequence.",
+     "pattern": "ownership-state",
+     "steal_idea": "Make conversation-ownership policy an explicit three-option picker with one-sentence consequences (always take over / take over only if unowned / never), instead of burying takeover behavior in implicit rules."
+    },
+    {
+     "file": "podium-04.png",
+     "source_page": "https://www.podium.com/whats-new/25-6",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/06/AI-escalations-assigned-users.svg",
+     "w": 2478,
+     "h": 1648,
+     "what_it_shows": "Real Settings > AI Employee > 'Escalations and Outcomes' screen (location 'Emergensea - Lehi') behind a modal titled 'Choose who to mention in a note'. The modal previews an example escalation: 'AI Employee made a note: @Shannon Clarkson @Morgan Jones this customer is looking for information about financing. Today at 3:32 PM', then radio options Everyone / 'Users assigned to the conversation' (selected, with an 'Add additional users or groups' checkbox and a 'Morgan Abeyie' user chip) / Specific users / No one, with Cancel and Save buttons. Background rows show 'Assigned Users' chips and an '+ Add users' button. Extracted from the page's SVG wrapper (the raster is embedded base64 inside the .svg).",
+     "pattern": "escalation-config",
+     "steal_idea": "Have the AI escalate by writing an @mention note in the conversation itself, and let the config screen preview a sample note so Katie sees exactly what an escalation will look like before saving the routing rule."
+    },
+    {
+     "file": "podium-05.png",
+     "source_page": "https://www.podium.com/whats-new/25-11",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/11/AI-Needs-Help.png",
+     "w": 992,
+     "h": 718,
+     "what_it_shows": "Real Podium inbox: dark sidebar with a New button, tiles for Home, Contacts, Funnels, AI Controls, Reviews, More, and an Inbox section listing All Conversations, Unassigned, Assigned to You, Assigned to AI, and 'AI Needs Help' (selected). The right panel, titled 'Escalated' with a 'Last 7 days' filter, lists conversations whose avatars carry a lightning-bolt sub-badge and a count of 2, previews like 'AI Assistant: Still haven't heard ba...' and 'Here's my VIN# ...', each row stamped with a blue 'AI needs help' pill; one row has an unread dot.",
+     "pattern": "escalation-flag",
+     "steal_idea": "Split the inbox by ownership (Unassigned / Assigned to You / Assigned to AI / AI Needs Help) and stamp every escalated row with a colored 'AI needs help' pill, so stuck conversations form one triage queue instead of hiding among handled ones."
+    },
+    {
+     "file": "podium-06.png",
+     "source_page": "https://www.podium.com/product/inbox",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/01/Inbox_Auto-1.png",
+     "w": 1216,
+     "h": 1240,
+     "what_it_shows": "Stylized marketing render of the Podium inbox: a dark 'Inbox' sidebar with a conversation icon showing an unread count of 1, beside three channel-typed cards: a Google 'New Review' card with five stars and review text, a 'Bree Harris / New Message' card with the message preview and an attached photo, and a 'Chris Taylor / New Voicemail' card with an inline audio player showing 0:32. Each card leads with a channel icon (Google G, phone) identifying the source.",
+     "pattern": "home-queue",
+     "steal_idea": "Render the home queue as channel-typed cards (DM, email, contract, content upload) that embed the actual artifact inline (photo, audio, doc preview) so Katie can triage without opening each item."
+    },
+    {
+     "file": "podium-07.png",
+     "source_page": "https://www.podium.com/product/inbox",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/01/Inbox_HVAC-2.png",
+     "w": 1216,
+     "h": 1240,
+     "what_it_shows": "Stylized marketing render: a customer bubble asks 'I'm interested in a new AC unit. Do you do installations in Salt Lake City?' and the reply bubble carries a header strip labeled 'Answered with AI Instant Answers' above the sent text 'Yes, we service anywhere within a 25 mile radius of Salt Lake City!'. Below is a 'Henry's Heating' Settings card showing the source Q&A: 'What areas do you service?' with an on toggle, the stored answer, and an 'Add question' button.",
+     "pattern": "other",
+     "steal_idea": "Stamp every AI-sent reply with a provenance header naming the system that answered, and link it to the editable knowledge entry that produced it, so a wrong answer is one click from its fix."
+    },
+    {
+     "file": "podium-08.png",
+     "source_page": "https://www.podium.com/product/inbox",
+     "image_url": "https://cms.podium.com/wp-content/uploads/2025/01/Inbox_Retail-4.png",
+     "w": 1216,
+     "h": 1240,
+     "what_it_shows": "Stylized marketing render: a phone lock screen at 9:03 shows a Podium push notification with a red badge 3 reading 'Leads waiting: You have 3 messages that have been waiting for a response since yesterday'. Beside it sits the dark inbox sidebar (unread count 1) and inbox cards for a Google New Review, a 'Bree Harris / New Message' with photo, and a 'Chris Taylor / New Voicemail' with audio player.",
+     "pattern": "sla-badges",
+     "steal_idea": "Push a daily 'waiting since yesterday' digest to the ops lead's phone with the exact count of conversations breaching the response window, turning SLA slippage into a morning nudge rather than a dashboard she has to remember to check."
+    }
+   ],
+   "notes": "Got 8 keepers, 5 of them real product chrome. All podium.com pages served fine to curl with a browser User-Agent. Caveats: (1) The 25-6 page ships its feature images as SVG wrappers around embedded base64 rasters; I extracted the raster for the escalations-assigned-users shot (podium-04). Its 'AI Needs Help indicator' SVG is a tightly cropped single inbox row that is mostly whitespace, so I dropped it in favor of the fuller 25-11 inbox view (podium-05). (2) The /product/ai-employee page is Framer-built and its images are almost all photos or floating stylized chat bubbles with no real chrome; none kept. (3) podium-06/07/08 from /product/inbox are stylized marketing renders of the inbox, not raw app captures; UI detail is legible so I kept them, flagged as renders. (4) Could not find real screenshots of a Podium supervisor/reporting dashboard or a context sidebar: a web search surfaced no public help-center articles with screenshots (results were release notes and job posts), so those two patterns are uncovered for Podium. (5) podium-02 is only 978x342 (cropped thread snippet) but is the verbatim 'AI working on a response' asset from release 25.5. Files live in /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img/podium-01.png through podium-08.png; the folder also holds other vendors' sets from parallel collectors, untouched."
+  },
+  {
+   "images": [
+    {
+     "file": "gladly-01.png",
+     "source_page": "https://help.gladly.com/docs/self-service-handoff",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/selfservice-gladapp_.webp",
+     "w": 600,
+     "h": 363,
+     "what_it_shows": "A Gladly conversation-timeline card reading \"Katie B used Glad App - just now\" with a vertical dotted trail of the customer's self-service steps: \"Opened on https://sagansystems.github.io/chat-sdk/...\", \"Searched for 1 other term\", \"Searched for help\", \"Viewed How do I make a booking directly with Gladly?\", and \"Viewed Return Instructions\". Below it a second timeline entry, \"Katie B sent a chat \u2013 just now\", shows the customer's first message bubble \"Hi, I need some help.\" Each entry carries a dark circular KB avatar.",
+     "pattern": "takeover-handback",
+     "steal_idea": "When Katie takes over a creator or brand thread from the AI, prepend a compact step-trail card showing exactly what the person already tried and read before the handoff, so she never re-asks."
+    },
+    {
+     "file": "gladly-02.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-conversations-page-overview",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/Group%202672%20(1).png",
+     "w": 1292,
+     "h": 637,
+     "what_it_shows": "An annotated AI chat trace: the customer asks \"Where can i see how many points I have\" and an expandable \"Gladly sent a chat\" card shows \"Previous steps\", \"Quality check\", the \"Proposed response\" text, and a highlighted \"Handoff reason: These sentences may contain factual inconsistencies:\" with the two suspect sentences bulleted beneath. Below, the customer-facing message \"Hold tight! Calling in one of our Brand Ambassadors to help.\" and a boxed \"Handoff summary\" card summarizing what the customer needs are marked B and C.",
+     "pattern": "escalation-flag",
+     "steal_idea": "Make the AI publish its escalation as three visible pieces, the flagged sentences with a plain-English reason, the holding message the creator saw, and a one-line handoff summary, so Katie can judge the escalation in five seconds."
+    },
+    {
+     "file": "gladly-03.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-conversations-page-overview",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/Group%202674.png",
+     "w": 988,
+     "h": 756,
+     "what_it_shows": "The Conversation Review reasoning trace, annotated A-F: a \"Review previous message\" link, \"Gladly used Update Shipping Address\" (Guide), a \"Verify full name\" step expanded into Action / Evaluated rules (\"full name is verified\", \"full name is not verified\") / Guidance. A large box titled \"Missing information and unverified information quality checks flagged\" shows the Proposed response plus \"Missing action\" and \"Unverified information\" explanations, ending with \"Gladly handed off the conversation due to flagged quality checks.\"",
+     "pattern": "draft-review",
+     "steal_idea": "Show each AI draft with the rule it evaluated, the guidance it followed, and any quality checks that fired, so reviewing a draft means auditing a legible decision chain rather than rereading the whole thread."
+    },
+    {
+     "file": "gladly-04.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-conversations-page-overview",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/ai%20sessions%20image%20(2).png",
+     "w": 4354,
+     "h": 2484,
+     "what_it_shows": "The \"Gladly AI Sessions\" list page with a \"Test Sessions\" sibling tab, a search bar, and filter dropdowns for Status, Gladly Handed Off, Channel, Experiment, Guide, site, and Agent Version. The table has Customer / First Message / First Response / Outcome columns; each row shows the customer name and email, message previews, an outcome badge reading \"Gladly handed off\", \"Gladly did not respond\", or \"Gladly resolved\", and an Updated timestamp.",
+     "pattern": "home-queue",
+     "steal_idea": "Give Katie one queue of every AI-handled conversation with a three-state outcome badge (resolved / handed off / did not respond) plus filters by channel and agent version, so 'what did the AI do overnight' is a single scannable table."
+    },
+    {
+     "file": "gladly-05.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-conversations-page-overview",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/viewing%20test%20convo.png",
+     "w": 2076,
+     "h": 559,
+     "what_it_shows": "A \"Test Conversations\" viewer with a highlighted purple banner reading \"You are viewing a test conversation\". The left pane shows the chat transcript (\"Unknown Customer sent a chat\" bubbles and Gladly's reply asking for an order number or email), and the right pane holds a \"Review\" panel with thumbs-up and thumbs-down buttons above a text field labeled \"Add details on why you gave this review...\".",
+     "pattern": "other",
+     "steal_idea": "Attach a persistent thumbs up/down plus why-box to every AI transcript Katie reads, turning her supervision minutes into labeled training feedback without a separate QA tool."
+    },
+    {
+     "file": "gladly-06.png",
+     "source_page": "https://help.gladly.com/docs/set-up-transfer-to-agent-scenarios",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/when%20to%20get%20more%20help%20(1).png",
+     "w": 1932,
+     "h": 1059,
+     "what_it_shows": "The \"When to get more help\" settings page for the Retale Kids agent, with Changelog, Test, and Save buttons in the header. Under \"When to handoff\", five plain-English scenario rows are highlighted, including \"The customer is asking explicitly for a human or an agent\", \"The customer is threatening legal action\", and \"...requesting or threatening escalation to the CEO, manager, supervisor...\", with an \"Enter handoff guidance\" input, trash icon, and \"+ Add\" button. A \"Handoff message\" section below holds the customer-facing text \"One moment please.\"",
+     "pattern": "escalation-config",
+     "steal_idea": "Let Katie define escalation triggers as an editable list of plain-English sentences with a Test button beside them, instead of burying handoff rules in code or prompt files."
+    },
+    {
+     "file": "gladly-07.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-dashboard",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/new%20sk%20dashboard.png",
+     "w": 1600,
+     "h": 1069,
+     "what_it_shows": "The \"Sidekick Dashboard\" report with filters for Last Closed At Date (\"Last 14 Days\"), channel (\"EMAIL,CHAT,SMS,PHONE_CALL\"), and Sidekick Inbox. Four KPI tiles read 5,774 Resolutions, 12,616 Assisted (Handoffs), 18,390 Resolutions + Assists, and 31% Resolution Rate with its formula \"Resolutions / (Resolutions + Assisted)\". Below are a stacked purple/green bar chart \"Assisted (Handed-off) and Resolved Conversations - over time\" with per-day counts, and a green \"Resolution Rate - over time\" line labeled 34% down to 21%.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Anchor the command center on one honest headline split, what the AI finished alone versus what it handed to Katie, as paired KPI tiles and a stacked daily bar, with the resolution-rate formula printed right on the tile."
+    },
+    {
+     "file": "gladly-08.png",
+     "source_page": "https://help.gladly.com/docs/sidekick-dashboard",
+     "image_url": "https://cdn.us.document360.io/7047b671-c4f2-4df0-bb0a-b9b511fd2452/Images/Documentation/sidekick%20assists%20resolves.png",
+     "w": 3806,
+     "h": 969,
+     "what_it_shows": "A ranked table titled \"This table shows the top contact reasons and the proportion of conversations that Sidekick is assisting and resolving\". Rows are hierarchical contact reasons like \"Track > Status Update\" and \"Return > Too Big / Too Small > Refund\", each with an inline horizontal bar and count (e.g. 1,377), then columns for % of Conversations, % Conversations that Sidekick Assisted, and % that Sidekick Resolved; one 99% assisted cell is highlighted.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Break AI performance down by conversation reason (shipping question, draft feedback, payment issue) with assisted% versus resolved% per row, so Katie can see exactly which request types are safe to leave fully automated."
+    }
+   ],
+   "notes": "Kept 8 of 19 downloaded candidates in /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img (gladly-01..08.png, all verified by eye). Notes on what was dropped or unobtainable: (1) help.gladly.com is Document360; its images are served from cdn.us.document360.io with short-lived (~10-15mn) Azure SAS signatures, so the image_url values above are the base asset URLs with the expired token stripped; re-download requires re-fetching the article page for a fresh signature. (2) The self-service-handoff GIF (click_answers_in_timeline_.gif, 1586x892, 10.6MB) was downloaded but discarded: too large for the Read tool, and its extracted first frame is mostly blank canvas with a partial customer profile, so I could not verify or caption the animated Answers-panel content. (3) The sidekick-dashboard article's only other images were a 51x48 refresh icon (under the 500px floor). (4) www.gladly.com/sidekick/ fetched fine but its Sanity CDN images are all photography and customer-logo montages (hands on phones, Conde Nast covers, Rothy's shoes, MaryRuth's), no legible product renders, so nothing from marketing was kept. (5) Also dropped as weaker than the kept 8: two near-duplicate Gladly AI side-nav menu crops (Analyze/Manage/Test/Deploy), the Test Sessions tab variant of the sessions table, and the Retale Home agent-config card grid with 2-versions-in-use / Publish latest version banner (still in the transfer-to-agent and conversations-page articles if wanted later). No SLA-badge or per-conversation ownership-state UI was found in these Gladly sources."
+  },
+  {
+   "images": [
+    {
+     "file": "ada-01.png",
+     "source_page": "https://docs.ada.cx/docs/handoffs/zendesk/zendesk-chat/zendesk-chat-handoff-usage",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/22c3882d8540f483b82b7efc7403d50478d539fe65f236f30610bd8a7caf79d1/versions/assets/image/uuid-8aae0aaa-73ea-d7f1-c9b4-b88caf8e8c45.png",
+     "w": 2384,
+     "h": 1188,
+     "what_it_shows": "Zendesk Chat agent workspace at the moment an Ada conversation is handed to human agent Matt. The left pane shows Current chat / Past chats (3) tabs and the relayed bot transcript as prefixed lines (USER: ada@ada.support, BOT: Last question! What's your phone number?) plus a 'Matt has joined' event and a reply box with Emoji, Rating, and Attach controls. The right context sidebar is pre-filled by the bot: name Matt, email, a 'Matt's department' chip, phone 8772428232, Add visitor notes, an 'adaglass' tag, counters for 3 Past visits / 3 Past chats / 0 min Time on site, and a Visitor path trail.",
+     "pattern": "takeover-handback",
+     "steal_idea": "On takeover, relay the whole AI transcript into the human's thread with speaker prefixes and auto-fill a context rail (contact fields, tags, past activity) so Katie never re-asks a creator or brand for anything the AI already collected."
+    },
+    {
+     "file": "ada-02.png",
+     "source_page": "https://docs.ada.cx/docs/handoffs/zendesk/zendesk-chat/zendesk-chat-handoff-usage",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/36f0831833db56c1af73b79a8c6250442c01f46e146f16858a24d7016a03092c/versions/assets/image/uuid-e00a75a9-0bd4-64c6-e14a-0aad4abdad74.png",
+     "w": 1530,
+     "h": 842,
+     "what_it_shows": "Ada's builder view for configuring a handoff: a 'Zendesk Live Agent' block with a Department dropdown set to MATT'S DEPARTMENT, a Tags field with placeholder 'Create a tag by ending it with a comma.', and an Off-Hours Answer dropdown pointing to a 'Something Went Wrong' fallback answer. Below it sits a separate 'Text Message' content block reading 'Welcome back' with a 305 character counter, and each block has drag-handle, collapse, and delete controls.",
+     "pattern": "escalation-config",
+     "steal_idea": "Model escalation as stackable blocks (route to which person/team, auto-apply tags, and a named off-hours fallback behavior) instead of a flat settings form, so each escalation path is readable top to bottom."
+    },
+    {
+     "file": "ada-03.png",
+     "source_page": "https://docs.ada.cx/docs/handoffs/zendesk/zendesk-chat/zendesk-chat-handoff-usage",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/5bc648cba2bd37818a9239b0acf1eaf284041eff55ca4d0e2f2325ef15108108/versions/assets/image/uuid-ca2f517f-a37f-29f1-ec13-1841c0c2294f.png",
+     "w": 2656,
+     "h": 1372,
+     "what_it_shows": "A Zendesk Support ticket ('Chat with Matt #1742' with a red OPEN badge) created from an Ada conversation. The left sidebar holds the user card: email, phone 8772428232, Bogota timezone, English (United States), an Add user notes box, and an Interactions list ('Chat with Matt, 27 minutes ago, 3 comments'). The main pane opens with a yellow chat-ended summary card (Name / Email / Phone / Notes and 'Chat ended: 2020-03-23 06:58 PM UTC') followed by the full timestamped bot transcript ('USER: agent please', 'BOT: What's your name?'), with Apply macro, Close tab, and Submit as Open controls at the bottom.",
+     "pattern": "inbox-thread",
+     "steal_idea": "When the AI finishes or escalates a conversation, auto-create the work item with a structured summary card on top and the raw transcript underneath, so the thread itself is the handoff document."
+    },
+    {
+     "file": "ada-04.png",
+     "source_page": "https://docs.ada.cx/docs/optimization/coaching",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/bb67eafd5e9704ee8ba7df26bf21c53b31a636f65a8075e0aee1e352063e0932/versions/assets/images/coaching.png",
+     "w": 1564,
+     "h": 1024,
+     "what_it_shows": "Ada's native dashboard on the Coaching screen: a dark icon rail (Home, Analytics, Convos, Testing, Config) plus a secondary AI AGENT nav (Knowledge, Playbooks, Greeting, Actions, Processes, Handoffs, CSAT, Coaching highlighted, Settings) and a 'Test AI Agent' button. The main pane has a yellow warning banner 'Coaching does not apply to Voice conversations.', a scope line 'Conversations shown: Last 7 days, excluding test conversations. Change', search and Filter controls, and a table of coaching rules (e.g. 'Password questions', 'Include a link to the CRA official website...') with Availability, Conversations, Last modified, and green Active toggles, ending in 'Showing 4 of 4 results'.",
+     "pattern": "other",
+     "steal_idea": "Let the ops lead teach the AI through named, individually toggleable coaching rules in a list that shows scope and last-modified, so every behavior tweak is auditable and instantly reversible."
+    },
+    {
+     "file": "ada-05.png",
+     "source_page": "https://docs.ada.cx/docs/generative/measure-success/view-detailed-reports-on-your-ai-agent-s-performance",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/eeed6a4d9924594e5cd01ea377a1a2a4d18e2b12e6a538a0dd1a6aeda9269e60/versions/assets/images/automated-resolution-rate.png",
+     "w": 1788,
+     "h": 1428,
+     "what_it_shows": "Ada's 'Automated resolution rate' report: headline stats of 50.2% Automated Resolution Rate (1,040 of 2,067 conversations, down 18% from previous period) and 71.3% Containment Rate, with Date range / Add filter / Roll up Daily / Print controls and Download buttons. Below, a Conversations audit table with columns Started, Inquiry Summary, Classification (purple-check 'Resolved' or gray-X 'Not resolved' badges), and 'Reason for Classification' where each row carries an AI-written justification like 'The AI agent identified an identity mismatch error... then offered to connect her to a support agent.'",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Pair the headline automation-rate stat with a row-level audit table where the AI states why each conversation counted as handled or escalated, so Katie can spot-check the metric instead of trusting it blind."
+    },
+    {
+     "file": "ada-06.png",
+     "source_page": "https://docs.ada.cx/docs/generative/measure-success/view-detailed-reports-on-your-ai-agent-s-performance",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/5747097822837750df41b64dc6416cb190285ec26fcdd5810bdc4ff40b8e3243/versions/assets/images/generative-conversations-breakdown.png",
+     "w": 1642,
+     "h": 1144,
+     "what_it_shows": "Ada's 'Conversations breakdown' report: four color-coded stat tiles reading 153,555 Opened, 110,599 Engaged, 69,914 Autonomously Resolved, and 6,478 Escalated, each with an info icon, next to a multi-series line chart covering Jan 02 to Jan 08 with a matching legend. Controls include Date range 'Last 7 days', Add filter, Roll up 'Daily', Print, and a Download button, with a 'Last updated 2m ago' timestamp under the description.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Anchor the command center on a fixed volume funnel (Opened, Engaged, Auto-handled, Escalated) so the escalated slice is always read against total volume rather than as a raw scary number."
+    },
+    {
+     "file": "ada-07.png",
+     "source_page": "https://docs.ada.cx/docs/generative/measure-success/view-detailed-reports-on-your-ai-agent-s-performance",
+     "image_url": "https://fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com/ada.docs.buildwithfern.com/e78544442d29b57e51b6be51ecda21f95bcecb37d1b56d7e6612723d17a1c78b/versions/assets/images/customer-satisfaction-score.png",
+     "w": 1664,
+     "h": 1122,
+     "what_it_shows": "Ada's 'Customer satisfaction score' report splitting CSAT by who handled the conversation: stat blocks for 66% Overall Score (12383 surveys), 66% AI Agent Score (12383 surveys), and 0% Human Agent Score (0 surveys), each with an info icon. A line chart from Jan 02 to Jan 08 plots the three series with a legend (Overall Score, AI Agent Score, Human Agent Score), above which sit Date range 'Last 7 days', Add filter, Roll up 'Daily', Print, and Download controls.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Split every outcome metric into AI-handled vs Katie-handled series on the same chart, so the ops lead can see exactly where the AI is already safe to leave unsupervised and where it drags quality down."
+    }
+   ],
+   "notes": "Kept 7 of 24 downloaded candidates, all visually verified with the Read tool. Sources that worked: docs.ada.cx (Fern-built docs; images live on fdr-prod-docs-files-public.s3.us-east-1.amazonaws.com behind 7-day signed URLs; image_url above is the stable unsigned asset path, which may require re-signing via the docs page to fetch again). What I could not get: (1) www.ada.cx/platform/ and the Ada blog are Cloudflare-blocked for curl (returns an 'Attention Required' challenge page), so no marketing renders of Ada's newer UI from the main site; (2) docs.ada.cx paths under /docs/monitoring/... and /docs/optimization/performance/... returned an empty SPA shell with zero images, so no Topics view or Response training screenshots; (3) the handoff-management seed page's 16 images were all tiny inline icons (under 40px) and were discarded; (4) the Convos conversation-review docs page only exposed one 36px icon, so no native Convos three-pane screenshot. Note on ada-01 and ada-03: these are agent-side views inside Zendesk Chat/Support as the receiving end of Ada's handoff (from the seed page the task named); they show Ada's transcript-relay and context-push pattern rather than Ada's own dashboard chrome. Also discarded: two end-user chat-widget screenshots (queue-position and takeover messages) as not command-center UI, and a third near-duplicate analytics chart (average handle time)."
+  },
+  {
+   "images": [
+    {
+     "file": "front-01.png",
+     "source_page": "https://help.front.com/en/articles/1146752",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/136c7057-f4bc-4fd9-b371-8c33cbb997f2.png",
+     "w": 2876,
+     "h": 1924,
+     "what_it_shows": "Front's Analytics live dashboard in a browser window titled 'Live dashboard'. Four big stat cards read Open 54, Waiting 2, Unassigned open 48, Oldest 22h 21m, above a 'Workload by inbox' table (Support - Tier 1/2/3, Customer Success, Chat - Site 1 with Open/Waiting/Unassigned/Oldest columns), a 'Workload by status' panel, and a 'Workload by teammate' rail listing Karen Nguyen 4, Anthony Galleran 3, Jane Smith 1, Isaiah Wilkerson 0. Below, an 'Oldest conversations' table shows subjects like 'Customer onboarding' with Last message age, Assignee (some Unassigned), and blue Open status chips.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Give Katie one live wall with exactly four numbers (open, waiting, unassigned, oldest-age) plus a per-teammate and per-campaign workload split, so 'who is drowning and what has sat longest' is answerable in one glance."
+    },
+    {
+     "file": "front-02.png",
+     "source_page": "https://help.front.com/en/articles/3038464",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/ae489a68-15c5-4488-97a4-33cd84b6e040.png",
+     "w": 1634,
+     "h": 596,
+     "what_it_shows": "A Support inbox list (Unassigned/Assigned/Snoozed tabs) beside an open 'Login issues' email from Sophia Carpenter. The first list row carries a small pie-timer badge reading '8h' (outlined in red by the doc), with a black 'Time goals' tooltip expanded: 'Reply in 8h', 'Resolve in 2d'. The second row, 'Message template access', shows a red rotating-light emoji as a breach marker on the snippet.",
+     "pattern": "sla-badges",
+     "steal_idea": "Put a countdown pie badge with hours-remaining directly on each queue row, with a hover tooltip splitting reply vs resolve deadlines, so creator and brand messages self-sort by urgency without opening them."
+    },
+    {
+     "file": "front-03.png",
+     "source_page": "https://help.front.com/en/articles/3737408",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/715f6430-a2eb-49ed-8254-f54b1539e1ab.png",
+     "w": 1192,
+     "h": 706,
+     "what_it_shows": "An inbound email ('Is Front SOC 2 Type II certified?' from Michelle Thorton) with Reply and Create Jira Issue buttons, a 'Time goal applied' event line, and below it a lavender banner with the Autopilot diamond icon reading 'Autopilot is handling this conversation' next to a 'Step in' link (outlined in red by the doc). Clicking Step in is how a human takes the thread back from the AI.",
+     "pattern": "takeover-handback",
+     "steal_idea": "When the AI owns a thread, show a persistent 'AI is handling this' banner with a one-click 'Step in' takeover right in the conversation, making ownership explicit and reversible for Katie at any moment."
+    },
+    {
+     "file": "front-04.png",
+     "source_page": "https://help.front.com/en/articles/3737408",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/003236c0-5e07-4256-83b9-9f33e253da4d.png",
+     "w": 1498,
+     "h": 880,
+     "what_it_shows": "An AI-sent reply in the thread authored by 'Autopilot' with a gray 'Automated' chip, addressed 'To: Sarah Murphy', answering a SOC 2 question. The footer carries an appended disclosure line 'Note: This was composed and sent by AI...', a sparkle chip reading '19 sources', a right-aligned 'Generated by AI' label, and thumbs up/down feedback buttons.",
+     "pattern": "draft-review",
+     "steal_idea": "Stamp every AI-written message with an author chip, a source-count pill that expands to receipts, and thumbs feedback, so Katie can audit any outbound AI reply to a creator or brand in seconds."
+    },
+    {
+     "file": "front-05.png",
+     "source_page": "https://help.front.com/en/articles/3737408",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/64f0d625-3f8a-47c5-a205-b30883f3f2a8.png",
+     "w": 1184,
+     "h": 778,
+     "what_it_shows": "An inbound email from Leyton asking about custom roles, with Reply and Create Jira Issue buttons, then a collapsed event line 'Topic identified, time goal applied + 1 more'. Below, an Autopilot event row with the purple diamond icon shows a gray status bubble: 'AI could not generate an informative response.' timestamped 3h, i.e. the AI declining and leaving the thread for a human.",
+     "pattern": "escalation-flag",
+     "steal_idea": "Make the AI's give-up state a first-class visible event in the thread ('AI could not answer, over to you') rather than silent inaction, so unhandled creator questions surface in Katie's queue with the reason attached."
+    },
+    {
+     "file": "front-06.png",
+     "source_page": "https://help.front.com/en/articles/3737408",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/53d7c875-5838-45fe-b2b8-7524a10ffe38.png",
+     "w": 1820,
+     "h": 1060,
+     "what_it_shows": "Front's rule canvas for 'Auto-reply using Autopilot' on a dotted background: a settings card ('1 trigger, 2 required conditions') with IF blocks 'Conversation has topic: SOC 2 Type II certifica..., +2' and 'Topic can't be identified', each wired by purple arrows to separate Actions cards ('Reply using Autopilot and update ticket status to Resolved' with an 'Autopilot Auto-Reply' chip, and 'Ask for context using Autopilot...'), each with '+ Add action' links.",
+     "pattern": "escalation-config",
+     "steal_idea": "Let Katie configure when the AI may answer alone as a visual IF-this-THEN-that branch map per topic, with the 'topic unrecognized' branch explicitly routed to a different action instead of buried in settings."
+    },
+    {
+     "file": "front-07.png",
+     "source_page": "https://help.front.com/en/articles/4848832",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/58b18d13-e580-4a46-829a-a1250f31f0dd.png",
+     "w": 1666,
+     "h": 1306,
+     "what_it_shows": "An 'Invoice question' thread (Tier 1 inbox, Assign button, sparkle one-line AI summary under the header) with a Copilot sidebar open on the right. The user prompt 'Find other conversations related to this issue' sits above an expandable '2 activities' trace showing searched chips (Hector Rubio, Final Production Co., 'invoice question', 'billing inquiry') and 'Reviewed 9 of 2231 conversations', a list of matching conversation titles, a prose answer with a '+6' pill, an 'Ask anything' input, and the caption 'AI can make mistakes. Always review responses.'",
+     "pattern": "context-sidebar",
+     "steal_idea": "Pair every open thread with an askable AI sidebar that shows its work (what it searched, how many records it reviewed) as an expandable activity trace, so Katie can trust cross-campaign lookups like 'has this creator ghosted before?'"
+    },
+    {
+     "file": "front-08.png",
+     "source_page": "https://help.front.com/en/articles/1164608",
+     "image_url": "https://usw1.frontkb-cdn.com/attachments/11/1/4837e8fd-f2d9-4e33-b512-6a97b170c0b9.png",
+     "w": 2282,
+     "h": 1359,
+     "what_it_shows": "A 'Re: Potential bug with in-app translation feature' thread whose header carries a sparkle-icon living AI summary strip ('Sophia reports a translation bug, and Michelle logs it for further investigation with examples.'), with the same summary expanded in a 'Conversation context' panel as a timeline of bolded events (Reported, Thanked, Mentioned, Offered, Provided) plus a pinned 'Filed BUG-12345' comment. The composer row shows Reply and an 'Escalate to Tier 2' macro button, and a 'No suggested reply' event line sits above a pinned internal comment.",
+     "pattern": "inbox-thread",
+     "steal_idea": "Keep a one-line AI summary pinned to the top of every thread that expands into a verb-first event timeline (Reported, Promised, Escalated), so Katie can take over any collab conversation mid-flight without rereading it."
+    }
+   ],
+   "notes": "Got 8 keepers, all real Front product UI from help.front.com articles (images hosted on usw1.frontkb-cdn.com; direct curl with a browser UA worked fine). Coverage: supervisor-dashboard, sla-badges, takeover-handback, draft-review (AI reply audit), escalation-flag (AI give-up event), escalation-config (rule canvas), context-sidebar (Copilot with activity trace), inbox-thread (living AI summary + Escalate to Tier 2 macro). Could NOT get anything from the two marketing seed pages (front.com/product/team-inbox and /front-ai): both return an identical JS-rendered SPA shell to curl with only an OG meta card image, no product screenshots in the HTML. Compensated with three additional help articles found via search: 3038464 (time goal/SLA rules), 1146752 (Analytics live dashboard), 2114 (rule library). 63 candidate images were downloaded and dimension-checked in scratchpad; ~20 of the largest were visually reviewed and the rest discarded (settings fragments, cropped dialogs, duplicate Copilot shots, an AI-disclosure settings page, and a rule-template gallery that was mostly illustrative tiles). Note the img folder also contains other vendors' sets (ada-, zendesk-, gladly-, etc.) from parallel tasks; left untouched."
+  },
+  {
+   "images": [
+    {
+     "file": "kustomer-02.jpg",
+     "source_page": "https://www.kustomer.com/resources/blog/enhanced-hitl-handoffs/",
+     "image_url": "https://www.kustomer.com/images/sanity/14986195495b01b721b93d5388122420e916d25a-866x813.webp",
+     "w": 866,
+     "h": 813,
+     "what_it_shows": "A real Kustomer conversation thread titled \"Hi I'm interested in a car rental\" with a red \"Open\" status badge, snooze and done icons, an \"Add Tag\" chip, and an \"AS\" assignee avatar. A gray system line reads \"Business rules assigned this conversation to AI_AI Agent Customer Support Today\", followed by messages from \"AI Agent Customer Support\" asking for booking dates, a reply from customer Danny Garcia, and an AI message saying \"I've handed you off to a human agent who will assist you with your car rental booking for May 2-4\". The footer shows Reply and Note tabs.",
+     "pattern": "takeover-handback",
+     "steal_idea": "Print every ownership change (rule assigned to AI, AI handed to human) as an inline system line in the collab thread itself, so Katie can audit exactly when and why the AI let go."
+    },
+    {
+     "file": "kustomer-10.png",
+     "source_page": "https://www.kustomer.com/ai-for-reps/",
+     "image_url": "https://www.kustomer.com/images/kustomer/Envoy-Observability.webp",
+     "w": 2624,
+     "h": 2328,
+     "what_it_shows": "A stylized render of Kustomer's observability trace: a panel titled \"Observe Support Team\" with Input \"it's the last order i placed\", a Visualization column stepping Input Message \u2192 Supervisor Agent \u2192 Refunds Specialist \u2192 Final Response, a \"Success Analysis\" card with a pink \"Interaction Unsuccess...\" alert, and a \"Problems\" card. Overlaid is a \"Kustomer Envoy\" chat panel with the message \"Analyze this trace.\" and an input labeled \"Ask a question about this trace\".",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Give the ops lead a per-conversation trace of which AI step handled what, flag unsuccessful interactions in it, and attach an \"ask about this trace\" chat so debugging an escalation is conversational."
+    },
+    {
+     "file": "kustomer-11.png",
+     "source_page": "https://help.kustomer.com/en_us/use-ai-to-respond-to-customer-inquiries-rkUFDaYK2",
+     "image_url": "https://cdn.kustomerhostedcontent.com/media/570fad9d9001bc1000163b28/e24ebf73653bab468651f4b6c5bbf95b.png",
+     "w": 875,
+     "h": 670,
+     "what_it_shows": "A real screenshot of Kustomer's assistant builder on an \"AI response\" step with an \"Understand Intents\" toggle, a message composer (\"Enter the message sent to the end-user.\"), a \"Wait for Reply\" divider with a blue \"Customer Response\" button, and an \"AI-powered answer\" node. Under an \"If answer exists\" branch are \"Use this AI Profile when generating a message response\" with a Select dropdown and \"Edit AI Profiles\" button, a knowledge base picker set to \"Acme, Inc.\", and mapped branches \"If feedback is positive \u2192 Positive feedback response\", \"If feedback is negative \u2192 Negative feedback response\", and \"If answer does not exist \u2192 Answer not found response\".",
+     "pattern": "escalation-config",
+     "steal_idea": "Force every AI reply node to declare its failure branches in config (positive feedback, negative feedback, no answer found), so silence and dead-ends in creator comms are designed paths, never accidents."
+    },
+    {
+     "file": "kustomer-13.png",
+     "source_page": "https://help.kustomer.com/en_us/use-ai-to-respond-to-customer-inquiries-rkUFDaYK2",
+     "image_url": "https://cdn.kustomerhostedcontent.com/media/570fad9d9001bc1000163b28/87c820ba203ee9f3eed163e2866318f3.png",
+     "w": 1886,
+     "h": 1122,
+     "what_it_shows": "A real screenshot of Kustomer's \"Customer Assist\" settings page with tabs Assistants, Custom Intents, and Rules (Rules active). A \"Manage Rules\" section shows a \"1/200 Assistant Rules\" counter chip, a blue \"+ Add Assistant Rule\" button, and channel tabs Chat, WhatsApp, SMS. Below, a \"Default Chat Assistant\" card pairs Brand \"Acme, Inc.\" marked \"Enabled\" with an Assistant dropdown set to \"Respond with AI\", outlined in red.",
+     "pattern": "escalation-config",
+     "steal_idea": "One Rules tab that maps each audience/channel to a default AI assistant with a per-brand enable switch and a visible rules quota, so Katie can see and change who answers what from one screen."
+    },
+    {
+     "file": "kustomer-07.png",
+     "source_page": "https://www.kustomer.com/ai-for-reps/",
+     "image_url": "https://www.kustomer.com/images/kustomer/Envoy-Signals.webp",
+     "w": 2622,
+     "h": 2326,
+     "what_it_shows": "A stylized render of Kustomer Envoy's Signals panel: a collapsible card titled \"Customer Health & Engagement\" containing a purple \"Silver Member\" pill under Membership Status, plus yellow check-bulleted rows for Engagement Level (\"Active - multiple completed reservations\"), Sentiment Trend (\"Neutral - concerns about recent booking\"), Customer Since (\"September 5, 2025\"), and Lifetime Value (\"$531\").",
+     "pattern": "context-sidebar",
+     "steal_idea": "Put a compact creator-health card (tier, engagement level, sentiment trend, lifetime GMV) beside every escalated thread so the ops lead never has to leave the queue to judge how carefully to handle someone."
+    },
+    {
+     "file": "kustomer-09.png",
+     "source_page": "https://www.kustomer.com/ai-for-reps/",
+     "image_url": "https://www.kustomer.com/images/kustomer/Envoy-Closing-Summary.webp",
+     "w": 2622,
+     "h": 2328,
+     "what_it_shows": "A stylized render of Envoy's auto-generated \"Closing Summary\" card with labeled sections Issue, Actions taken, and Resolution. The Actions taken rows are attributed per actor: a sparkle avatar with \"AI Agent identified 3 rooms available for the newly requested dates, 2 Standard rooms and 1 Deluxe\" and a human avatar with \"Sarah upgraded Dave to the Deluxe room as he is an active member of the traveler loyalty program\". Purple status pills with yellow checks read \"Resolved\" and \"Customer Satisfed\" (sic).",
+     "pattern": "ownership-state",
+     "steal_idea": "Auto-write a closing summary that attributes each action to the AI or the named human with avatars, ending in status pills, so every collab leaves an ownership audit trail Katie can skim."
+    },
+    {
+     "file": "kustomer-06.png",
+     "source_page": "https://www.kustomer.com/concierge/",
+     "image_url": "https://www.kustomer.com/images/kustomer/Evaluations-Small-690x582.webp",
+     "w": 2624,
+     "h": 2320,
+     "what_it_shows": "A stylized render of Kustomer's AI evaluation feature: a \"Test Input\" card with a customer message \"I ordered something last week. Where is my order?\", then an \"Evaluation Results\" chip above a stat row reading Score 99%, Test cases 10, Runs 100, Total run time 5m 20s. Below is a Test Case / Score table with rows \"No prior order 97%\", \"Incorrect Address 99%\", and \"Damaged/missing item 100%\", the first row highlighted.",
+     "pattern": "other",
+     "steal_idea": "Before raising the AI's autonomy on any creator-comms scenario, show a scorecard of named test cases (ghosting, wrong address, missed deadline) with per-scenario pass scores so trust is granted scenario by scenario."
+    },
+    {
+     "file": "kustomer-03.jpg",
+     "source_page": "https://www.kustomer.com/resources/blog/introducing-kiq-agent-assist/",
+     "image_url": "https://www.kustomer.com/images/sanity/e9667e8200b608fc69131c9f820557bf036a75b4-1024x538.webp",
+     "w": 1024,
+     "h": 538,
+     "what_it_shows": "The KIQ Agent Assist announcement banner (\"An AI-Powered Copilot Increasing Agent Efficiency by 65%\") with a stylized composer render on the right: a customer message from Katherine Silvia saying \"Hi, I need to change my flight dates for my upcoming trip\", a Reply header showing support@FlyRight.com to katherine@silvia.com, and a purple-outlined draft box labeled \"AI Generated\" containing a reply about the New York City to Mexico City flight on 12/17, next to a blue \"Send\" button. Left half is marketing text and the Kustomer logo.",
+     "pattern": "draft-review",
+     "steal_idea": "Frame AI-drafted reply text in the composer with a distinct colored border and an explicit \"AI Generated\" badge, so drafted words stay visually separate from human edits until the moment of Send."
+    }
+   ],
+   "notes": "Got 8 keepers (2 real help-center screenshots, 1 real in-app thread from the HITL blog, 5 stylized-but-legible marketing renders of Envoy/Concierge features). Limitations: kustomer.com marketing pages are fully JS-rendered, so curl only returned the og-image; I had to render pages in the browser pane and extract img URLs from the live DOM. The Concierge and AI-for-Reps hero demos are .webm videos (not stills), so their richest full-app views could not be captured as images. The KIQ Agent Assist blog contains only its banner hero, no in-app screenshots. No real screenshot of a live team/queue supervisor dashboard or SLA-badge inbox was found on the crawled pages; Kustomer's marketing UI assets are stylized recreations rather than raw app chrome, which I flagged per image. Discarded along the way: a photo-dominant workflow hybrid, two pure marketing illustrations, an assistant-template modal, and a copilot suggested-actions render (overlapped the kept Envoy set). Note the folder also contains other vendors' images (ada-, gladly-, zendesk-, etc.) from parallel collectors; I touched only kustomer-* files. Absolute path: /Users/julia/Documents/Benable Coding/katie-command-center-ui-study/img"
+  },
+  {
+   "images": [
+    {
+     "file": "intercom-01.png",
+     "source_page": "https://www.intercom.com/help/en/articles/6258745-the-inbox-explained",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1256039099/98ebf9f238072dce18acf01637e8/CleanShot%2B2024-11-18%2Bat%2B13_13_42-402x.png",
+     "w": 2455,
+     "h": 1433,
+     "what_it_shows": "Intercom Inbox in table layout: a left sidebar with live counts (Your inbox 0, Mentions 0, Created by you 4, All 353, Unassigned 111, Spam 13) plus Dashboard, Fin AI Agent, Views and Team inboxes entries. The main table shows one conversation per row with columns User, Assignee, Status, Last updated and Ticket ID, each row carrying an 'Open' pill and either a named assignee (Paula) or an 'Unassigned' glyph. A circled toggle at bottom-left switches between list and table layouts, and a '353 Open' filter with a column '+' button sits above the grid.",
+     "pattern": "home-queue",
+     "steal_idea": "Give Katie a one-keystroke toggle between a reading list and a manager's table view of the same queue, with configurable columns and ever-present Unassigned and All counts in the sidebar."
+    },
+    {
+     "file": "intercom-02.png",
+     "source_page": "https://www.intercom.com/help/en/articles/6546152-set-slas-for-conversations-and-tickets",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1249941588/76a80ca6b9c513514ccbce7c216d/Screenshot+2024-11-13+at+08_25_51.png",
+     "w": 1290,
+     "h": 1640,
+     "what_it_shows": "Paula's inbox with a 'Sort by' dropdown open over the conversation list, offering Oldest, Newest, Started first, Started last, Waiting longest, Next SLA target and Priority first. The sidebar shows Your inbox (2), All (356), Unassigned (113), a Team inboxes section (Tier 1), a Views section (High Priority) and a Fin AI Agent section with All conversations / Resolved / Routed sub-views. Two open conversations preview 'Fin: When a teamm...' snippets.",
+     "pattern": "sla-badges",
+     "steal_idea": "Let the ops lead sort the review queue by 'next SLA target' and 'priority first' rather than only by recency, so the item about to breach its promise always floats to the top."
+    },
+    {
+     "file": "intercom-03.png",
+     "source_page": "https://www.intercom.com/help/en/articles/8587194-how-to-use-copilot",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1219202807/016403185da302d13f36ed024702/CleanShot+2024-10-17+at+11_45_58%402x.png",
+     "w": 1473,
+     "h": 725,
+     "what_it_shows": "A 'Copilot Suggested Macro' bar sitting between the customer's question ('what are the opening hours of your bank on weekdays?') and the Reply composer, with two actions: 'Reject Esc' and a filled 'Insert into composer Tab' button. Below, the composer already contains the drafted answer about branch opening hours with a small 'Tab' hint chip, plus lightning-bolt and bookmark icons and a Send button.",
+     "pattern": "draft-review",
+     "steal_idea": "Present each AI-drafted reply as an inline suggestion bar with single-key accept (Tab) and reject (Esc) so Katie can burn through draft approvals without touching the mouse."
+    },
+    {
+     "file": "intercom-04.png",
+     "source_page": "https://www.intercom.com/help/en/articles/8587194-how-to-use-copilot",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1394267140/0f21c6df1a674a11e39c06b00b05/CleanShot+2025-02-24+at+14_17_22%402x.png",
+     "w": 1878,
+     "h": 1402,
+     "what_it_shows": "The conversation on the left with a Copilot side panel on the right: the AI answer carries numbered blue citation chips (1)(2) inside the text, a '2 relevant sources found' list below, and an 'Improve answer' link. An 'Answer sources' popover is open from the input's filter icon, with checkmarks on 'Internal articles' and 'PDFs' and unchecked rows for Macros, Past conversations, Public articles, Snippets and Webpages; the ask box reads 'How do I verify a customer's identity?'.",
+     "pattern": "context-sidebar",
+     "steal_idea": "Every AI claim in the sidebar should carry a numbered citation chip, with a per-question source-type filter so the supervisor can restrict answers to vetted internal material."
+    },
+    {
+     "file": "intercom-05.png",
+     "source_page": "https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1916756033/44196bf3d123b87d9f8caff00343/CleanShot%2B2025-10-21%2Bat%2B15_27_22-402x.png",
+     "w": 2646,
+     "h": 1324,
+     "what_it_shows": "The Fin AI Agent > Escalation settings page with a Train sidebar (Content, Guidance, Attributes, Escalation highlighted, Procedures, Suggestions). Two sections are shown: 'Escalation Rules' ('Use attributes and other customer data to deterministically define escalation conditions') and 'Escalation Guidance' ('Fine-tune Fin's escalation behaviour...'). Guidance cards 'Plan cancellations' and 'SDR - Lead qualified' each carry a 'Not enabled' pill, Used / Resolved / Routed counters, and their plain-language routing instructions; '+ New' buttons sit under each section.",
+     "pattern": "escalation-config",
+     "steal_idea": "Write escalation guidance as plain-language cards, each wearing its own Used / Resolved / Routed counters, so Katie can see which rules actually fire before trusting them."
+    },
+    {
+     "file": "intercom-06.png",
+     "source_page": "https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/2615962985/1df2a77f182f574421b1b88e86da/CleanShot+2026-08-18+at+14_30_00%402x.png",
+     "w": 3548,
+     "h": 1548,
+     "what_it_shows": "An expanded escalation rule 'Topic is pricing' with an 'Enabled' pill and Used/Resolved/Escalated stats. A 'When' row chains condition chips: 'Audience is Enterprise plan' and 'Channel is Email' and 'Topic is Pricing', plus '+ Add condition'. A 'Fin will' segmented control offers 'Ask for input (Beta)' versus 'Hand over', captioned 'Fin will ask a teammate when its confidence is under the threshold', with footer chips 'Threshold: Low', 'Ask All teammates' and 'Proceed after 48h' beside Pause, Cancel and Save buttons.",
+     "pattern": "escalation-config",
+     "steal_idea": "Between full autonomy and full handover, add an 'ask a human first' mode with a tunable confidence threshold, a named audience of answerers, and a proceed-anyway timer."
+    },
+    {
+     "file": "intercom-07.png",
+     "source_page": "https://www.intercom.com/help/en/articles/12396892-manage-fin-ai-agent-s-escalation-guidance-and-rules",
+     "image_url": "https://downloads.intercomcdn.com/i/o/tx2p130c/1890213172/0b114ac400fe1faa193675685640/CleanShot+2025-12-17+at+15_06_26%402x.png",
+     "w": 2042,
+     "h": 970,
+     "what_it_shows": "A workflow canvas: path B holds a 'Let Fin handle \u2014 Customer support' card listing 'Use your content, Follow guidance, Detect attributes, Escalate if needed', with an 'If Fin hands over' connector leading to a Branches card ('Escalation is SDR - Lead qualifi...', 'Escalation is Plan cancellations', else). Each branch flows to its own path card \u2014 'Assign to Sales', 'Assign to Billing', 'Assign to Async Support' \u2014 each with an '+ Add step' button and an END tag.",
+     "pattern": "takeover-handback",
+     "steal_idea": "Model the AI-to-human handoff as an explicit 'if the agent hands over' branch that routes by escalation reason to a named owner, so nothing lands in a generic pile when the AI gives up."
+    },
+    {
+     "file": "intercom-08.png",
+     "source_page": "https://www.intercom.com/fin",
+     "image_url": "https://cdn.sanity.io/images/4bgok82s/monorepo-static-assets/e0f1304346e6891f92fd48e293ef5a43b06e0d7d-2976x1672.webp",
+     "w": 2976,
+     "h": 1672,
+     "what_it_shows": "A 'Performance' dashboard with a date-range filter (Nov 17, 2025 - Jan 13, 2026): 'Automation rate 55% (up 18%)' with a resolved-vs-total bar and an 'Optimize' button, 'CX Score 63%' with a 1-5 rating distribution bar and a 'Report' button, plus Involvement rate 73% and Resolution rate 76% tiles and Positive/Negative CX Score reason legends. Below, a 'Performance funnel' Sankey flows Chat 11,203 and Email 829 into 'Fin involved 10,320', splitting into 'Resolved by Fin 7,740', 'Unresolved 1,230' and 'Sent to teammate 1,350', ending in positive/neutral/negative CX score bands.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Make the command center's headline view a funnel from AI-touched to AI-resolved versus handed-to-human, with an Optimize button next to the automation-rate stat that jumps straight to the fixes."
+    }
+   ],
+   "notes": "All 8 images are real Intercom product UI verified by eye after download. Sources: 3 shots from the Fin escalation guidance/rules help article, 2 from the Copilot help article, 1 from 'The Inbox explained', 1 from the SLA help article (found via WebSearch), and 1 marketing render of the Fin Performance dashboard from intercom.com/fin (converted webp to png; interface detail fully legible). Caveats: (1) downloads.intercomcdn.com image URLs are signed \u2014 the query strings expire around 2026-08-26, so the listed base URLs identify the assets but may 403 without a fresh page fetch; (2) the intercom.com/fin and /helpdesk marketing pages were mostly abstract 3D art, photos and background textures \u2014 only the Performance dashboard render survived review (a second render of the Procedures editor + Fin chat was discarded as redundant); (3) the SLA article's screenshots are settings-focused \u2014 I could not find a shot of an in-thread SLA countdown badge, so the closest queue-level SLA artifact is the 'Next SLA target' sort menu (intercom-02); (4) the img folder also contains ada-, chatwoot-, gladly-, missive- and zendesk- files from parallel collectors \u2014 left untouched."
+  },
+  {
+   "images": [
+    {
+     "file": "gorgias-01.png",
+     "source_page": "https://updates.gorgias.com/publications/helpdesk-2-0-a-more-flexible-sidebar",
+     "image_url": "https://storage.noticeable.io/projects/21eo8eZCuU26Jqu0C7hZ/publications/pDHD1IPBDswdCu12Avgm/01kyqv5nbynxba3bx2ypenngs0-featured-image.png",
+     "w": 1836,
+     "h": 1304,
+     "what_it_shows": "Gorgias Helpdesk 2.0 right sidebar: a 'Ticket details' panel with tag chips (WISMO, Order, Delay, Logistics, France, +3), a customer card for Toni Lopez (email, phone, '4 tickets' / '2 open' pills, a 'Still waiting on my order?' ticket row with an Open badge), and a Shopify widget showing Total spent, Orders, Created at. A 'Rearrange widgets' modal lists Shopify, Recharge, Kore-Integration, ShipInsure, Ship Factory and Test widget rows with drag handles and Show toggles plus Cancel/Confirm buttons; an 'Edit widgets' menu offers 'Edit widget data', 'Rearrange widgets', 'Add new app'.",
+     "pattern": "context-sidebar",
+     "steal_idea": "Make Katie's context rail widget-based and re-orderable so each brand/creator page can pin the data blocks (deal terms, shipment, past collabs) that matter for that account."
+    },
+    {
+     "file": "gorgias-02.png",
+     "source_page": "https://updates.gorgias.com/publications/custom-agent-unavailable-statuses",
+     "image_url": "https://storage.noticeable.io/projects/21eo8eZCuU26Jqu0C7hZ/publications/9s1qej0zwXj5rYRa9HVs/01kz9ps2e0aadrec6nqefwpstc-featured-image.png",
+     "w": 1836,
+     "h": 1304,
+     "what_it_shows": "The agent profile menu for 'Georgia S' with a green Available dot, rows for Status, 'Theme: Light', 'Gorgias updates', Learn, 'Refer a friend', 'Keyboard shortcuts' and a red 'Sign out'. The Status submenu lists Available (green dot), Unavailable, 'Lunch break - 1 hour', Meeting, 'Training - 30 minutes' and 'Reviewing tickets' (orange dots), with the cursor on the timed Lunch break option.",
+     "pattern": "ownership-state",
+     "steal_idea": "Give the ops lead named, timed away-states ('Reviewing drafts - 30mn') so the system knows when to hold AI escalations versus reroute them."
+    },
+    {
+     "file": "gorgias-03.png",
+     "source_page": "https://updates.gorgias.com/publications/dedicated-page-for-ai-agent-statistics",
+     "image_url": "https://storage.noticeable.io/projects/21eo8eZCuU26Jqu0C7hZ/publications/yTfzM5tRIDxV07UrfjFG/01jc0w9jqzmh3sbv4cnzkcw3b4-featured-image.png",
+     "w": 3434,
+     "h": 1860,
+     "what_it_shows": "The real Statistics > AI Agent page with a date filter (Oct 31 - Nov 6, 2024) and Download Data button. An 'Agent Performance' table (Edit Columns, Table/Heatmap toggle) shows the AI Agent row: Closed Tickets 97, % of Closed 100%, Customer Satisfaction 4, Tickets Replied 354, Messages Sent 436, One Touch Tickets 53.61%. Below, 'Ticket insights' filtered by 'AI Agent Outcome' lists Top used values: 'Handover > With message 243 / 63%', 'Close > With message 85 / 22%', 'Snooze > With message 28 / 7%', plus a Trend line chart; the left nav includes SLAs, Auto QA (NEW), Tags, Intents, Automate > AI Agent.",
+     "pattern": "supervisor-dashboard",
+     "steal_idea": "Report the AI's outcome mix (handed over vs closed vs snoozed, with or without a message) as a first-class table so Katie sees exactly how often and how the AI is bailing out."
+    },
+    {
+     "file": "gorgias-04.jpg",
+     "source_page": "https://updates.gorgias.com/publications/helpdesk-2-0-is-live",
+     "image_url": "https://storage.noticeable.io/projects/21eo8eZCuU26Jqu0C7hZ/publications/rx5Ig3jcJ6GZmQqTCwZH/01kr17vgsx4yjfe3v9efaej29r-featured-image.jpg",
+     "w": 1800,
+     "h": 600,
+     "what_it_shows": "Gorgias' own render of a Helpdesk 2.0 ticket 'Urgent update on my order' with pills Open, Critical, George las, UX Team. The AI Agent message has a 'Show AI Agent reasoning' expander, followed by the event line 'Ticket was handed over by AI Agent - Today 10:05am' and a 'Handover summary' card with a Positive sentiment badge, bulleted summary, and a 'Handover reason' section ('AI Agent didn't try to resolve this ticket because the customer mentioned a handover topic'). Right rail shows the Toni Lopez timeline (Contact reason: WISMO) and a Shopify order #465423721 panel with Paid/Unfulfilled badges and Duplicate/Refund/Cancel buttons.",
+     "pattern": "takeover-handback",
+     "steal_idea": "When the AI hands a creator thread to Katie, drop an inline handover card stating summary, sentiment, and the explicit reason rule that triggered the handoff so she starts with zero re-reading."
+    },
+    {
+     "file": "gorgias-05.png",
+     "source_page": "https://www.gorgias.com/blog/our-ai-approach",
+     "image_url": "https://cdn.prod.website-files.com/5e78f62c08f1bb8c2d788576/682251f27ae36d59eea3059d_67cb017d48c7299607931e0d_66d21355500b3cfac92bdd42_sajl8hi3kd.avif",
+     "w": 1600,
+     "h": 1596,
+     "what_it_shows": "A real ticket 'Cancelled order' tagged WISMO and Delayed Order, assigned to AI Agent. The AI reply to Leslie A. includes a UPS tracking link, then an inline card 'AI Agent sent a response and closed the ticket. Is the response accurate?' with a thumbs-up and an 'Improve Response' button, followed by timeline events 'Tagged WISMO by AI Agent' and 'Closed by AI Agent'. The right 'AI Agent' tab shows 'Improve AI Agent responses' listing GUIDANCE 'Delayed orders' and KNOWLEDGE 'Shipping times' each with thumb up/down, ORDER DATA #4639563, TICKET EVENTS (Tagged, Closed), and a 'Report another issue' select.",
+     "pattern": "inbox-thread",
+     "steal_idea": "Show provenance on every AI reply \u2014 which playbook and knowledge source it used \u2014 with one-click accurate/inaccurate voting right in the thread."
+    },
+    {
+     "file": "gorgias-06.png",
+     "source_page": "https://www.gorgias.com/blog/our-ai-approach",
+     "image_url": "https://cdn.prod.website-files.com/5e78f62c08f1bb8c2d788576/682251f27ae36d59eea30591_67cb017d48c7299607931e19_66d21355500b3cfac92bdda9_rta8axqwms.avif",
+     "w": 1600,
+     "h": 986,
+     "what_it_shows": "A real ticket 'Re: Refund notification' with an 'AI Responded' tag (+5 more) and assignee 'AI Agent Bot'; the AI's email reply confirms a $61.96 refund with masked order and card fields. The right Feedback panel reads 'The AI Agent sent a response and closed the ticket', shows the KNOWLEDGE item 'When will I see my refund/gift card for my return?' with thumbs, and under 'Should AI Agent have used something else?' a 'Select resource' dropdown is open on a searchable Guidance checklist ('Account management and login', 'Auto-reply rule replacement', 'Can I change my order...').",
+     "pattern": "draft-review",
+     "steal_idea": "Make corrections teach: when Katie rejects an AI answer, let her pick the playbook it should have used instead of just thumbs-downing it."
+    },
+    {
+     "file": "gorgias-07.png",
+     "source_page": "https://www.gorgias.com/blog/our-ai-approach",
+     "image_url": "https://cdn.prod.website-files.com/5e78f62c08f1bb8c2d788576/682251f27ae36d59eea30597_67cb017d48c7299607931e10_66d21355500b3cfac92bdd1e_rinmhi13lh.avif",
+     "w": 1078,
+     "h": 408,
+     "what_it_shows": "The guardrail builder for AI Actions: header 'Action can only be performed according to the following conditions' above three radio cards \u2014 'No conditions required', 'All conditions are met' (selected), 'At least 1 condition met'. Condition rows read 'Order Status Is not fulfilled' AND 'Order Date Is less than 2 Days Ago', each with a red remove X, plus an 'Add Condition' dropdown button.",
+     "pattern": "escalation-config",
+     "steal_idea": "Gate each autonomous AI action (reschedule, re-invite, payment nudge) behind an editable AND/OR condition builder so the ops lead sets when the AI may act versus must escalate."
+    },
+    {
+     "file": "gorgias-08.png",
+     "source_page": "https://www.gorgias.com/blog/our-ai-approach",
+     "image_url": "https://cdn.prod.website-files.com/5e78f62c08f1bb8c2d788576/682251f27ae36d59eea30594_67cb017d48c7299607931e13_66d21355500b3cfac92bdda1_otaujcrr1x.avif",
+     "w": 1600,
+     "h": 417,
+     "what_it_shows": "The Guidance template gallery for AI Agent: cards with colored category chips \u2014 Shipping ('Order status/tracking info', 'Cancellation', 'Delivery time'), Returns ('Returns & Exchanges'), Payments & Rewards ('Discounts & Promos') \u2014 each previewing plain-language instructions like 'If a shopper asks to cancel an order, inform the shopper...'. A final grey '+ Custom Guidance' card reads 'Create a guidance for your specific requirements'.",
+     "pattern": "other",
+     "steal_idea": "Organize AI behavior as a library of plain-language, per-scenario playbook cards (shipping delay, ghosting, reshoot request) that Katie can read, edit, and add to without touching prompts."
+    }
+   ],
+   "notes": "Gorgias was hostile to the usual scrape: all docs.gorgias.com seed articles render their body from embedded JSON (__NEXT_DATA__ htmlContent) that contains ZERO inline images in the current article versions \u2014 the handover, guidance, setup, and how-it-works docs describe the UI but ship no screenshots (verified by parsing the JSON). The ai-agent-guardrails blog post's own body has no product UI either (hero art only; the old screenshots in its HTML belong to a shared related-content module of 2022-era SMS posts). The real yield came from updates.gorgias.com (the Noticeable changelog, images on storage.noticeable.io) and the 'Our AI Approach' blog post, whose avif screenshots I converted to png with sips. Could NOT get: an SLA-badge shot or a current-brand home-queue/ticket-list screenshot (marketing pages now use video/Lottie; the only queue image found was a 2022-era stylized render with greeked sidebar text, which I discarded), and the 'new AI & Automation analytics' update post embeds a Loom video instead of images. Caveat: gorgias-01, -02, and -04 are Gorgias' own polished changelog renders of the real UI (legible interface detail); gorgias-03, -05, -06, -07, -08 are raw product screenshots. gorgias-06 came from the same page as -05 but shows the distinct 'pick the resource the AI should have used' correction flow."
+  }
+ ]
+}
