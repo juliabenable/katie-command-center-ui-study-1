@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The MVP cut: Katie's SMS console</title>
+<link rel="stylesheet" href="study.css">
+<style>
+  .pattern { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:24px 26px; margin-bottom:26px; }
+  .pattern .pnum { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px;
+    border-radius:50%; background:var(--accent-soft); color:var(--accent); font-weight:800; margin-right:10px; flex:0 0 auto; }
+  .pattern h3 { font-size:19px; display:flex; align-items:center; margin-bottom:6px; }
+  .pattern .who { font-size:13px; color:var(--ink-med); margin-bottom:14px; }
+  .pattern .why { font-size:14px; line-height:1.6; margin-bottom:16px; max-width:760px; }
+  .pattern .why .q { color:#5B3FD1; font-weight:600; }
+  .badge { display:inline-block; font-size:10px; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+    border-radius:5px; padding:2px 7px; vertical-align:1px; margin-right:6px; }
+  .badge.reco { background:#F9F7FF; color:#5B3FD1; }
+  .evidence { font-size:12px; color:var(--ink-med); margin-top:8px; line-height:1.55; max-width:720px; }
+  .evidence a { color:var(--accent); text-decoration:none; font-weight:600; }
+
+  .benable-map { background:var(--accent-bg); border:1px solid var(--accent-soft); border-radius:12px;
+    padding:13px 16px; font-size:13.5px; line-height:1.6; max-width:820px; }
+  .benable-map b { color:#5B3FD1; }
+
+  .toc { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 30px; }
+  .toc a { font-size:12px; font-weight:700; color:var(--ink-med); text-decoration:none;
+    border:1px solid #e3e3e6; background:#fff; border-radius:999px; padding:6px 12px; }
+  .toc a:hover { color:var(--accent); border-color:var(--accent); }
+
+  .brief { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .rules { background:#fff; border:1px solid #e3e3e6; border-radius:18px; padding:22px 26px; margin-bottom:26px; }
+  .rules ol, .rules ul { margin:12px 0 0 20px; font-size:14px; line-height:1.75; color:#3a3a3c; max-width:860px; }
+  .rules li { margin-bottom:8px; }
+  .rules b { color:var(--ink); }
+
+  /* ======== console mock kit ======== */
+  .console { border:1px solid #dcdce1; border-radius:14px; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.08);
+    max-width:860px; overflow:hidden; font-size:13px; }
+  .console .c-top { display:flex; align-items:center; gap:14px; padding:12px 18px; border-bottom:1px solid #ececef; flex-wrap:wrap; }
+  .console .c-title { font-weight:800; font-size:14px; letter-spacing:-.2px; }
+  .console .c-title span { color:var(--accent); }
+  .fchip { font-size:11.5px; font-weight:600; color:var(--ink-med); border:1px solid #e3e3e6; border-radius:8px; padding:4px 9px; background:#fafafb; }
+  .ctabs { display:flex; gap:2px; padding:0 18px; border-bottom:1px solid #ececef; }
+  .ctab { padding:9px 14px; font-weight:700; font-size:12.5px; color:var(--ink-med); border-bottom:2px solid transparent; }
+  .ctab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .ctab .n { display:inline-block; background:#E82C3F; color:#fff; font-size:10px; font-weight:800; border-radius:999px; padding:1px 6px; margin-left:5px; vertical-align:1px; }
+  .rowlist { }
+  .crow { display:flex; align-items:center; gap:12px; padding:10px 18px; border-bottom:1px solid #f4f4f5; }
+  .crow:last-child { border-bottom:none; }
+  .crow.flagged { background:#FFF9F0; }
+  .av { width:30px; height:30px; border-radius:50%; background:var(--accent-soft); color:var(--accent);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11.5px; flex:0 0 auto; }
+  .crow .main { flex:1; min-width:0; }
+  .crow .l1 { display:flex; gap:8px; align-items:center; }
+  .crow .name { font-weight:700; }
+  .bchip { font-size:10px; font-weight:700; color:var(--ink-med); background:#f2f2f3; border-radius:5px; padding:1px 6px; }
+  .crow .snippet { color:var(--ink-med); font-size:12.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:420px; }
+  .who-chip { font-size:9.5px; font-weight:800; letter-spacing:.05em; border-radius:4px; padding:1.5px 6px; text-transform:uppercase; flex:0 0 auto; }
+  .who-chip.agent { background:#EBE4FF; color:#5B3FD1; }
+  .who-chip.auto { background:#f0f0f2; color:#7F7F7F; }
+  .who-chip.katie { background:#EFFBF7; color:#1a7a44; }
+  .who-chip.creator { background:#E9F2FD; color:#1c5fae; }
+  .crow .t { font-size:11px; color:var(--ink-subtle); flex:0 0 auto; }
+  .flagpill { font-size:10px; font-weight:800; background:#FFF0E0; color:#9a4a15; border-radius:999px; padding:2px 8px; flex:0 0 auto; }
+
+  /* thread + flag card */
+  .thr { max-width:520px; }
+  .thr .t-head { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid #ececef; }
+  .thr .t-head .nm { font-weight:800; }
+  .thr .t-head .sub { font-size:11.5px; color:var(--ink-med); }
+  .thr .t-body { padding:16px; }
+  .sms { border-radius:14px; padding:7px 12px; font-size:13px; line-height:1.45; max-width:88%; margin-bottom:3px; width:fit-content; }
+  .sms.in { background:#ececef; }
+  .sms.out { background:#2BAF87; color:#fff; margin-left:auto; border-bottom-right-radius:4px; }
+  .msgmeta { font-size:10px; color:var(--ink-subtle); margin:0 2px 9px; }
+  .msgmeta.r { text-align:right; }
+  .flagcard { border:1px solid #E88E2C; border-left:4px solid #E88E2C; border-radius:12px; background:#FFFDF9; padding:12px 14px; margin-top:10px; }
+  .flagcard .fc-reason { font-weight:700; font-size:13px; color:#9a4a15; margin-bottom:2px; }
+  .flagcard .fc-sub { font-size:11.5px; color:var(--ink-med); margin-bottom:9px; }
+  .flagcard .fc-draft { border:1.5px dashed #cbb9a0; border-radius:10px; padding:7px 11px; font-size:12.5px; color:var(--ink); background:#fff; margin-bottom:10px; }
+  .btn { display:inline-block; font-size:12px; font-weight:700; border-radius:8px; padding:6px 14px; margin-right:6px; }
+  .btn.primary { background:var(--accent); color:#fff; }
+  .btn.ghost { border:1px solid #e3e3e6; color:var(--ink); background:#fff; }
+  .btn.quiet { color:var(--ink-med); }
+
+  /* ladder */
+  .ladder { font-size:12.5px; max-width:560px; }
+  .ladder .l-head { padding:12px 16px; border-bottom:1px solid #ececef; display:flex; justify-content:space-between; align-items:center; }
+  .ladder .l-head b { font-size:13px; }
+  .ladder .gen { font-size:10.5px; color:var(--ink-subtle); }
+  .lrow { display:flex; gap:10px; padding:7px 16px; border-bottom:1px solid #f6f6f7; align-items:baseline; }
+  .lrow:last-child { border-bottom:none; }
+  .lrow.indent1 { padding-left:36px; }
+  .lrow.indent2 { padding-left:56px; }
+  .msgid { font-family:ui-monospace, SFMono-Regular, monospace; font-size:10.5px; font-weight:700; color:var(--accent); flex:0 0 58px; }
+  .lrow .l-name { font-weight:700; flex:0 0 150px; }
+  .lrow .l-when { color:var(--ink-med); flex:1; font-size:12px; }
+  .st { font-size:9.5px; font-weight:800; border-radius:4px; padding:1.5px 6px; text-transform:uppercase; flex:0 0 auto; }
+  .st.live { background:#EFFBF7; color:#1a7a44; }
+  .st.draft { background:#f0f0f2; color:#7F7F7F; }
+  .branch { color:#9a4a15; font-size:11px; font-weight:700; }
+
+  /* slack */
+  .slackmock { background:#1A1D21; color:#D1D2D3; border-radius:12px; max-width:520px; padding:14px 16px; font-size:13px; box-shadow:0 10px 30px rgba(0,0,0,.15); }
+  .slackmock .sl-ch { color:#9DA2A6; font-size:11.5px; margin-bottom:8px; }
+  .slackmock .sl-msg { display:flex; gap:10px; }
+  .slackmock .sl-av { width:36px; height:36px; border-radius:8px; background:#5B3FD1; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; flex:0 0 auto; }
+  .slackmock .sl-name { font-weight:800; color:#fff; }
+  .slackmock .sl-time { color:#9DA2A6; font-size:11px; margin-left:6px; font-weight:400; }
+  .slackmock .sl-link { color:#1D9BD1; }
+  .mcap { font-size:12.5px; color:var(--ink-med); margin-top:10px; line-height:1.5; max-width:560px; }
+
+  code.blk { display:block; font-family:ui-monospace, SFMono-Regular, monospace; font-size:12px; line-height:1.65;
+    background:#17191d; color:#d8dce2; border-radius:12px; padding:14px 18px; overflow-x:auto; max-width:720px; white-space:pre; }
+
+  .shiptable { border-collapse:collapse; width:100%; font-size:13px; }
+  .shiptable th { text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-med); padding:8px 12px; border-bottom:1px solid #ececec; }
+  .shiptable td { padding:8px 12px; border-bottom:1px solid #f4f4f5; vertical-align:top; }
+  .shiptable td:first-child { font-weight:600; }
+  .tick { font-weight:800; }
+  .tick.mvp { color:#1a7a44; }
+  .tick.v1 { color:#9a4a15; }
+  .tick.v2 { color:#5B3FD1; }
+  .tick.no { color:#b3b3b3; font-weight:600; }
+  .tablewrap { overflow-x:auto; background:#fff; border:1px solid #e3e3e6; border-radius:12px; margin:14px 0; }
+</style>
+</head>
+<body>
+
+<div class="crumb"><a href="index.html">KATIE COMMAND CENTER · UI FIELD STUDY</a> · PART 3 · THE MVP CUT · AUG 26, 2026</div>
+<h2>Katie's SMS console: the MVP cut</h2>
+<p class="subtitle" style="max-width:840px;">Parts 1 and 2 are the evidence. This page is the decision: the smallest thing we can ship with Brian's Friday system that covers Julia's four requirements, shown as mockups, with everything deferred listed by the version it returns in. Doubles as the Thursday concepts deliverable for Brian.</p>
+
+<div class="toc">
+  <a href="#insight">The framing</a>
+  <a href="#m1">The console</a>
+  <a href="#m2">Thread + flag card</a>
+  <a href="#m3">The ladder page</a>
+  <a href="#m4">The doorbell</a>
+  <a href="#contract">The flag contract</a>
+  <a href="#ship">What ships when</a>
+</div>
+
+<div class="brief" id="insight">
+  <div class="label">THE FRAMING THAT SHRINKS THE BUILD</div>
+  <p style="font-size:14px; max-width:820px;">Requirements 1, 2 and 3 (all texts · agent texts per person · when the agent needs Katie) are <b>one data source rendered three ways</b>: the message log Rails already has, plus the flag object Brian's engine must produce anyway to hold a weird send. Requirement 4 (the trees) is the only different thing, and it ships as a static page, not a canvas. The decision rule for every cut below: <b>MVP contains only what the shadow and draft-approval phases physically need to operate.</b> Anything whose value depends on 5x volume waits until the volume exists.</p>
+  <p style="font-size:13px; color:var(--ink-med); max-width:800px;">Sizing: one new table (flags), one new field (message author), three endpoints, two list views, one thread panel, one generated static page, one Slack webhook. Julia's biweekly auditing (level 3) costs zero UI: Workbench access, as agreed with Brian.</p>
+</div>
+
+<!-- ============ 1 ============ -->
+<div class="pattern" id="m1">
+  <h3><span class="pnum">1</span>The console: one page, two tabs</h3>
+  <div class="who">Covers requirements 1 + 3 · replaces scrolling every Slack channel</div>
+  <div class="console">
+    <div class="c-top">
+      <div class="c-title">Benable <span>· SMS</span></div>
+      <div class="fchip">Brand: All ▾</div>
+      <div class="fchip">Campaign: All ▾</div>
+      <div class="fchip">Sender: All ▾</div>
+    </div>
+    <div class="ctabs">
+      <div class="ctab active">All texts</div>
+      <div class="ctab">Needs you<span class="n">3</span></div>
+      <div class="ctab" style="margin-left:auto;">Ladders</div>
+    </div>
+    <div class="rowlist">
+      <div class="crow flagged">
+        <div class="av">LM</div>
+        <div class="main"><div class="l1"><span class="name">Lauren M.</span><span class="bchip">MD Solar</span><span class="flagpill">needs you</span></div>
+        <div class="snippet">"tbh the sunscreen left a white cast on me..."</div></div>
+        <span class="who-chip creator">creator</span><span class="t">9:12a</span>
+      </div>
+      <div class="crow">
+        <div class="av">KD</div>
+        <div class="main"><div class="l1"><span class="name">Kayla D.</span><span class="bchip">Celeste</span></div>
+        <div class="snippet">Great news, your other product is on its way too! And a heads up, content is due Friday.</div></div>
+        <span class="who-chip agent">agent</span><span class="t">9:04a</span>
+      </div>
+      <div class="crow">
+        <div class="av">TR</div>
+        <div class="main"><div class="l1"><span class="name">Tania R.</span><span class="bchip">28 Litsea</span></div>
+        <div class="snippet">Hey Tania! Friendly nudge, your content is due in 3 days. Need anything from us?</div></div>
+        <span class="who-chip auto">auto</span><span class="t">9:00a</span>
+      </div>
+      <div class="crow">
+        <div class="av">JB</div>
+        <div class="main"><div class="l1"><span class="name">Jehan B.</span><span class="bchip">MD Solar</span></div>
+        <div class="snippet">Hi! Quick q, can I post Saturday instead? Traveling this week</div></div>
+        <span class="who-chip creator">creator</span><span class="t">8:47a</span>
+      </div>
+      <div class="crow">
+        <div class="av">GM</div>
+        <div class="main"><div class="l1"><span class="name">Gabriella M.</span><span class="bchip">Celeste</span></div>
+        <div class="snippet">Of course! Take your time, feel better soon 💜</div></div>
+        <span class="who-chip katie">katie</span><span class="t">8:31a</span>
+      </div>
+    </div>
+  </div>
+  <p class="evidence"><span class="badge reco">recreation</span>Every row answers "who sent this": the <b>author chip</b> (agent, auto, katie, creator) is the one new piece of data MVP forces, and Monday's "two robots, one API" duplicate-send failure demands it anyway. The amber row + Needs-you counter is the Podium AI-needs-help queue (<a href="index.html#p1">Part 1 §1</a>) reduced to a filter and a pill. Sender filter gives requirement 2 globally; the ladder tab is section 3 below.</p>
+</div>
+
+<!-- ============ 2 ============ -->
+<div class="pattern" id="m2">
+  <h3><span class="pnum">2</span>The thread panel and the flag card</h3>
+  <div class="who">Covers requirements 2 + 3 per person · the landing place Brian's held sends need</div>
+  <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;">
+  <div class="console thr">
+    <div class="t-head">
+      <div><div class="nm">Lauren M.</div><div class="sub">MD Solar Sciences · product collab · content due Fri</div></div>
+      <div class="fchip">Open in admin ↗</div>
+    </div>
+    <div class="t-body">
+      <div class="sms out">Your MD Solar package is out for delivery today! 🎉</div>
+      <div class="msgmeta r">auto · MSG-05 · yesterday 4:10p</div>
+      <div class="sms in">Just got it!! Excited to try</div>
+      <div class="msgmeta">creator · yesterday 4:52p</div>
+      <div class="sms in">tbh the sunscreen left a white cast on me, is that normal?</div>
+      <div class="msgmeta">creator · 9:12a</div>
+      <div class="flagcard">
+        <div class="fc-reason">Held: creator mentions a product problem</div>
+        <div class="fc-sub">Escalation topic (product issue). The 3-day reminder below was queued; the agent is holding it and drafted a reply instead. Held since 9:12a.</div>
+        <div class="fc-draft">So sorry about that! Some mineral SPFs need a bit more rubbing in, but I hear you. Want me to flag it to the brand? No rush on content until we sort this.</div>
+        <span class="btn primary">Approve &amp; send</span><span class="btn ghost">Edit</span><span class="btn quiet">Dismiss</span>
+      </div>
+    </div>
+  </div>
+  <div style="flex:1 1 260px; max-width:340px;">
+    <p class="evidence" style="margin-top:0;"><span class="badge reco">recreation</span>The flag card is the Monday-night design verbatim: <span style="color:#5B3FD1;font-weight:600;">"we alert Katie... should I send another one or should I not? A yes in any way or no."</span></p>
+    <p class="evidence">Anatomy, each piece sourced: reason line up top (Gladly's handoff reason, <a href="index.html#p3">Part 1 §3</a>), the held draft attached (the Aug 18 decision: flags always carry a draft), exactly two working verbs (Zendesk Edit/Approve, <a href="index.html#p2">Part 1 §2</a>), auto-clear on any action (Podium, <a href="index.html#p1">Part 1 §1</a>).</p>
+    <p class="evidence">Author chips under each bubble (Front's Automated chip, <a href="index.html#p11">Part 1 §11</a>) give requirement 2 per person. The thread render reuses what Nisarg is already building into the admin creator tab; MVP adds the chips and the card, not a second thread engine.</p>
+  </div>
+  </div>
+</div>
+
+<!-- ============ 3 ============ -->
+<div class="pattern" id="m3">
+  <h3><span class="pnum">3</span>The ladder page: the tree, static first</h3>
+  <div class="who">Covers requirement 4 · generated from the copy doc, zero graph work</div>
+  <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;">
+  <div class="console ladder">
+    <div class="l-head"><b>Product collab ladder</b><span class="gen">generated from the master copy doc · Aug 26</span></div>
+    <div class="lrow"><span class="msgid">MSG-01</span><span class="l-name">Portal invite</span><span class="l-when">on brand invite, +2h delay · link in 2nd text</span><span class="st live">live</span></div>
+    <div class="lrow"><span class="msgid">MSG-04</span><span class="l-name">Shipped</span><span class="l-when">on Shopify fulfillment scan</span><span class="st live">live</span></div>
+    <div class="lrow"><span class="msgid">MSG-05</span><span class="l-name">Delivered</span><span class="l-when">on delivery scan · draft clock starts (10d)</span><span class="st live">live</span></div>
+    <div class="lrow"><span class="msgid">MSG-06</span><span class="l-name">Reminder</span><span class="l-when">draft due minus 3d, minus 1d, due day</span><span class="st live">live</span></div>
+    <div class="lrow"><span class="msgid">MSG-08</span><span class="l-name">Missed deadline</span><span class="l-when">due +1d · Katie's copy, in polish</span><span class="st draft">draft</span></div>
+    <div class="lrow indent1"><span class="msgid"></span><span class="branch">after review, branch:</span><span class="l-when"></span></div>
+    <div class="lrow indent2"><span class="msgid">MSG-11a</span><span class="l-name">Approved, no notes</span><span class="l-when">post due 3d after approval</span><span class="st draft">draft</span></div>
+    <div class="lrow indent2"><span class="msgid">MSG-11b</span><span class="l-name">Feedback given</span><span class="l-when">folds reviewer notes into the text</span><span class="st draft">draft</span></div>
+    <div class="lrow"><span class="msgid">MSG-13</span><span class="l-name">Overdue ladder</span><span class="l-when">text, then email, then final warning</span><span class="st draft">draft</span></div>
+  </div>
+  <div style="flex:1 1 260px; max-width:340px;">
+    <p class="evidence" style="margin-top:0;"><span class="badge reco">recreation</span>Named messages (MSG-13 style, your own idea from Monday), each row wearing its <b>trigger sentence</b> (Klaviyo's flows list, <a href="flows.html#f3">Part 2 §3</a>) and a live/draft status. The feedback branch from today's session with Katie is just an indent, not a canvas.</p>
+    <p class="evidence">You called the interactive version yourself Monday: <span style="color:#5B3FD1;font-weight:600;">"maybe that's too complex, but at least the view of this would already be [enough]."</span> This is that view. It is generated from the copy doc you and Katie are writing this week anyway, so requirement 4 costs a rendering script, not a graph engine. The V2 tree regenerates from Atlas later (<a href="flows.html#frules">Part 2 synthesis</a>).</p>
+  </div>
+  </div>
+</div>
+
+<!-- ============ 4 ============ -->
+<div class="pattern" id="m4">
+  <h3><span class="pnum">4</span>The doorbell: no notification system</h3>
+  <div class="who">One webhook · Slack-as-interim, exactly as agreed with Brian</div>
+  <div style="display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start;">
+  <div class="slackmock">
+    <div class="sl-ch"># sms-needs-katie</div>
+    <div class="sl-msg">
+      <div class="sl-av">H</div>
+      <div>
+        <div><span class="sl-name">Herd</span><span class="sl-time">9:12 AM</span></div>
+        <div>Holding a send for <b style="color:#fff;">Lauren M.</b> (MD Solar): creator mentions a product problem. Draft ready.</div>
+        <div><span class="sl-link">Open in console → Needs you</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="flex:1 1 260px; max-width:360px;">
+    <p class="evidence" style="margin-top:0;"><span class="badge reco">recreation</span>The queue is the notification system; Slack is just the doorbell. One channel, one message per flag, one deep link. No digests, no push, no SLA clocks, no per-reason routing in MVP. Katie's pain was twelve channels, not Slack itself; this collapses them to one, and the Needs-you tab stays the source of truth that never gets scrolled away.</p>
+  </div>
+  </div>
+</div>
+
+<!-- ============ contract ============ -->
+<div class="pattern" id="contract">
+  <h3><span class="pnum">5</span>The flag contract: the interface between Brian's engine and this UI</h3>
+  <div class="who">Agree this shape Thursday and both sides can build without waiting on each other</div>
+<code class="blk">flag {
+  id, creator_id, campaign_id
+  reason:        "product_problem"        // from the escalation topic list
+  reason_text:   "creator mentions a product problem"
+  held_message:  { intent: "MSG-06", body: "..." }   // what was queued, now held
+  draft:         { body: "..." }                      // what the agent proposes instead
+  context_note:  "3-day reminder was due today; holding until resolved"
+  created_at, expires_at                              // stale flags re-verify on approve
+  resolution:    approved | edited | dismissed        // any action clears the flag
+  resolved_by, resolved_at
+}
+message.author = katie | automation | agent | creator  // the one new field on messages</code>
+  <p class="evidence">Two rules ride the contract: a flag <b>auto-clears on any action</b> (approve, edit, dismiss, or Katie replying in the thread herself), and an approved draft is <b>re-verified against fresh state at send time</b>, the MDSolarSciences stale-context lesson. Compliance gating (consent, STOP, quiet hours) stays in Rails middleware and is not this UI's job.</p>
+</div>
+
+<!-- ============ ship table ============ -->
+<div class="rules" id="ship">
+  <div class="label">WHAT SHIPS WHEN</div>
+  <h3 style="margin-bottom:4px;">MVP now, V1 when flags are flowing, V2 when Atlas is real</h3>
+  <div class="tablewrap">
+  <table class="shiptable">
+    <tr><th>Capability</th><th>MVP</th><th>V1 (+2 to 3 wks)</th><th>V2 (Atlas era)</th></tr>
+    <tr><td>All-texts feed with author chips + filters</td><td><span class="tick mvp">ship</span></td><td></td><td></td></tr>
+    <tr><td>Needs-you flag queue (approve / edit / dismiss, auto-clear)</td><td><span class="tick mvp">ship</span></td><td></td><td></td></tr>
+    <tr><td>Thread panel with author chips + inline flag card</td><td><span class="tick mvp">ship</span></td><td></td><td></td></tr>
+    <tr><td>Static ladder page from the copy doc</td><td><span class="tick mvp">ship</span></td><td></td><td></td></tr>
+    <tr><td>One Slack channel doorbell with deep link</td><td><span class="tick mvp">ship</span></td><td></td><td></td></tr>
+    <tr><td>Julia's auditing</td><td><span class="tick mvp">Workbench</span></td><td></td><td><span class="tick v2">nicer surface</span></td></tr>
+    <tr><td>Per-brand on/off matrix on the ladder page + pause toggles</td><td><span class="tick no">no</span></td><td><span class="tick v1">V1</span></td><td></td></tr>
+    <tr><td>8am digest: flags waiting, overnight sends, zero-send anomalies</td><td><span class="tick no">no</span></td><td><span class="tick v1">V1</span></td><td></td></tr>
+    <tr><td>%-approved-unedited per intent (the graduation metric)</td><td><span class="tick no">no</span></td><td><span class="tick v1">V1</span></td><td></td></tr>
+    <tr><td>Suspect-sentence highlight on flag cards (checker detail)</td><td><span class="tick no">no</span></td><td><span class="tick v1">V1</span></td><td></td></tr>
+    <tr><td>Generated interactive tree with counts, diff tint, node drill-in</td><td><span class="tick no">no</span></td><td></td><td><span class="tick v2">V2</span></td></tr>
+    <tr><td>Ghost bubbles (queued future in the thread, hold per bubble)</td><td><span class="tick no">no</span></td><td></td><td><span class="tick v2">V2</span></td></tr>
+    <tr><td>Ownership states, step-in banner, hand-back</td><td><span class="tick no">no</span></td><td></td><td><span class="tick v2">V2</span></td></tr>
+    <tr><td>Delegation views (Des), calendar, scoreboard dashboard</td><td><span class="tick no">no</span></td><td></td><td><span class="tick v2">V2</span></td></tr>
+  </table>
+  </div>
+  <p style="font-size:13px; color:var(--ink-med); max-width:820px; margin-top:10px;">Every V1 item needs data that only exists after flags flow for a couple of weeks. Every V2 item needs either Atlas (the tree, ghost bubbles) or volume that makes single-owner review insufficient (delegation, ownership states). Nothing in MVP blocks on either.</p>
+</div>
+
+<div class="lean">
+  <strong>The one-sentence answer to the overbuild fear.</strong> Ship the ledger and the queue, not the command center: one page whose two tabs and thread panel are three renderings of data the system produces anyway, plus a static ladder page generated from a document you are already writing. If Katie lives in it, V1 earns its keep with real usage data; if she does not, we learned it for the price of a week, not a quarter.
+</div>
+
+<p style="font-size:12px; color:var(--ink-subtle); margin-top:30px;">Part 3 of the Katie command center study · <a href="index.html" style="color:var(--accent);">Part 1: the supervision inbox</a> · <a href="flows.html" style="color:var(--accent);">Part 2: the scheduled and the conditional</a> · grounded in the Aug 17/18 calls, the Aug 25 Brian kickoff, and the Aug 26 session with Katie.</p>
+
+</body>
+</html>
